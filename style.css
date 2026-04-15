@@ -136,11 +136,25 @@ nav a:hover {
   background: #e7ddd2;
 }
 
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 48px;
+  gap: 40px;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-image {
+  flex-shrink: 0;
+}
+
 .hero-image img {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
-  border: 5px solid #f3ebe2;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
 }
