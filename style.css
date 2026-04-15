@@ -44,9 +44,10 @@ nav a:hover {
 }
 
 /* ===== DROPDOWN ===== */
-.dropdown {
+..dropdown {
   position: relative;
-  display: inline-block;
+  display: inline-flex; /* CHANGE THIS */
+  align-items: center;
 }
 
 .dropdown-label {
@@ -78,6 +79,7 @@ nav a:hover {
   color: #5f4b3a;
   text-decoration: none;
   font-weight: 500;
+  
 }
 
 .dropdown-menu a:hover {
