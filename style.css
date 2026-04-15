@@ -28,9 +28,11 @@ nav {
   gap: 24px;
 }
 
-nav a {
+nnav a {
   display: inline-flex;
   align-items: center;
+  height: 36px;   /* ADD THIS LINE */
+
   text-decoration: none;
   color: #5f4b3a;
   font-weight: 500;
@@ -46,20 +48,19 @@ nav a:hover {
 
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+
+  height: 36px;              /* force consistent height */
+  padding: 0 18px;           /* remove vertical padding */
 
   background: #e6b8a2;
   color: white;
-  padding: 8px 18px;
   border-radius: 999px;
 
   font-size: 0.9rem;
   line-height: 1;
 
   transition: 0.2s ease;
-}
-
-.email-btn:hover {
-  background: #d49a84;
 }
 
 /* PAGE CONTAINER */
