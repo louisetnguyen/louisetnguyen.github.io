@@ -6,6 +6,24 @@
   <title>Louise Nguyen</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+  <script>
+  const dogImages = ["dog1.jpg", "dog2.jpg", "dog3.jpg"];
+  let currentDogSlide = 0;
+
+  function moveSlide(direction) {
+    currentDogSlide += direction;
+
+    if (currentDogSlide < 0) {
+      currentDogSlide = dogImages.length - 1;
+    }
+
+    if (currentDogSlide >= dogImages.length) {
+      currentDogSlide = 0;
+    }
+
+    document.getElementById("dog-carousel-image").src = dogImages[currentDogSlide];
+  }
+</script>
 <body>
   <header>
     <div class="site-title">Louise Nguyen</div>
