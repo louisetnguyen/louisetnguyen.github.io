@@ -44,7 +44,7 @@ nav a:hover {
 }
 
 /* ===== DROPDOWN ===== */
-..dropdown {
+.dropdown {
   position: relative;
   display: inline-flex; /* CHANGE THIS */
   align-items: center;
