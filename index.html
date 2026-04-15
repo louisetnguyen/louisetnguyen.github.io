@@ -124,5 +124,19 @@
       <section>
    
   </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+  if (!sessionStorage.getItem("aboutConfettiShown")) {
+    confetti({
+      particleCount: 160,
+      spread: 90,
+      origin: { y: 0.6 }
+    });
+
+    sessionStorage.setItem("aboutConfettiShown", "true");
+  }
+</script>
 </body>
 </html>
