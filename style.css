@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: Helevetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   background: #f8f6f2;
   color: #2f2a26;
 }
@@ -21,8 +21,16 @@ header {
   font-weight: 700;
 }
 
+/* NAVBAR */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
 nav a {
-  margin-left: 24px;
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
   color: #5f4b3a;
   font-weight: 500;
@@ -32,12 +40,36 @@ nav a:hover {
   text-decoration: underline;
 }
 
+/* EMAIL BUTTON (FIXED ALIGNMENT) */
+.email-btn {
+  margin-left: auto;
+
+  display: inline-flex;
+  align-items: center;
+
+  background: #e6b8a2;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+  line-height: 1;
+
+  transition: 0.2s ease;
+}
+
+.email-btn:hover {
+  background: #d49a84;
+}
+
+/* PAGE CONTAINER */
 .container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 48px 24px;
 }
 
+/* HERO */
 .hero {
   margin-bottom: 32px;
 }
@@ -45,18 +77,21 @@ nav a:hover {
 .hero h1 {
   font-size: 3rem;
   margin-bottom: 12px;
+  line-height: 1.2;
 }
 
 .hero p {
+  margin-top: 0;
   font-size: 1.1rem;
   line-height: 1.7;
-  max-width: 700px;
+  max-width: 800px;
 }
 
+/* CARDS */
 .card {
   background: white;
   border: 1px solid #e3d9cf;
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 28px;
   margin-bottom: 24px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
@@ -66,34 +101,7 @@ nav a:hover {
   margin-top: 0;
 }
 
-nav {
-  display: flex;
-  align-items: center;
-}
-
-nav a {
-  margin-left: 24px;
-  text-decoration: none;
-  color: #5f4b3a;
-  font-weight: 500;
-}
-
-/* PUSH BUTTON TO RIGHT */
-.email-btn {
-  margin-left: auto;
-  background: #e6b8a2;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  transition: 0.2s ease;
-}
-
-/* HOVER EFFECT */
-.email-btn:hover {
-  background: #d49a84;
-}
-
+/* CAROUSEL */
 .carousel {
   display: flex;
   align-items: center;
