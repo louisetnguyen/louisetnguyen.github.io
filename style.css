@@ -158,3 +158,52 @@ nav a:hover {
   border-radius: 50%;
   object-fit: cover;
 }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-label {
+  color: #5f4b3a;
+  font-weight: 500;
+  cursor: default;
+  text-decoration: none;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #efe7dd;
+  border: 1px solid #d8cfc4;
+  border-radius: 12px;
+  min-width: 180px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  padding: 8px 0;
+  z-index: 1000;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 16px;
+  margin: 0;
+  color: #5f4b3a;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.dropdown-menu a:hover {
+  background: #f8f6f2;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
