@@ -65,3 +65,31 @@ nav a:hover {
 .card h2 {
   margin-top: 0;
 }
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  margin-left: 24px;
+  text-decoration: none;
+  color: #5f4b3a;
+  font-weight: 500;
+}
+
+/* PUSH BUTTON TO RIGHT */
+.email-btn {
+  margin-left: auto;
+  background: #e6b8a2;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: 0.2s ease;
+}
+
+/* HOVER EFFECT */
+.email-btn:hover {
+  background: #d49a84;
+}
