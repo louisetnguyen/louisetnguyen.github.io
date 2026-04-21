@@ -198,3 +198,13 @@ nav a:hover {
 .carousel-btn:hover {
   background: #e7ddd2;
 }
+
+.section-header {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2f2a26;
+  margin-top: 36px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d8cfc4;
+}
