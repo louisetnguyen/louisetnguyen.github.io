@@ -1045,18 +1045,32 @@ html {
 }
 
 .coursework-card {
-    background-color: #f5d976;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
+  border: 2px solid #2f3e5c;
+  border-radius: 20px;
+  padding: 20px;
+  background: #f5d976;
+  max-height: 280px;
+  overflow-y: auto;
 }
 
 .coursework-card h3 {
-    font-size: 16px;
-    color: #2f3e5c;
-    margin-bottom: 15px;
-    font-weight: 700;
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  color: #2f3e5c;
 }
+
+.coursework-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.coursework-card li {
+  margin: 8px 0;
+  color: #2f3e5c;
+  font-size: 14px;
+}
+
 
 .coursework-list {
     list-style: none;
