@@ -1304,3 +1304,65 @@ html {
   color: #2f3e5c;
   font-weight: bold;
 }
+/* Sidebar Sections */
+.coursework-card {
+  border: 2px solid #2f3e5c;
+  border-radius: 20px;
+  padding: 20px;
+  background: #f5d976;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.profile-section {
+  border: 2px solid #2f3e5c;
+  border-radius: 20px;
+  padding: 20px;
+  background: white;
+}
+
+/* Main Content Sections */
+.dog-section {
+  border: 2px solid #2f3e5c;
+  border-radius: 20px;
+  padding: 25px;
+  background: white;
+}
+
+.skills-section {
+  border: 2px solid #2f3e5c;
+  border-radius: 20px;
+  padding: 25px;
+  background: white;
+}
+
+.carousel-container {
+  border: 2px solid #2f3e5c;
+  border-radius: 15px;
+  padding: 15px;
+  background: #f8f6f2;
+}
+
+.dog-facts-card {
+  border: 2px solid #2f3e5c;
+  border-radius: 15px;
+  padding: 20px;
+  background: #f5d976;
+  margin-top: 15px;
+}
+
+.category {
+  border: 2px solid #2f3e5c;
+  border-radius: 15px;
+  padding: 20px;
+  background: #f5d976;
+}
+
+/* Intro Card */
+.intro-card {
+  border: 2px solid #2f3e5c;
+  border-radius: 20px;
+  padding: 25px;
+  background: #d4e8d8;
+}
+
