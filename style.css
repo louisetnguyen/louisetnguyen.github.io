@@ -79,13 +79,12 @@ body {
 
 /* Intro Card */
 .intro-card {
-    background: linear-gradient(135deg, #f0e5d8 0%, #e8dcc8 100%);
-    border: 2px solid var(--dark-navy);
-    border-radius: 20px;
-    padding: 24px;
-    position: relative;
-    overflow: hidden;
+    background-color: #d4e8d8;  /* Light green */
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 20px;
 }
+
 
 .intro-card .greeting {
     font-size: 14px;
