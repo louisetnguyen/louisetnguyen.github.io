@@ -1169,12 +1169,12 @@ html {
 }
 
 
-/* Dog Carousel */
 .dog-section {
   border: 2px solid #2f3e5c;
   border-radius: 20px;
   padding: 25px;
   background: white;
+  margin-bottom: 40px;
 }
 
 .carousel-facts-wrapper {
@@ -1198,6 +1198,18 @@ html {
   border-radius: 10px;
   overflow: hidden;
 }
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.carousel-image.active {
+  display: block;
+}
+
 .carousel-controls {
   display: flex;
   justify-content: center;
@@ -1227,30 +1239,22 @@ html {
   transform: scale(1.1);
 }
 
-
-.carousel-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: none;
-}
-
-.carousel-image.active {
-  display: block;
-}
-
 .dog-facts-card {
   border: 2px solid #2f3e5c;
   border-radius: 15px;
   padding: 20px;
   background: #d4e8d8;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .dog-facts-card h4 {
   margin: 0 0 15px 0;
   color: #2f3e5c;
   font-size: 16px;
+  font-weight: 600;
 }
 
 .dog-facts-card p {
@@ -1260,47 +1264,52 @@ html {
   line-height: 1.5;
 }
 
-
-/* Dog Facts */
-.dog-facts {
-  background-color: #f5d976;
-  padding: 20px;
-  border-radius: 8px;
+.skills-section {
+  border: 2px solid #2f3e5c;
+  border-radius: 20px;
+  padding: 25px;
+  background: white;
 }
 
-.dog-facts h3 {
-  font-size: 18px;
+.skills-section h3 {
+  margin: 0 0 20px 0;
   color: #2f3e5c;
-  margin-bottom: 15px;
-  font-weight: 700;
+  font-size: 20px;
 }
 
-.dog-facts ul {
+.skill-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0;
+}
+
+.category {
+  border: 2px solid #2f3e5c;
+  border-radius: 15px;
+  padding: 20px;
+  background: #f5d976;
+}
+
+.category h4 {
+  margin: 0 0 15px 0;
+  color: #2f3e5c;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.category ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.dog-facts li {
-  font-size: 14px;
+.category li {
+  margin: 10px 0;
   color: #2f3e5c;
-  padding: 8px 0;
-  padding-left: 20px;
-  position: relative;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
-.dog-facts li:before {
-  content: "🐾";
-  position: absolute;
-  left: 0;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .skills-dog-container {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-}
 
 /* Section Dividers */
 .about-section {
