@@ -1,279 +1,223 @@
-/* ===== BASE ===== */
-body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  background: #f8f6f2;
-  color: #2f2a26;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louise Nguyen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">Louise Nguyen</div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+                <div class="dropdown">
+                    <button class="dropdown-btn">Extracurriculars</button>
+                    <div class="dropdown-content">
+                        <a href="#aac">Asian American Connections</a>
+                        <a href="#volunteer">Volunteer Work</a>
+                        <a href="#clubs">Other Clubs</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-/* ===== HEADER ===== */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 48px;
-  background: #efe7dd;
-  border-bottom: 1px solid #d8cfc4;
-  position: sticky;
-  top: 0;
-}
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Profile Card -->
+            <div class="sidebar-card profile-card">
+                <img src="hi.png" alt="Louise Nguyen" class="profile-image">
+                <h2>Louise Nguyen</h2>
+                <p class="tagline">Statistics & Economics</p>
+                <p class="subtitle">University of Wisconsin–Madison</p>
+            </div>
 
-.site-title {
-  font-size: 1.4rem;
-  font-weight: 700;
-}
+            <!-- Things I Enjoy -->
+            <div class="sidebar-card">
+                <h3>Things I Enjoy</h3>
+                <ul>
+                    <li><span class="icon">📊</span>Data Analysis</li>
+                    <li><span class="icon">💰</span>Finance</li>
+                    <li><span class="icon">🐕</span>Dogs (especially Beti!)</li>
+                    <li><span class="icon">🎬</span>Movies</li>
+                    <li><span class="icon">☕</span>Coffee</li>
+                </ul>
+            </div>
 
-/* ===== NAVBAR ===== */
-nav {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
+            <!-- Currently -->
+            <div class="sidebar-card">
+                <h3>Currently</h3>
+                <p>Working on data visualization projects and exploring financial analytics.</p>
+                <button class="cta-button">Let's Connect</button>
+            </div>
 
-nav a {
-  display: inline-flex;
-  align-items: center;
-  height: 36px;
-  text-decoration: none;
-  color: #5f4b3a;
-  font-weight: 500;
-}
+            <!-- Dog Carousel -->
+            <div class="sidebar-card dog-card">
+                <h3>Meet Beti 🐕</h3>
+                <div class="carousel-container">
+                    <img id="dogImage" src="dog1.jpg" alt="Beti the dog" class="dog-image">
+                    <div class="carousel-controls">
+                        <button id="prevBtn" class="carousel-btn">←</button>
+                        <button id="nextBtn" class="carousel-btn">→</button>
+                    </div>
+                </div>
+            </div>
 
-nav a:hover {
-  text-decoration: underline;
-}
+            <!-- Social Media -->
+            <div class="sidebar-card">
+                <h3>Let's Connect</h3>
+                <div class="social-links">
+                    <a href="https://linkedin.com" target="_blank" title="LinkedIn">in</a>
+                    <a href="https://github.com" target="_blank" title="GitHub">gh</a>
+                    <a href="mailto:louise@example.com" title="Email">@</a>
+                </div>
+            </div>
+        </aside>
 
-/* ===== DROPDOWN ===== */
-.dropdown {
-  position: relative;
-  display: inline-flex; /* CHANGE THIS */
-  align-items: center;
-}
+        <!-- Main Content -->
+        <section class="main-content">
+            <!-- Hero Section -->
+            <section class="hero" id="about">
+                <div class="hero-content">
+                    <h1>Hi, I'm Louise 👋</h1>
+                    <p>A Statistics & Economics student passionate about data-driven insights and financial analysis. I love transforming complex data into meaningful stories.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary">View My Work</button>
+                        <button class="btn btn-secondary">Download Resume</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- Decorative element or second image -->
+                </div>
+            </section>
 
-.dropdown-label {
-  display: inline-flex;
-  align-items: center;
-  height: 36px;
-  color: #5f4b3a;
-  font-weight: 500;
-  cursor: default;
-}
+            <!-- Featured Projects Section -->
+            <section class="featured-section" id="projects">
+                <div class="section-header">
+                    <h2>Featured Projects</h2>
+                    <a href="#projects" class="view-all">View All →</a>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-icon">📊</div>
+                        <h4>Stock Analysis Dashboard</h4>
+                        <p>Interactive dashboard for tracking stock metrics and portfolio performance.</p>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-icon">💡</div>
+                        <h4>Data Visualization</h4>
+                        <p>Beautiful visual representations of complex datasets using modern tools.</p>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-icon">🔍</div>
+                        <h4>Statistical Analysis</h4>
+                        <p>In-depth statistical modeling and hypothesis testing projects.</p>
+                    </div>
+                </div>
+            </section>
 
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 50%;              /* CHANGE THIS */
-  transform: translateX(-50%);  /* ADD THIS */
+            <!-- About Me Section -->
+            <section class="about-section">
+                <div class="section-header">
+                    <h2>About Me</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-card">
+                        <h3>Background</h3>
+                        <p>I'm from Lakeville, Minnesota, and I'm currently a junior at the University of Wisconsin–Madison studying Statistics and Economics. I started as a Computer Science major but discovered my true passion for data analysis and quantitative reasoning.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Leadership</h3>
+                        <p>I founded the Asian American Connections Club to foster community and support among Asian American students on campus. This experience taught me the value of creating inclusive spaces and building meaningful connections.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Interests</h3>
+                        <p>Beyond academics, I'm passionate about financial analysis, data visualization, and exploring new technologies. I enjoy volunteering and mentoring younger students in statistics and coding.</p>
+                    </div>
+                </div>
+            </section>
 
-  background: #efe7dd;
-  border: 1px solid #d8cfc4;
-  border-radius: 12px;
-  min-width: 180px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  padding: 8px 0;
-  z-index: 1000;
-}
+            <!-- Experience Section -->
+            <section class="experience-section" id="experience">
+                <div class="section-header">
+                    <h2>Experience & Education</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3>University of Wisconsin–Madison</h3>
+                            <span class="date">2022 - Present</span>
+                        </div>
+                        <p class="role">B.S. in Statistics & Economics</p>
+                        <p>Relevant Coursework: Data Science, Statistical Methods, Econometrics, Financial Analysis</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3>Founded Asian American Connections Club</h3>
+                            <span class="date">2023</span>
+                        </div>
+                        <p class="role">Club President & Founder</p>
+                        <p>Established and led a community of 100+ students dedicated to cultural awareness and support.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3>Data Analytics Internship</h3>
+                            <span class="date">Summer 2023</span>
+                        </div>
+                        <p class="role">Data Analytics Intern</p>
+                        <p>Analyzed business metrics, created dashboards, and provided insights to stakeholders.</p>
+                    </div>
+                </div>
+            </section>
 
-.dropdown-menu a {
-  display: block;
-  padding: 10px 16px;
-  color: #5f4b3a;
-  text-decoration: none;
-  font-weight: 500;
-  
-}
+            <!-- Explore Section -->
+            <section class="explore-section">
+                <div class="section-header">
+                    <h2>Explore More</h2>
+                </div>
+                <div class="explore-grid">
+                    <a href="#" class="explore-card">
+                        <div class="explore-icon">📚</div>
+                        <h3>Blog</h3>
+                        <p>Insights on data science and economics</p>
+                    </a>
+                    <a href="#" class="explore-card">
+                        <div class="explore-icon">🎓</div>
+                        <h3>Resources</h3>
+                        <p>Learning materials and tutorials</p>
+                    </a>
+                    <a href="#" class="explore-card">
+                        <div class="explore-icon">🤝</div>
+                        <h3>Collaborate</h3>
+                        <p>Let's work on something together</p>
+                    </a>
+                </div>
+            </section>
+        </section>
+    </main>
 
-.dropdown-menu a:hover {
-  background: #f8f6f2;
-}
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Louise Nguyen. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#privacy">Privacy</a>
+                <a href="#terms">Terms</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
 
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-/* ===== EMAIL BUTTON ===== */
-.email-btn {
-  margin-left: auto;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 36px;
-  padding: 0 18px;
-  background: #e6b8a2;
-  color: white;
-  border-radius: 999px;
-  font-size: 0.9rem;
-  line-height: 1;
-  transition: 0.2s ease;
-}
-
-/* ===== PAGE CONTAINER ===== */
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 48px 24px;
-}
-
-/* ===== HERO SECTION ===== */
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 80px 48px;
-  gap: 40px;
-  margin-bottom: 32px;
-}
-
-.hero-text {
-  flex: 1;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 12px;
-  line-height: 1.2;
-}
-
-.hero p {
-  margin-top: 0;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  max-width: 800px;
-}
-
-.hero-image {
-  flex-shrink: 0;
-}
-
-.hero-image img {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-/* ===== CARDS ===== */
-.card {
-  background: white;
-  border: 1px solid #e3d9cf;
-  border-radius: 18px;
-  padding: 28px;
-  margin-bottom: 24px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
-}
-
-.card h2 {
-  margin-top: 0;
-}
-
-/* ===== CAROUSEL ===== */
-.carousel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 24px;
-}
-
-.carousel-image {
-  width: 600px;
-  max-width: 100%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 24px;
-  border: 1px solid #e6ddd3;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-}
-
-.carousel-btn {
-  background: #efe7dd;
-  border: 1px solid #d8cfc4;
-  border-radius: 999px;
-  padding: 10px 14px;
-  cursor: pointer;
-  font-size: 1.2rem;
-}
-
-.carousel-btn:hover {
-  background: #e7ddd2;
-}
-
-.section-header {
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #2f2a26;
-  margin-top: 36px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #d8cfc4;
-}
-
-.role-title {
-  margin-top: 20px;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.bullet-list {
-  margin-top: 8px;
-  padding-left: 20px;
-}
-
-.bullet-list li {
-  margin-bottom: 6px;
-  line-height: 1.5;
-}
-
-.photo-gallery-section {
-  margin-top: 40px;
-}
-
-.photo-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin-top: 20px;
-}
-
-.gallery-img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 16px;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.gallery-img:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  inset: 0;
-  background: rgba(47, 42, 38, 0.88);
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-}
-
-.lightbox-content {
-  max-width: 90%;
-  max-height: 85vh;
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.lightbox-close {
-  position: absolute;
-  top: 24px;
-  right: 36px;
-  font-size: 2.2rem;
-  color: white;
-  cursor: pointer;
-  font-weight: 300;
-}
+    <script src="script.js"></script>
+</body>
+</html>
