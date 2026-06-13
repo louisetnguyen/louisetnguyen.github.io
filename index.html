@@ -169,35 +169,61 @@
             <section id="projects" class="projects-
 
 
-                  <!-- Skills & Dog Carousel Container -->
-  <div class="skills-dog-container">
-    <!-- Skills Section (Left) -->
-    <div class="skills-section">
-      <h3>skills</h3>
-      <ul class="skills-list">
-        <li>Python</li>
-        <li>R</li>
-        <li>SQL</li>
-        <li>Tableau</li>
-        <li>Excel</li>
-        <li>Data Analysis</li>
-        <li>Statistical Modeling</li>
-        <li>Data Visualization</li>
-      </ul>
+  <!-- Skills & Dog Carousel Container -->
+<div class="skills-dog-container">
+  
+  <!-- Dog Carousel (Top) -->
+  <div class="dog-section">
+    <div class="carousel-container">
+      <div class="carousel">
+        <img src="https://i.imgur.com/gDbbQCy.jpg" alt="Beti" class="carousel-image active">
+        <img src="https://i.imgur.com/XnX76TF.jpg" alt="Beti" class="carousel-image">
+        <img src="https://i.imgur.com/crJaVSS.jpg" alt="Beti" class="carousel-image">
+        <img src="https://i.imgur.com/ShIzGUV.jpg" alt="Beti" class="carousel-image">
+      </div>
+      <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
+      <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
     </div>
 
-    <!-- Dog Carousel (Right) -->
-    <div class="dog-section">
-      <div class="carousel-container">
-        <div class="carousel">
-          <img src="https://imgur.com/gDbbQCy" alt="Beti" class="carousel-image active">
-          <img src="https://imgur.com/XnX76TF" alt="Beti" class="carousel-image">
-          <img src="https://imgur.com/crJaVSS" alt="Beti" class="carousel-image">
-          <img src="https://imgur.com/ShIzGUV" alt="Beti" class="carousel-image">
-        </div>
-        <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
-        <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
+    <div class="dog-facts-card">
+      <h4>🐕 Fun Facts About Beti</h4>
+      <p id="dogFact">Beti loves long walks and cuddles!</p>
+    </div>
+  </div>
+
+  <!-- Skills Section (Bottom) -->
+  <div class="skills-section">
+    <h3>skills</h3>
+    
+    <div class="skill-categories">
+      <div class="category">
+        <h4>📊 Data</h4>
+        <ul>
+          <li>Data Analysis</li>
+          <li>Data Visualization</li>
+          <li>Statistical Modeling</li>
+        </ul>
       </div>
+      <div class="category">
+        <h4>💻 Programming</h4>
+        <ul>
+          <li>Python</li>
+          <li>R</li>
+          <li>SQL</li>
+        </ul>
+      </div>
+      <div class="category">
+        <h4>📈 Tools</h4>
+        <ul>
+          <li>Tableau</li>
+          <li>Excel</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 
       <!-- Dog Facts (Under Carousel) -->
       <div class="dog-facts">
