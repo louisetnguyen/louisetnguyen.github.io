@@ -1045,3 +1045,40 @@ html {
   scroll-behavior: smooth;
 }
 
+.coursework-card {
+    background-color: #f5d976;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.coursework-card h3 {
+    font-size: 16px;
+    color: #2f3e5c;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.coursework-list {
+    list-style: none;
+    padding: 0;
+    max-height: 220px;  /* Shows about 6 items */
+    overflow-y: scroll;  /* Adds scrollbar */
+    padding-right: 8px;  /* Space for scrollbar */
+}
+
+.coursework-list li {
+    font-size: 14px;
+    color: #2f3e5c;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.coursework-list li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #8ba8c9;
+}
+
