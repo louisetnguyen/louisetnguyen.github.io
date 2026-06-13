@@ -1,142 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Louise Nguyen</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louise Nguyen | Statistics & Economics</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-  <script>
-  const dogImages = ["dog1.jpg", "dog2.jpg", "dog3.jpg"];
-  let currentDogSlide = 0;
-
-  function moveSlide(direction) {
-    currentDogSlide += direction;
-
-    if (currentDogSlide < 0) {
-      currentDogSlide = dogImages.length - 1;
-    }
-
-    if (currentDogSlide >= dogImages.length) {
-      currentDogSlide = 0;
-    }
-
-    document.getElementById("dog-carousel-image").src = dogImages[currentDogSlide];
-  }
-</script>
 <body>
-  <header>
-    <div class="site-title">Louise Nguyen</div>
-      <nav>
-  <a href="index.html">about</a>
-  <a href="highschool.html">high school</a>
-  <div class="dropdown">
-  <span class="dropdown-label">extracurriculars</span>
-  <div class="dropdown-menu">
-    <a href="multicultural.html">multicultural</a>
-    <a href="APO.html">APO</a>
-    <a href="econonomics.club.html">economics clubs</a>
-  </div>
-</div>
-  <a href="work.html">work experience</a>
-  <a href="projects.html">projects</a>
-  <a href="mailto:louisetnguyen1@gmail.com" class="email-btn">email me!</a>
-</nav>
-  </header>
+    <div class="container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <!-- Header with logo and menu -->
+            <div class="sidebar-header">
+                <h2>louise nguyen</h2>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
 
-  <main class="container">
-    <section class="hero">
-  <div class="hero-text">
-    <h1>hello, i’m louise! <p>(づ｡◕‿‿◕｡)づ</p></h1>
-    <p>
-      I’m a student at the University of Wisconsin–Madison majoring in Statistics and Economics (Mathematical Emphasis), with a minor in Mathematics and Data Science
-    </p>
-  </div>
+            <!-- Intro Card -->
+            <div class="intro-card">
+                <p class="greeting">hi there!</p>
+                <h1>I'm<br>Louise.</h1>
+                <p class="subtitle">I turn data into insights and stories.</p>
+                <button class="btn btn-primary">
+                    about me <i class="fas fa-arrow-right"></i>
+                </button>
+                <div class="intro-decoration">
+                    <span class="sparkle">✨</span>
+                </div>
+            </div>
 
-  <div class="hero-image">
-    <img src="./hi.png" alt="Louise">
-  </div>
-</section>
+            <!-- Profile Image Card -->
+            <div class="profile-card">
+                <img src="hi.png" alt="Louise Nguyen" class="profile-image">
+                <div class="profile-decoration">
+                    <span class="leaf">🍃</span>
+                </div>
+            </div>
 
-    <section class="card">
-      <h2>about me!</h2>
-      <p>
-        This site is where I can delve into a deeper, personal look beyond LinkedIn! I can talk about my work, 
-        leadership, projects, and other things I care about in my own voice 
-      </p>
-      <p>
-        Professionally, I am especially interested in data analysis, financial analysis, and the intersection between those two.
-        My goal is to make systems and solutions more thoughtful and intentional. I have a flexible disposition -- I love working alone 
-        and with people, at home or at office, or taking a more hands-on vs hands-off approach.
+            <!-- Things I Enjoy -->
+            <div class="section-card">
+                <h3>things i enjoy <span class="sparkle">✨</span></h3>
+                <ul class="enjoy-list">
+                    <li><i class="fas fa-mug-hot"></i> coffee</li>
+                    <li><i class="fas fa-plane"></i> travel</li>
+                    <li><i class="fas fa-camera"></i> photography</li>
+                    <li><i class="fas fa-book"></i> reading</li>
+                </ul>
+            </div>
 
-        If interested in more, please feel free to reach out to me at louisetnguyen1@gmail.com or visit my 
-        <a href="https://www.linkedin.com/in/louise-nguyen-607033267/">LinkedIn</a>!
-      <p>
-        Personally, I love spending my free time discovering new music! I pride myself on having a super diverse taste and am currently working on adding my Spotify statistics here!
-        I am also a big fan of karaoke, reading romance books, spending time with my friends, and also admiring dogs and cats!
-        At only 19 -- I'm definitely already a crazy cat (and dog) lady and I will gladly talk about my own dog for years!
-      </p>
-      </p>
-    </section>
+            <!-- Currently -->
+            <div class="section-card">
+                <h3>currently</h3>
+                <div class="currently-item">
+                    <span class="icon">🎵</span>
+                    <div>
+                        <p class="label">listening to</p>
+                        <p class="content">Waves - Tom Misch</p>
+                    </div>
+                </div>
+                <div class="currently-item">
+                    <span class="icon">📖</span>
+                    <div>
+                        <p class="label">reading</p>
+                        <p class="content">Atomic Habits - James Clear</p>
+                    </div>
+                </div>
+            </div>
 
-    <section class="card">
-      <h3> my history! </h3>
-      Both my mother and father are from Vietnam and immigrated over to the United States in the 1990s. They had my brother, Louis (yes, his name is Louis), in 2001 and then were happily gifted with me in 2006!
-      <p>
-        I've always been a huge fan of technology -- as every January and September, my entire family would heavily study the new Apple drops every single time they'd come out. 
-        I grew up playing video games with my brother and got my first phone when I was in second grade... and then my first computer when I was in fourth. I'm super familiar with these types of interfaces yet I'm always looking to expand my knowledge!
-  </p> <p>
-        I grew up in Lakeville, Minnesota -- a medium sized town, 30 minutes south of the Twin Cities -- which is a very, very caucasian-majority city. Here, my passion for cultural connection and community surged.
-    I founded the Asian American Connections Club, which in turn, has allowed me to become more passionate about community here during my time in college. Honestly, my highschool days are kind of packed! If curious, please check out my highschool tab to see my experiences and achievements during this time (✿◠‿◠)
-    </p><p>
-      College was definitely a new experience because it introduced me to a new-found freedom! I entered university with a determination to do Computer Science. This was honestly just because my brother is a computer science genius. However, I then switched over to Data Science -- thinking I could still be relatively stable within this major.
-      However, I have completely settled on Statistics because I think its balance between coding, mathematics, and analytical reasoning is a much better fit for me. 
+            <!-- Let's Connect -->
+            <div class="section-card">
+                <h3>let's connect! <span class="dog-emoji">🐕</span></h3>
+                <div class="social-links">
+                    <a href="mailto:louise@example.com" class="social-btn email">
+                        <i class="fas fa-envelope"></i> email
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="social-btn linkedin">
+                        <i class="fab fa-linkedin"></i> linkedin
+                    </a>
+                    <a href="https://github.com" target="_blank" class="social-btn github">
+                        <i class="fab fa-github"></i> github
+                    </a>
+                </div>
+            </div>
 
-      (if you're wondering about econ -- it was always in the plan!)
-    </p><p>
-      My favorite spots on campus to study are definitely my home sweet home, memorial union, and the SAC! 
-    </section>
+            <!-- Footer Credit -->
+            <div class="sidebar-footer">
+                <p>© 2024 Louise Nguyen <span class="heart">❤️</span></p>
+            </div>
+        </aside>
 
-    <section class="card">
-  <h2>meet my dog ⋆˚🐾˖° </h2>
-  <p>
-    Born in September 2016, adopted in November of 2016, this is Beti (or Ti for short). She is a beautiful, Shih Tzu-Maltese mix and is extremely food-based. She’s a huge part of my life,
-    so it only felt right to give her a small spot on this website too.
-  </p>
-<p>if curious, check out the instagram I have for her too! <a href="https://www.instagram.com/alphasnobetas/">ti's instagram!</a>
-                                                                                                                               </p>
-  <div class="carousel">
-    <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <!-- Navigation -->
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active">home</a></li>
+                    <li><a href="#about" class="nav-link">about</a></li>
+                    <li><a href="#projects" class="nav-link">projects</a></li>
+                    <li><a href="#experience" class="nav-link">experience</a></li>
+                    <li class="dropdown">
+                        <a href="#extracurriculars" class="nav-link">extracurriculars</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#aac">AAC</a></li>
+                            <li><a href="#volunteer">Volunteer</a></li>
+                            <li><a href="#clubs">Clubs</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contact" class="nav-link">contact</a></li>
+                </ul>
+            </nav>
 
-    <img id="dog-carousel-image" src="dog1.jpg" alt="My dog" class="carousel-image" />
+            <!-- Hero Section -->
+            <section id="home" class="hero">
+                <div class="hero-content">
+                    <h1>data.<br>insights.<br>impact.</h1>
+                    <p>I'm a student at UW–Madison studying Statistics & Economics. I love using data to solve real-world problems.</p>
+                    <button class="btn btn-secondary">
+                        view my work <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="hero-image">
+                    <div class="image-frame">
+                        <img src="hi.png" alt="Louise" class="hero-photo">
+                    </div>
+                    <div class="hero-decoration">
+                        <span class="stars">⭐</span>
+                        <span class="hands">👐</span>
+                    </div>
+                </div>
+            </section>
 
-    <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
-  </div>
-</section>
-    
-    <section class="card">
-      <h4> social media! </h4>
-      LinkedIn:  <a href="https://www.linkedin.com/in/louise-nguyen-607033267/">LinkedIn</a>
-      <p> Instagram: <a href="https://www.instagram.com/louisetnguyen/">Instagram</a>
-      </p>
-     
-      <section>
-   
-  </main>
-
-        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-<script>
-  if (!sessionStorage.getItem("aboutConfettiShown")) {
-    confetti({
-      particleCount: 160,
-      spread: 90,
-      origin: { y: 0.6 }
-    });
-
-    sessionStorage.setItem("aboutConfettiShown", "true");
-  }
-</script>
-</body>
-</html>
+            <!-- Featured Projects -->
+            <section id="projects" class="projects-
