@@ -1262,3 +1262,45 @@ html {
   padding: 40px;
   margin: 40px 0;
 }
+.skill-categories {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.category {
+  background: #f5d976;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #2f3e5c;
+}
+
+.category h4 {
+  margin: 0 0 12px 0;
+  font-size: 15px;
+  color: #2f3e5c;
+  font-weight: 600;
+}
+
+.category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category li {
+  font-size: 13px;
+  color: #555;
+  padding: 5px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.category li:before {
+  content: "•";
+  position: absolute;
+  left: 8px;
+  color: #2f3e5c;
+  font-weight: bold;
+}
