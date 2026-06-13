@@ -1,38 +1,28 @@
-// Dog Carousel Functionality
-const dogImages = ['dog1.jpg', 'dog2.jpg', 'dog3.jpg'];
-let currentDogIndex = 0;
+// Navigation active state
+const navLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('section');
 
-const dogImage = document.getElementById('dogImage');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
+window.addEventListener('scroll', () => {
+    let current = '';
 
-function updateDogImage() {
-    dogImage.src = dogImages[currentDogIndex];
-}
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
 
-prevBtn.addEventListener('click', () => {
-    currentDogIndex = (currentDogIndex - 1 + dogImages.length) % dogImages.length;
-    updateDogImage();
+        if (pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === current) {
+            link.classList.add('active');
+        }
+    });
 });
 
-nextBtn.addEventListener('click', () => {
-    currentDogIndex = (currentDogIndex + 1) % dogImages.length;
-    updateDogImage();
-});
-
-// Confetti Animation (One-time per session)
-window.addEventListener('load', () => {
-    if (!sessionStorage.getItem('confetti-triggered')) {
-        confetti({
-            particleCount: 100,
-            spread: 70,
-            origin: { y: 0.6 }
-        });
-        sessionStorage.setItem('confetti-triggered', 'true');
-    }
-});
-
-// Smooth Scrolling for Navigation Links
+// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -46,34 +36,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add active state to navigation links
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section');
+// Menu toggle for mobile
+const menuToggle = document.getElementById('menuToggle');
+const navbar = document.querySelector('.navbar');
 
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
+if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+        navbar.style.display = navbar.style.display === 'none' ? 'block' : 'none';
     });
+}
 
-    document.querySelectorAll('nav a').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
-            link.classList.add('active');
-        }
-    });
-});
-
-// Add active state styling
-const style = document.createElement('style');
-style.textContent = `
-    nav a.active {
-        background: var(--primary);
-        color: white;
-        border-color: var(--primary);
-    }
-`;
-document.head.appendChild(style);
+// Confetti on page load (one-time)
+if (!sessionStorage.getItem('confetti-shown')) {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js';
+    script.onload = () => {
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+        sessionStorage.setItem('confetti-shown', 'true');
+    };
+    document.head.appendChild(script);
+}
