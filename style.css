@@ -242,13 +242,14 @@ body {
     aspect-ratio: 1;
 }
 
-.profile-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;  /* Centers the image vertically */
-    display: block;
+.profile-image {
+    width: 240px;
+    height: 280px;  /* Adjust this number up or down */
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0 auto 20px;
 }
+
 
 
 }
