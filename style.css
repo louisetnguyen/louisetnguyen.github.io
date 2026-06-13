@@ -1165,6 +1165,35 @@ html {
   border-radius: 10px;
   overflow: hidden;
 }
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.carousel-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f5d976;
+  border: 2px solid #2f3e5c;
+  color: #2f3e5c;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.carousel-btn:hover {
+  background: #2f3e5c;
+  color: #f5d976;
+  transform: scale(1.1);
+}
+
 
 .carousel-image {
   width: 100%;
@@ -1378,4 +1407,13 @@ html {
   padding: 25px;
   background: #d4e8d8;
 }
+
+.skills-section {
+  border: 2px solid #2f3e5c;
+  border-radius: 20px;
+  padding: 25px;
+  background: white;
+  margin-top: 40px;
+}
+
 
