@@ -60,3 +60,15 @@ if (!sessionStorage.getItem('confetti-shown')) {
     };
     document.head.appendChild(script);
 }
+
+let currentSlide = 0;
+
+function changeSlide(direction) {
+  const images = document.querySelectorAll('.carousel-image');
+  images[currentSlide].classList.remove('active');
+  
+  currentSlide = (currentSlide + direction + images.length) % images.length;
+  
+  images[currentSlide].classList.add('active');
+}
+
