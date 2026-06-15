@@ -1,120 +1,546 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Multicultural | Louise Nguyen</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multicultural — Louise Nguyen</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #edeae2;
+      font-family: 'DM Sans', sans-serif;
+      color: #2a2e4a;
+      min-height: 100vh;
+      padding: 120px 40px 80px;
+    }
+
+    /* ── NAV ── */
+    .nav-wrap {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: calc(100% - 80px);
+      max-width: 900px;
+    }
+    nav {
+      background: white;
+      border: 1.5px solid #2a2e4a;
+      border-radius: 40px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    nav a { text-decoration: none; font-size: 14px; color: #2a2e4a; padding: 6px 18px; border-radius: 20px; }
+    nav a.active { color: white; background: #2a2e4a; font-weight: 500; }
+    .nav-dropdown-wrap { position: relative; display: inline-flex; align-items: center; }
+    .nav-ec-trigger { font-size: 14px; color: #2a2e4a; padding: 6px 18px; border-radius: 20px; cursor: default; user-select: none; white-space: nowrap; }
+    .nav-ec-trigger.active { background: #2a2e4a; color: white; font-weight: 500; }
+    .nav-dropdown {
+      position: absolute; top: calc(100% + 10px); left: 50%;
+      transform: translateX(-50%) translateY(-4px);
+      background: white; border: 1.5px solid #2a2e4a; border-radius: 14px;
+      padding: 6px; display: flex; flex-direction: column; gap: 2px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      white-space: nowrap; min-width: 150px; z-index: 200;
+    }
+    .nav-dropdown-wrap:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+    .nav-dropdown a { text-decoration: none; font-size: 13px; color: #2a2e4a; padding: 8px 14px; border-radius: 10px; display: block; transition: background 0.1s; }
+    .nav-dropdown a:hover { background: #edeae2; }
+    .nav-dropdown a.active { background: #2a2e4a; color: white; font-weight: 500; }
+
+    /* ── PAGE HEADER ── */
+    .page-header { margin-bottom: 56px; }
+    .page-header h1 { font-family: 'DM Serif Display', serif; font-size: 52px; font-weight: 400; line-height: 1.1; }
+    .page-header p { margin-top: 10px; font-size: 16px; color: #666; font-style: italic; }
+
+    /* ── SHARED TAG ── */
+    .tag {
+      font-size: 11px; font-weight: 500; padding: 4px 10px;
+      border-radius: 20px; background: rgba(42,46,74,0.08); color: #2a2e4a;
+    }
+
+    /* ─────────── VSA SECTION ─────────── */
+    .vsa-block {
+      background: #faf9f6;
+      border: 1.5px solid #2a2e4a;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    /* VSA header band */
+    .vsa-header-band {
+      background: #b85040;
+      padding: 28px 32px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .vsa-header-band h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: white;
+    }
+
+    .vsa-header-band p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      margin-top: 6px;
+      max-width: 480px;
+      line-height: 1.6;
+    }
+
+    .vsa-header-band-right {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .vsa-date-badge {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* role timeline */
+    .vsa-timeline {
+      padding: 24px 32px;
+      border-bottom: 1px solid rgba(42,46,74,0.1);
+    }
+
+    .vsa-timeline-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 16px;
+    }
+
+    .timeline-track {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .timeline-step {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .timeline-role {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .timeline-pill {
+      background: rgba(42,46,74,0.07);
+      border: 1.5px solid rgba(42,46,74,0.15);
+      border-radius: 20px;
+      padding: 7px 16px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #2a2e4a;
+      white-space: nowrap;
+    }
+
+    .timeline-pill.current {
+      background: #b85040;
+      border-color: #b85040;
+      color: white;
+      font-weight: 600;
+    }
+
+    .timeline-year {
+      font-size: 10px;
+      color: #bbb;
+      font-weight: 500;
+    }
+
+    .timeline-arrow {
+      font-size: 16px;
+      color: rgba(42,46,74,0.2);
+      padding: 0 8px;
+      padding-bottom: 18px; /* align with pill vertically */
+      flex-shrink: 0;
+    }
+
+    /* simultaneous roles */
+    .timeline-dual {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .timeline-dual-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ccc;
+      text-align: center;
+    }
+
+    .timeline-dual-pills {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      align-items: center;
+    }
+
+    /* VSA highlights */
+    .vsa-highlights {
+      padding: 24px 32px;
+      border-bottom: 1px solid rgba(42,46,74,0.1);
+    }
+
+    .vsa-highlights-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 14px;
+    }
+
+    .vsa-highlights ul {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #3d4460;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .vsa-highlights li { margin-left: 18px; }
+
+    .vsa-tags {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    /* VSA photos */
+    .vsa-photos { padding: 24px 32px; }
+
+    .vsa-photos-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 14px;
+    }
+
+    .photo-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .photo-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .photo-slot { display: flex; flex-direction: column; gap: 8px; }
+
+    .photo-box {
+      aspect-ratio: 1;
+      border-radius: 14px;
+      border: 1.5px dashed rgba(42,46,74,0.25);
+      background: rgba(42,46,74,0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: rgba(42,46,74,0.3);
+      overflow: hidden;
+    }
+
+    .photo-box img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+    .photo-box-hint { font-size: 11px; font-weight: 500; }
+    .photo-caption { font-size: 12px; color: #888; text-align: center; line-height: 1.4; }
+
+    /* ─────────── KASA SECTION ─────────── */
+    .kasa-block {
+      background: #faf9f6;
+      border: 1.5px solid #2a2e4a;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .kasa-header-band {
+      background: #4a6080;
+      padding: 28px 32px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .kasa-header-band h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: white;
+    }
+
+    .kasa-header-band p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      margin-top: 6px;
+      line-height: 1.6;
+    }
+
+    .kasa-date-badge {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      flex-shrink: 0;
+    }
+
+    .kasa-body { padding: 24px 32px; }
+
+    .kasa-role-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .kasa-role-pill {
+      background: rgba(74,96,128,0.1);
+      border: 1.5px solid rgba(74,96,128,0.25);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #4a6080;
+    }
+
+    .kasa-photos-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 14px;
+    }
+
+    @media (max-width: 780px) {
+      body { padding: 100px 20px 60px; }
+      .nav-wrap { width: calc(100% - 40px); }
+      .page-header h1 { font-size: 38px; }
+      .vsa-header-band, .kasa-header-band { flex-direction: column; }
+      .photo-grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .photo-grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .timeline-track { gap: 4px; }
+      .vsa-timeline, .vsa-highlights, .vsa-photos, .kasa-body { padding: 20px; }
+      .vsa-header-band, .kasa-header-band { padding: 20px; }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="site-title">Louise Nguyen</div>
-    <nav>
-      <a href="index.html">about</a>
-      <a href="highschool.html">high school</a>
 
-      <div class="dropdown">
-        <span class="dropdown-label">extracurriculars</span>
-        <div class="dropdown-menu">
-          <a href="multicultural.html">multicultural</a>
-          <a href="apo.html">APO</a>
-          <a href="econ.html">economics clubs</a>
+  <div class="nav-wrap">
+    <nav>
+      <a href="index.html">home</a>
+      <a href="projects.html">projects</a>
+      <a href="experience.html">experience</a>
+      <div class="nav-dropdown-wrap">
+        <span class="nav-ec-trigger active">extracurriculars</span>
+        <div class="nav-dropdown">
+          <a href="volunteering.html">volunteering</a>
+          <a href="multicultural.html" class="active">multicultural</a>
+          <a href="academic.html">academic</a>
         </div>
       </div>
-
-      <a href="work.html">work experience</a>
-      <a href="projects.html">projects</a>
-      <a href="mailto:louisetn756@gmail.com" class="email-btn">email me!</a>
+      <a href="contact.html">contact</a>
     </nav>
+  </div>
+
+  <header class="page-header">
+    <h1>multicultural</h1>
+    <p>community, culture, and the people who made college home.</p>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <div class="hero-text">
-        <h1>multicultural involvement</h1>
-        <p>
-          at UW, I spend a lot of my time involved in multicultural organizations! this page highlights my involvement in multicultural communities, events, and student spaces that helped shape my leadership, collaboration, and sense of community.
-        </p>
+  <!-- VSA -->
+  <div class="vsa-block">
+    <div class="vsa-header-band">
+      <div>
+        <h2>Vietnamese Student Association</h2>
+        <p>UW–Madison's VSA has been my home base since day one — a community where I grew from intern to leader while helping plan events, build culture, and bring people together.</p>
       </div>
-    </section>
+      <div class="vsa-header-band-right">
+        <div class="vsa-date-badge">Aug 2024 – Present</div>
+      </div>
+    </div>
 
-    <section class="card">
-      <h2>VSA ૮ ˶ᵔ ᵕ ᵔ˶ ა</h2>
-      <p>
-        Starting out as Internal Vice President (IVP) intern and Culture Chair Intern my first two semesters of freshman year, I developed a strong sense of community through VSA.
-        <p> <a href="https://www.instagram.com/vsa_uw/">VSA UW's instagram!</a></p>
-      </p>
-      <h2 class="section-header">intern experience</h2>
-      <p>culture chair intern: I helped edit scripts and content for cultural events and worked on planning and marketing for Tết. It gave me a lot of experience with content creation, social media, and what actually goes into making events happen!</p>
-      <p>ivp intern: I also got to see how internal operations work through the IVP side—helping with general board meetings and learning how everything is organized behind the scenes!!</p>
-      <h3 class="section-header">board experience</h3>
-      <p>for the 2025-2026 school year, I was active as IVP and Culture Chair!</p>
-      <p>through these experiences, I got to work more indepth with other organizations and the logistical backgrounds of VSA</p>
-      <h3 class="role-title">internal vice president</h3>
-<ul class="bullet-list">
-  <li>strengthened the ACE program</li>
-  <li>supported internal affairs</li>
-  <li>oversaw intern development</li>
-  <li>assisted the president with state affairs -- like collaboration with VSA Marquette</li>
-</ul>
+    <!-- Role Timeline -->
+    <div class="vsa-timeline">
+      <div class="vsa-timeline-label">role progression</div>
+      <div class="timeline-track">
 
-<h3 class="role-title">culture chair</h3>
-<ul class="bullet-list">
-  <li>RSO coordinator</li>
-  <li>spearheaded Culture Night and Tết</li>
-   <li>collaborated with multicultural organizations and Women in Business</li>
-</ul>
-      <section class="photo-gallery-section">
-  <h2 class="section-header">VSA Photos</h2>
-  <div class="photo-gallery">
-    <img src="imagesvsa1.jpg" alt="Culture Night Photoshoot" class="gallery-img">
-    <img src="imagesvsa2.jpg" alt="VSA event photo 2" class="gallery-img">
-    <img src="imagesvsa3.jpg" alt="VSA event photo 3" class="gallery-img">
-    <img src="imagesvsa4.jpg" alt="VSA event photo 4" class="gallery-img">
-    <img src="imagesvsa5.jpg" alt="VSA event photo 5" class="gallery-img">
-    <img src="imagesvsa6.jpg" alt="VSA event photo 6" class="gallery-img">
-    <img src="imagesvsa7.jpg" alt="VSA event photo 7" class="gallery-img">
-    <img src="imagesvsa8.jpg" alt="VSA event photo 8" class="gallery-img">
+        <div class="timeline-step">
+          <div class="timeline-role">
+            <div class="timeline-pill">IVP Intern</div>
+            <div class="timeline-year">2024–25</div>
+          </div>
+          <div class="timeline-arrow">→</div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-role">
+            <div class="timeline-pill">Culture Chair Intern</div>
+            <div class="timeline-year">2024–25</div>
+          </div>
+          <div class="timeline-arrow">→</div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-dual">
+            <div class="timeline-dual-label">simultaneously</div>
+            <div class="timeline-dual-pills">
+              <div class="timeline-pill">Culture Chair</div>
+              <div class="timeline-pill">IVP</div>
+            </div>
+            <div class="timeline-year">2025–26</div>
+          </div>
+          <div class="timeline-arrow">→</div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-role">
+            <div class="timeline-pill current">IVP ✦ current</div>
+            <div class="timeline-year">2026–27</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Highlights -->
+    <div class="vsa-highlights">
+      <div class="vsa-highlights-label">highlights as internal vice president</div>
+      <ul>
+        <li>Spearheaded end-to-end planning of annual cultural event with 350+ participants — a 45% increase from the prior year.</li>
+        <li>Analyzed post-event insights to implement strategies that improved operational efficiency and community engagement.</li>
+        <li>Fostered cross-functional alignment across 9 committees, 20 planning executives, and university partners.</li>
+      </ul>
+      <div class="vsa-tags">
+        <span class="tag">Event Planning</span>
+        <span class="tag">Cross-functional Leadership</span>
+        <span class="tag">Community Building</span>
+        <span class="tag">Operations</span>
+        <span class="tag">Cultural Programming</span>
+      </div>
+    </div>
+
+    <!-- Photos -->
+    <div class="vsa-photos">
+      <div class="vsa-photos-label">moments</div>
+      <div class="photo-grid-4">
+        <div class="photo-slot">
+          <div class="photo-box">
+            <!-- swap with: <img src="vsa-1.jpg" alt="..."> -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M9 6l1-2h4l1 2"/></svg>
+            <span class="photo-box-hint">add photo</span>
+          </div>
+          <div class="photo-caption">label</div>
+        </div>
+        <div class="photo-slot">
+          <div class="photo-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M9 6l1-2h4l1 2"/></svg>
+            <span class="photo-box-hint">add photo</span>
+          </div>
+          <div class="photo-caption">label</div>
+        </div>
+        <div class="photo-slot">
+          <div class="photo-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M9 6l1-2h4l1 2"/></svg>
+            <span class="photo-box-hint">add photo</span>
+          </div>
+          <div class="photo-caption">label</div>
+        </div>
+        <div class="photo-slot">
+          <div class="photo-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M9 6l1-2h4l1 2"/></svg>
+            <span class="photo-box-hint">add photo</span>
+          </div>
+          <div class="photo-caption">label</div>
+        </div>
+      </div>
+    </div>
   </div>
-</section>
 
-<div id="lightbox" class="lightbox">
-  <span class="lightbox-close">&times;</span>
-  <img class="lightbox-content" id="lightbox-img" alt="Expanded gallery image">
-</div>
-    </section>
-        
-<section class="card">
-    <h3>KASA</h3>
-</section>
-  </main>
+  <!-- KASA -->
+  <div class="kasa-block">
+    <div class="kasa-header-band">
+      <div>
+        <h2>Korean American Student Association</h2>
+        <p>KASA gave me a second cultural home at Madison — a place to connect, celebrate, and find family.</p>
+      </div>
+      <div class="kasa-date-badge">2024 – Present</div>
+    </div>
+    <div class="kasa-body">
+      <div class="kasa-role-row">
+        <span class="kasa-role-pill">General Member</span>
+        <span class="kasa-role-pill">Family Member</span>
+      </div>
+      <div class="kasa-photos-label">moments</div>
+      <div class="photo-grid-4">
+        <div class="photo-slot">
+          <div class="photo-box">
+            <!-- swap with: <img src="kasa-1.jpg" alt="..."> -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M9 6l1-2h4l1 2"/></svg>
+            <span class="photo-box-hint">add photo</span>
+          </div>
+          <div class="photo-caption">label</div>
+        </div>
+        <div class="photo-slot">
+          <div class="photo-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M9 6l1-2h4l1 2"/></svg>
+            <span class="photo-box-hint">add photo</span>
+          </div>
+          <div class="photo-caption">label</div>
+        </div>
+        <div class="photo-slot">
+          <div class="photo-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M9 6l1-2h4l1 2"/></svg>
+            <span class="photo-box-hint">add photo</span>
+          </div>
+          <div class="photo-caption">label</div>
+        </div>
+        <div class="photo-slot">
+          <div class="photo-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M9 6l1-2h4l1 2"/></svg>
+            <span class="photo-box-hint">add photo</span>
+          </div>
+          <div class="photo-caption">label</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <script>
-  const galleryImages = document.querySelectorAll(".gallery-img");
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const closeBtn = document.querySelector(".lightbox-close");
-
-  galleryImages.forEach(img => {
-    img.addEventListener("click", () => {
-      lightbox.style.display = "flex";
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-    });
-  });
-
-  closeBtn.addEventListener("click", () => {
-    lightbox.style.display = "none";
-  });
-
-  lightbox.addEventListener("click", e => {
-    if (e.target !== lightboxImg) {
-      lightbox.style.display = "none";
-    }
-  });
-</script>
 </body>
 </html>
