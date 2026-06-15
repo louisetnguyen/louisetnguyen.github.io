@@ -76,17 +76,25 @@
       gap: 2px;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.15s ease, transform 0.15s ease;
+      transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
       white-space: nowrap;
       min-width: 150px;
       z-index: 200;
     }
+    .nav-dropdown::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      left: 0;
+      right: 0;
+      height: 12px;
+    }
     .nav-dropdown-wrap:hover .nav-dropdown {
-  opacity: 1;
-  pointer-events: all;
-  transform: translateX(-50%) translateY(0);
-  transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
-}
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(-50%) translateY(0);
+      transition: opacity 0.15s ease 0s, transform 0.15s ease 0s;
+    }
     .nav-dropdown a {
       text-decoration: none;
       font-size: 13px;
