@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience — Louise Nguyen</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #edeae2;
+      font-family: 'DM Sans', sans-serif;
+      color: #2a2e4a;
+      min-height: 100vh;
+      padding: 120px 40px 80px;
+    }
+
+    /* ── NAV ── */
+    .nav-wrap {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: calc(100% - 80px);
+      max-width: 900px;
+    }
+    nav {
+      background: white;
+      border: 1.5px solid #2a2e4a;
+      border-radius: 40px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    nav a {
+      text-decoration: none;
+      font-size: 14px;
+      color: #2a2e4a;
+      padding: 6px 18px;
+      border-radius: 20px;
+    }
+    nav a.active { color: white; background: #2a2e4a; font-weight: 500; }
+
+    /* ── EXTRACURRICULARS DROPDOWN ── */
+    .nav-dropdown-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+    .nav-ec-trigger {
+      font-size: 14px;
+      color: #2a2e4a;
+      padding: 6px 18px;
+      border-radius: 20px;
+      cursor: default;
+      user-select: none;
+      font-family: 'DM Sans', sans-serif;
+      white-space: nowrap;
+    }
+    .nav-ec-trigger.active { background: #2a2e4a; color: white; font-weight: 500; }
+    .nav-dropdown {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-4px);
+      background: white;
+      border: 1.5px solid #2a2e4a;
+      border-radius: 14px;
+      padding: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      white-space: nowrap;
+      min-width: 150px;
+      z-index: 200;
+    }
+    .nav-dropdown-wrap:hover .nav-dropdown {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown a {
+      text-decoration: none;
+      font-size: 13px;
+      color: #2a2e4a;
+      padding: 8px 14px;
+      border-radius: 10px;
+      display: block;
+      transition: background 0.1s;
+      font-weight: 400;
+    }
+    .nav-dropdown a:hover { background: #edeae2; }
+    .nav-dropdown a.active { background: #2a2e4a; color: white; font-weight: 500; }
+
+    /* ── PAGE HEADER ── */
+    .page-header { margin-bottom: 56px; }
+    .page-header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 52px;
+      font-weight: 400;
+      line-height: 1.1;
+      color: #2a2e4a;
+    }
+    .page-header p {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #666;
+      font-style: italic;
+    }
+
+    /* ── EXPERIENCE CARDS ── */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .exp-card {
+      display: flex;
+      align-items: stretch;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1.5px solid #2a2e4a;
+      min-height: 180px;
+    }
+
+    .exp-accent { width: 10px; flex-shrink: 0; }
+
+    .exp-logo-col {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 20px;
+      background: #faf9f6;
+      flex-shrink: 0;
+    }
+
+    .exp-logo-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: white;
+      border: 3px solid transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      font-weight: 400;
+      flex-shrink: 0;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .exp-right {
+      flex: 1;
+      background: #faf9f6;
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .exp-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .exp-role {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: #2a2e4a;
+    }
+
+    .exp-date {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #999;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .exp-desc {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: #3d4460;
+    }
+
+    .exp-desc li { margin-left: 16px; margin-bottom: 4px; }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: rgba(42, 46, 74, 0.08);
+      color: #2a2e4a;
+    }
+
+    /* ── NAVIANT — terracotta ── */
+    .exp-naviant .exp-accent { background: #c9705a; }
+    .exp-naviant .exp-logo-col { background: #faf9f6; }
+    .exp-naviant .exp-logo-circle { border-color: #c9705a; color: #c9705a; }
+
+    /* ── ASM — dusty violet ── */
+    .exp-asm .exp-accent { background: #7a6b9e; }
+    .exp-asm .exp-logo-col { background: #faf9f6; }
+    .exp-asm .exp-logo-circle { border-color: #7a6b9e; color: #7a6b9e; }
+
+    /* ── RESEARCH — in progress ── */
+    .exp-research { border-style: dashed; border-color: #2a2e4a; opacity: 0.75; }
+    .exp-research .exp-accent { background: #2a2e4a; }
+    .exp-research .exp-logo-col { background: #edeae2; }
+    .exp-research .exp-logo-circle { border-color: #2a2e4a; color: #2a2e4a; }
+    .exp-research .exp-right { background: #edeae2; }
+
+    .in-progress-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #2a2e4a;
+      background: rgba(42, 46, 74, 0.1);
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-top: 12px;
+      width: fit-content;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      background: #2a2e4a;
+      border-radius: 50%;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ── CERTIFICATES ── */
+    .certs-section { margin-top: 56px; }
+
+    .certs-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #2a2e4a;
+      margin-bottom: 18px;
+    }
+
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .cert-card {
+      background: #faf9f6;
+      border: 1.5px solid #2a2e4a;
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .cert-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(42,46,74,0.1);
+    }
+    .cert-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: white;
+      border: 2.5px solid;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+    .cert-issuer {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 4px;
+    }
+    .cert-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: #2a2e4a;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .cert-date { font-size: 11px; color: #aaa; }
+
+    /* ── SKILLS STRIP ── */
+    .skills-section { margin-top: 56px; }
+
+    .skills-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #2a2e4a;
+      margin-bottom: 18px;
+    }
+
+    .skills-strip {
+      background: #2a2e4a;
+      border-radius: 16px;
+      padding: 28px 32px;
+      display: flex;
+      gap: 40px;
+    }
+
+    .skills-group { flex: 1; }
+
+    .skills-group-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8a90b0;
+      margin-bottom: 12px;
+    }
+
+    .skills-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .skill-pill {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.1);
+      color: #edeae2;
+    }
+
+    @media (max-width: 780px) {
+      .certs-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 680px) {
+      body { padding: 100px 20px 60px; }
+      .nav-wrap { width: calc(100% - 40px); }
+      .page-header h1 { font-size: 38px; }
+      .exp-accent { width: 100%; height: 8px; }
+      .exp-card { flex-direction: column; }
+      .exp-logo-col { padding: 16px 24px; flex-direction: row; justify-content: flex-start; gap: 16px; }
+      .skills-strip { flex-direction: column; gap: 24px; }
+      .certs-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-wrap">
+    <nav>
+      <a href="index.html">home</a>
+      <a href="projects.html">projects</a>
+      <a href="experience.html" class="active">experience</a>
+      <div class="nav-dropdown-wrap">
+        <span class="nav-ec-trigger">extracurriculars</span>
+        <div class="nav-dropdown">
+          <a href="volunteering.html">volunteering</a>
+          <a href="multicultural.html">multicultural</a>
+          <a href="academic.html">academic</a>
+        </div>
+      </div>
+      <a href="contact.html">contact</a>
+    </nav>
+  </div>
+
+  <header class="page-header">
+    <h1>experience</h1>
+    <p>where i've worked and what i've built.</p>
+  </header>
+
+  <div class="exp-list">
+
+    <!-- NAVIANT -->
+    <div class="exp-card exp-naviant">
+      <div class="exp-accent"></div>
+      <div class="exp-logo-col">
+        <div class="exp-logo-circle">N</div>
+      </div>
+      <div class="exp-right">
+        <div>
+          <div class="exp-meta">
+            <div class="exp-role">Customer Solutions Engineer Intern · <span style="font-family:'DM Sans',sans-serif;font-size:14px;font-style:italic;color:#888;">Naviant</span></div>
+            <div class="exp-date">May – Aug 2026</div>
+          </div>
+          <ul class="exp-desc">
+            <li>Collaborate with technical and client-facing teams to analyze business workflows and identify process improvement opportunities.</li>
+            <li>Support automation and operational solutions by evaluating organizational processes and documenting technical requirements.</li>
+          </ul>
+        </div>
+        <div class="exp-tags">
+          <span class="tag">Process Improvement</span>
+          <span class="tag">Workflow Analysis</span>
+          <span class="tag">Automation</span>
+          <span class="tag">Technical Documentation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ASM -->
+    <div class="exp-card exp-asm">
+      <div class="exp-accent"></div>
+      <div class="exp-logo-col">
+        <div class="exp-logo-circle">A</div>
+      </div>
+      <div class="exp-right">
+        <div>
+          <div class="exp-meta">
+            <div class="exp-role">Administrative Associate · <span style="font-family:'DM Sans',sans-serif;font-size:14px;font-style:italic;color:#888;">Associated Students of Madison</span></div>
+            <div class="exp-date">Sep 2025 – Present</div>
+          </div>
+          <ul class="exp-desc">
+            <li>Managed financial data in Excel for 50+ student organizations, maintaining accurate bookkeeping and funding allocation for compliance and transparency.</li>
+            <li>Collaborated with university departments and student leaders to provide administrative guidance, strengthening communication and data documentation.</li>
+          </ul>
+        </div>
+        <div class="exp-tags">
+          <span class="tag">Excel</span>
+          <span class="tag">Financial Data</span>
+          <span class="tag">Bookkeeping</span>
+          <span class="tag">Stakeholder Communication</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESEARCH -->
+    <div class="exp-card exp-research">
+      <div class="exp-accent"></div>
+      <div class="exp-logo-col">
+        <div class="exp-logo-circle">R</div>
+      </div>
+      <div class="exp-right">
+        <div>
+          <div class="exp-meta">
+            <div class="exp-role">Undergraduate Research</div>
+            <div class="exp-date">Coming Soon</div>
+          </div>
+          <p class="exp-desc">Actively pursuing undergraduate research opportunities in statistics, economics, or data science.</p>
+          <div class="in-progress-badge">
+            <span class="dot"></span>
+            in progress
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CERTIFICATES -->
+  <div class="certs-section">
+    <div class="certs-label">certifications</div>
+    <div class="certs-grid">
+
+      <a class="cert-card" href="https://www.linkedin.com/in/louise-nguyen-607033267/" target="_blank" rel="noopener">
+        <div class="cert-icon" style="border-color:#4285F4; color:#4285F4;">G</div>
+        <div>
+          <div class="cert-issuer">Google</div>
+          <div class="cert-name">Gemini Certification for Students (K12)</div>
+          <div class="cert-date">Jun 2026 · Expires Jun 2029</div>
+        </div>
+      </a>
+
+      <a class="cert-card" href="https://www.linkedin.com/in/louise-nguyen-607033267/" target="_blank" rel="noopener">
+        <div class="cert-icon" style="border-color:#FA4616; color:#FA4616;">U</div>
+        <div>
+          <div class="cert-issuer">UiPath</div>
+          <div class="cert-name">Automation Business Analyst Associate Training</div>
+          <div class="cert-date">Jun 2026</div>
+        </div>
+      </a>
+
+      <a class="cert-card" href="https://www.linkedin.com/in/louise-nguyen-607033267/" target="_blank" rel="noopener">
+        <div class="cert-icon" style="border-color:#4285F4; color:#4285F4;">G</div>
+        <div>
+          <div class="cert-issuer">Google</div>
+          <div class="cert-name">Google Project Management</div>
+          <div class="cert-date">2026 · ID Q51XJ0VZG6KM</div>
+        </div>
+      </a>
+
+      <a class="cert-card" href="https://www.linkedin.com/in/louise-nguyen-607033267/" target="_blank" rel="noopener">
+        <div class="cert-icon" style="border-color:#4285F4; color:#4285F4;">G</div>
+        <div>
+          <div class="cert-issuer">Google</div>
+          <div class="cert-name">Accelerate Your Job Search with AI</div>
+          <div class="cert-date">May 2026 · ID XLLGMFZQ63N1</div>
+        </div>
+      </a>
+
+      <a class="cert-card" href="https://www.linkedin.com/in/louise-nguyen-607033267/" target="_blank" rel="noopener">
+        <div class="cert-icon" style="border-color:#00A4EF; color:#00A4EF;">M</div>
+        <div>
+          <div class="cert-issuer">Microsoft</div>
+          <div class="cert-name">Advanced Data Analysis & Visualization with Copilot in Excel</div>
+          <div class="cert-date">May 2026 · ID 0GSI5V9DCDID</div>
+        </div>
+      </a>
+
+      <a class="cert-card" href="https://www.linkedin.com/in/louise-nguyen-607033267/" target="_blank" rel="noopener">
+        <div class="cert-icon" style="border-color:#3d8c40; color:#3d8c40;">S</div>
+        <div>
+          <div class="cert-issuer">ServSafe</div>
+          <div class="cert-name">ServSafe Alcohol Certification</div>
+          <div class="cert-date">Jan 2026 · Expires Jan 2028</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- SKILLS STRIP -->
+  <div class="skills-section">
+    <div class="skills-label">skills</div>
+    <div class="skills-strip">
+      <div class="skills-group">
+        <div class="skills-group-title">Technical</div>
+        <div class="skills-pills">
+          <span class="skill-pill">R</span>
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">Pandas</span>
+          <span class="skill-pill">Matplotlib</span>
+          <span class="skill-pill">Excel</span>
+          <span class="skill-pill">ggplot2</span>
+          <span class="skill-pill">tidyverse</span>
+          <span class="skill-pill">Photoshop</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <div class="skills-group-title">Languages</div>
+        <div class="skills-pills">
+          <span class="skill-pill">English</span>
+          <span class="skill-pill">Spanish</span>
+          <span class="skill-pill">Vietnamese</span>
+          <span class="skill-pill">Korean</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <div class="skills-group-title">Competencies</div>
+        <div class="skills-pills">
+          <span class="skill-pill">Regression Analysis</span>
+          <span class="skill-pill">Predictive Modeling</span>
+          <span class="skill-pill">Data Cleaning</span>
+          <span class="skill-pill">Process Improvement</span>
+          <span class="skill-pill">Project Coordination</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
