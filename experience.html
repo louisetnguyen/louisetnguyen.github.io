@@ -82,10 +82,11 @@
       z-index: 200;
     }
     .nav-dropdown-wrap:hover .nav-dropdown {
-      opacity: 1;
-      pointer-events: all;
-      transform: translateX(-50%) translateY(0);
-    }
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(-50%) translateY(0);
+  transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
+}
     .nav-dropdown a {
       text-decoration: none;
       font-size: 13px;
