@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academic — Louise Nguyen</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #edeae2;
+      font-family: 'DM Sans', sans-serif;
+      color: #2a2e4a;
+      min-height: 100vh;
+      padding: 120px 40px 80px;
+    }
+
+    /* ── NAV ── */
+    .nav-wrap {
+      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+      z-index: 100; width: calc(100% - 80px); max-width: 900px;
+    }
+    nav {
+      background: white; border: 1.5px solid #2a2e4a; border-radius: 40px;
+      padding: 10px 20px; display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    nav a { text-decoration: none; font-size: 14px; color: #2a2e4a; padding: 6px 18px; border-radius: 20px; }
+    nav a.active { color: white; background: #2a2e4a; font-weight: 500; }
+    .nav-dropdown-wrap { position: relative; display: inline-flex; align-items: center; }
+    .nav-ec-trigger { font-size: 14px; color: #2a2e4a; padding: 6px 18px; border-radius: 20px; cursor: default; user-select: none; white-space: nowrap; }
+    .nav-ec-trigger.active { background: #2a2e4a; color: white; font-weight: 500; }
+    .nav-dropdown {
+      position: absolute; top: calc(100% + 10px); left: 50%;
+      transform: translateX(-50%) translateY(-4px);
+      background: white; border: 1.5px solid #2a2e4a; border-radius: 14px;
+      padding: 6px; display: flex; flex-direction: column; gap: 2px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      white-space: nowrap; min-width: 150px; z-index: 200;
+    }
+    .nav-dropdown-wrap:hover .nav-dropdown { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+    .nav-dropdown a { text-decoration: none; font-size: 13px; color: #2a2e4a; padding: 8px 14px; border-radius: 10px; display: block; transition: background 0.1s; }
+    .nav-dropdown a:hover { background: #edeae2; }
+    .nav-dropdown a.active { background: #2a2e4a; color: white; font-weight: 500; }
+
+    /* ── PAGE HEADER ── */
+    .page-header { margin-bottom: 56px; }
+    .page-header h1 { font-family: 'DM Serif Display', serif; font-size: 52px; font-weight: 400; line-height: 1.1; }
+    .page-header p { margin-top: 10px; font-size: 16px; color: #666; font-style: italic; }
+
+    /* ── SHARED TAG ── */
+    .tag { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 20px; background: rgba(42,46,74,0.08); color: #2a2e4a; }
+
+    /* ── ACADEMIC CARD LIST ── */
+    .acad-list { display: flex; flex-direction: column; gap: 28px; }
+
+    .acad-card {
+      background: #faf9f6;
+      border: 1.5px solid #2a2e4a;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .acad-header-band {
+      background: #4a7f8c;
+      padding: 28px 32px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .acad-header-band h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: white;
+    }
+
+    .acad-header-band p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      margin-top: 6px;
+      line-height: 1.6;
+    }
+
+    .acad-date-badge {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      flex-shrink: 0;
+    }
+
+    /* inactive / past card */
+    .acad-card-past .acad-header-band {
+      background: #8a8f9e;
+    }
+
+    .acad-body {
+      padding: 24px 32px;
+    }
+
+    .acad-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #3d4460;
+      margin-bottom: 16px;
+    }
+
+    .acad-desc li { margin-left: 18px; margin-bottom: 4px; }
+
+    .acad-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    /* certificate placeholder */
+    .cert-placeholder {
+      border: 1.5px dashed rgba(42,46,74,0.25);
+      border-radius: 14px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(42,46,74,0.03);
+      margin-top: 4px;
+    }
+
+    .cert-placeholder-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: rgba(42,46,74,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(42,46,74,0.3);
+      flex-shrink: 0;
+    }
+
+    .cert-placeholder-text {}
+    .cert-placeholder-title { font-size: 13px; font-weight: 600; color: #2a2e4a; }
+    .cert-placeholder-hint { font-size: 11px; color: #aaa; margin-top: 2px; }
+
+    /* in-progress badge */
+    .in-progress-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 600; color: #2a2e4a;
+      background: rgba(42,46,74,0.1); padding: 5px 12px;
+      border-radius: 20px; width: fit-content;
+    }
+    .dot {
+      width: 6px; height: 6px; background: #2a2e4a; border-radius: 50%;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    .past-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 600; color: #888;
+      background: rgba(42,46,74,0.06); padding: 5px 12px;
+      border-radius: 20px; width: fit-content;
+    }
+
+    @media (max-width: 680px) {
+      body { padding: 100px 20px 60px; }
+      .nav-wrap { width: calc(100% - 40px); }
+      .page-header h1 { font-size: 38px; }
+      .acad-header-band { flex-direction: column; padding: 20px; }
+      .acad-body { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-wrap">
+    <nav>
+      <a href="index.html">home</a>
+      <a href="projects.html">projects</a>
+      <a href="experience.html">experience</a>
+      <div class="nav-dropdown-wrap">
+        <span class="nav-ec-trigger active">extracurriculars</span>
+        <div class="nav-dropdown">
+          <a href="volunteering.html">volunteering</a>
+          <a href="multicultural.html">multicultural</a>
+          <a href="academic.html" class="active">academic</a>
+        </div>
+      </div>
+      <a href="contact.html">contact</a>
+    </nav>
+  </div>
+
+  <header class="page-header">
+    <h1>academic</h1>
+    <p>clubs and organizations where i merged passion with purpose.</p>
+  </header>
+
+  <div class="acad-list">
+
+    <!-- ECONOMICS INCLUSION BOARD (current — first) -->
+    <div class="acad-card">
+      <div class="acad-header-band">
+        <div>
+          <h2>Economics Inclusion Board</h2>
+          <p>Working to make the economics department at UW–Madison more accessible, representative, and welcoming for all students.</p>
+        </div>
+        <div class="acad-date-badge">Present</div>
+      </div>
+      <div class="acad-body">
+        <p class="acad-desc">Details and description coming soon.</p>
+        <div class="acad-tags">
+          <span class="tag">Diversity & Inclusion</span>
+          <span class="tag">Economics</span>
+          <span class="tag">Student Advocacy</span>
+        </div>
+        <div class="in-progress-badge">
+          <span class="dot"></span>
+          in progress
+        </div>
+      </div>
+    </div>
+
+    <!-- LEAD @ eCON (past) -->
+    <div class="acad-card acad-card-past">
+      <div class="acad-header-band">
+        <div>
+          <h2>Lead @ eCON</h2>
+          <p>A now-defunct leadership and economics organization at UW–Madison focused on developing the next generation of economist-leaders.</p>
+        </div>
+        <div class="acad-date-badge">Past</div>
+      </div>
+      <div class="acad-body">
+        <p class="acad-desc">Description placeholder — add your role, what you did, and what you gained from this experience.</p>
+        <div class="acad-tags">
+          <span class="tag">Leadership</span>
+          <span class="tag">Economics</span>
+          <span class="tag">Professional Development</span>
+        </div>
+        <div class="cert-placeholder">
+          <div class="cert-placeholder-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h6"/><circle cx="16" cy="15" r="2"/><path d="M16 17v3l1.5-1 1.5 1v-3"/></svg>
+          </div>
+          <div class="cert-placeholder-text">
+            <div class="cert-placeholder-title">Lead @ eCON Certificate</div>
+            <div class="cert-placeholder-hint">add certificate image or file link here</div>
+          </div>
+        </div>
+        <br>
+        <div class="past-badge">✦ no longer active</div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
