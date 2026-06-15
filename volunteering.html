@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Volunteering — Louise Nguyen</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #edeae2;
+      font-family: 'DM Sans', sans-serif;
+      color: #2a2e4a;
+      min-height: 100vh;
+      padding: 120px 40px 80px;
+    }
+
+    /* ── NAV ── */
+    .nav-wrap {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: calc(100% - 80px);
+      max-width: 900px;
+    }
+    nav {
+      background: white;
+      border: 1.5px solid #2a2e4a;
+      border-radius: 40px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    nav a {
+      text-decoration: none;
+      font-size: 14px;
+      color: #2a2e4a;
+      padding: 6px 18px;
+      border-radius: 20px;
+    }
+    nav a.active { color: white; background: #2a2e4a; font-weight: 500; }
+    .nav-dropdown-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+    .nav-ec-trigger {
+      font-size: 14px;
+      color: #2a2e4a;
+      padding: 6px 18px;
+      border-radius: 20px;
+      cursor: default;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .nav-ec-trigger.active { background: #2a2e4a; color: white; font-weight: 500; }
+    .nav-dropdown {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-4px);
+      background: white;
+      border: 1.5px solid #2a2e4a;
+      border-radius: 14px;
+      padding: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      white-space: nowrap;
+      min-width: 150px;
+      z-index: 200;
+    }
+    .nav-dropdown-wrap:hover .nav-dropdown {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown a {
+      text-decoration: none;
+      font-size: 13px;
+      color: #2a2e4a;
+      padding: 8px 14px;
+      border-radius: 10px;
+      display: block;
+      transition: background 0.1s;
+    }
+    .nav-dropdown a:hover { background: #edeae2; }
+    .nav-dropdown a.active { background: #2a2e4a; color: white; font-weight: 500; }
+
+    /* ── PAGE HEADER ── */
+    .page-header { margin-bottom: 56px; }
+    .page-header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 52px;
+      font-weight: 400;
+      line-height: 1.1;
+    }
+    .page-header p {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #666;
+      font-style: italic;
+    }
+
+    /* ── VOLUNTEER CARDS ── */
+    .vol-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .vol-card {
+      background: #faf9f6;
+      border: 1.5px solid #2a2e4a;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .vol-card-header {
+      padding: 28px 32px 20px;
+      border-bottom: 1px solid rgba(42,46,74,0.1);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .vol-header-left { flex: 1; }
+
+    .vol-org-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c97070;
+      margin-bottom: 6px;
+    }
+
+    .vol-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: #2a2e4a;
+      margin-bottom: 10px;
+    }
+
+    .vol-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #3d4460;
+    }
+
+    .vol-desc li { margin-left: 18px; margin-bottom: 4px; }
+
+    .vol-date {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #999;
+      white-space: nowrap;
+      flex-shrink: 0;
+      padding-top: 4px;
+    }
+
+    .vol-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: rgba(42,46,74,0.08);
+      color: #2a2e4a;
+    }
+
+    /* ── PHOTO GRID ── */
+    .vol-photos {
+      padding: 24px 32px;
+    }
+
+    .vol-photos-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 14px;
+    }
+
+    .photo-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .photo-slot { display: flex; flex-direction: column; gap: 8px; }
+
+    .photo-box {
+      aspect-ratio: 1;
+      border-radius: 14px;
+      border: 1.5px dashed rgba(42,46,74,0.25);
+      background: rgba(42,46,74,0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: rgba(42,46,74,0.3);
+      overflow: hidden; /* for real imgs */
+    }
+
+    .photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .photo-box svg { flex-shrink: 0; }
+
+    .photo-box-hint {
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .photo-caption {
+      font-size: 12px;
+      color: #888;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* ── PLACEHOLDER CARD (Animal Shelters) ── */
+    .vol-card-placeholder {
+      border-style: dashed;
+      opacity: 0.65;
+    }
+
+    .vol-card-placeholder .vol-org-label { color: #c97070; }
+
+    .in-progress-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #2a2e4a;
+      background: rgba(42,46,74,0.1);
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-top: 14px;
+      width: fit-content;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      background: #2a2e4a;
+      border-radius: 50%;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    @media (max-width: 680px) {
+      body { padding: 100px 20px 60px; }
+      .nav-wrap { width: calc(100% - 40px); }
+      .page-header h1 { font-size: 38px; }
+      .vol-card-header { flex-direction: column; }
+      .photo-grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .vol-photos, .vol-card-header { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-wrap">
+    <nav>
+      <a href="index.html">home</a>
+      <a href="projects.html">projects</a>
+      <a href="experience.html">experience</a>
+      <div class="nav-dropdown-wrap">
+        <span class="nav-ec-trigger active">extracurriculars</span>
+        <div class="nav-dropdown">
+          <a href="volunteering.html" class="active">volunteering</a>
+          <a href="multicultural.html">multicultural</a>
+          <a href="academic.html">academic</a>
+        </div>
+      </div>
+      <a href="contact.html">contact</a>
+    </nav>
+  </div>
+
+  <header class="page-header">
+    <h1>volunteering</h1>
+    <p>giving back to the communities that shaped me.</p>
+  </header>
+
+  <div class="vol-list">
+
+    <!-- APO -->
+    <div class="vol-card">
+      <div class="vol-card-header">
+        <div class="vol-header-left">
+          <div class="vol-org-label">Alpha Phi Omega</div>
+          <div class="vol-title">National Service Fraternity</div>
+          <ul class="vol-desc">
+            <li>Contributed to cross-campus and community service initiatives delivering 30+ volunteer hours across 5+ civic engagement and student well-being projects.</li>
+            <li>Participated in career development webinars on AI and data ethics, connecting professional growth with community impact.</li>
+          </ul>
+          <div class="vol-tags">
+            <span class="tag">Community Service</span>
+            <span class="tag">Civic Engagement</span>
+            <span class="tag">Leadership</span>
+            <span class="tag">Student Well-being</span>
+          </div>
+        </div>
+        <div class="vol-date">Sep 2025 – Present</div>
+      </div>
+      <div class="vol-photos">
+        <div class="vol-photos-label">moments</div>
+        <div class="photo-grid-3">
+          <div class="photo-slot">
+            <div class="photo-box">
+              <img src="apo-rakeathon.jpg" alt="Habitat for Humanity Rake-a-thon">
+            </div>
+            <div class="photo-caption">Habitat for Humanity Rake-a-thon</div>
+          </div>
+          <div class="photo-slot">
+            <div class="photo-box">
+              <img src="apo-challahbration.jpg" alt="Challahbration">
+            </div>
+            <div class="photo-caption">Challahbration</div>
+          </div>
+          <div class="photo-slot">
+            <div class="photo-box">
+              <img src="apo-slowfoods.jpg" alt="Slow Foods Volunteering">
+            </div>
+            <div class="photo-caption">Slow Foods Volunteering</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANIMAL SHELTERS (placeholder) -->
+    <div class="vol-card vol-card-placeholder">
+      <div class="vol-card-header">
+        <div class="vol-header-left">
+          <div class="vol-org-label">Animal Shelters</div>
+          <div class="vol-title">Shelter Volunteering</div>
+          <p class="vol-desc">Details coming soon — actively involved in local animal shelter volunteer work.</p>
+          <div class="in-progress-badge">
+            <span class="dot"></span>
+            coming soon
+          </div>
+        </div>
+        <div class="vol-date">TBD</div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
