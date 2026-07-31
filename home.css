@@ -84,12 +84,12 @@ body.home-page img {
 }
 
 .hero-writing h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(5rem, 10vw, 10rem);
+    font-weight: 400;
+    line-height: 0.82;
+    letter-spacing: -0.06em;
     margin: 0;
-    font-family: "Schoolbell", cursive !important;
-    font-style: normal !important;
-    font-weight: 400 !important;
-    line-height: 0.76;
-    letter-spacing: -0.075em;
 }
 
 .tiny-line {
