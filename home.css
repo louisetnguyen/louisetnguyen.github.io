@@ -23,9 +23,11 @@ body.home-page img {
     max-width: 100%;
 }
 
-.handwriting {
+    .handwriting {
     font-family: "Caveat", cursive;
+    font-weight: 600;
 }
+
 
 /* NAVIGATION */
 
