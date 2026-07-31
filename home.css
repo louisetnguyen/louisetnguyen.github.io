@@ -827,3 +827,559 @@ body.home-page img {
         gap: 15px;
     }
 }
+
+/* ============================================================
+   PROJECTS V2 — ISOLATED FROM OLD PROJECT STYLES
+============================================================ */
+
+.projects-v2-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.project-v2-card {
+    min-height: 570px;
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: #efede7;
+    border-top: 1px solid #111111;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.project-v2-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.project-v2-top {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 10px;
+}
+
+.project-v2-card > h3 {
+    margin: 40px 0 30px;
+
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(42px, 4vw, 65px);
+    font-weight: 400;
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+}
+
+.project-v2-card > p {
+    margin: 17px 0 0;
+
+    font-size: 8px;
+    letter-spacing: 0.08em;
+}
+
+.project-v2-visual {
+    position: relative !important;
+
+    width: 100% !important;
+    height: 300px !important;
+    min-height: 300px !important;
+
+    margin-top: auto;
+
+    overflow: hidden;
+}
+
+
+/* SPOTIFY */
+
+.spotify-v2 {
+    background: #1db954;
+}
+
+.spotify-v2::after {
+    content: "";
+
+    position: absolute;
+    inset: 16px;
+
+    border: 1px solid rgba(17, 17, 17, 0.3);
+}
+
+.spotify-v2-label {
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    z-index: 2;
+
+    padding: 13px 15px;
+
+    background: #f3ce3e;
+
+    font-size: 10px;
+    line-height: 1.5;
+    letter-spacing: 0.08em;
+
+    transform: rotate(-5deg);
+}
+
+.spotify-v2-record {
+    position: absolute;
+    top: 32px;
+    right: 38px;
+
+    width: 145px;
+    height: 145px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background:
+        repeating-radial-gradient(
+            circle,
+            #171717 0,
+            #171717 8px,
+            #282828 9px,
+            #282828 12px
+        );
+}
+
+.spotify-v2-record div {
+    width: 34px;
+    height: 34px;
+
+    border: 7px solid #171717;
+    border-radius: 50%;
+    background: #f3ce3e;
+}
+
+.spotify-v2-wave {
+    position: absolute;
+    left: 40px;
+    bottom: 35px;
+
+    height: 110px;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.spotify-v2-wave span {
+    width: 10px;
+
+    border-radius: 10px;
+    background: #111111;
+}
+
+.spotify-v2-wave span:nth-child(1) { height: 30px; }
+.spotify-v2-wave span:nth-child(2) { height: 65px; }
+.spotify-v2-wave span:nth-child(3) { height: 100px; }
+.spotify-v2-wave span:nth-child(4) { height: 52px; }
+.spotify-v2-wave span:nth-child(5) { height: 83px; }
+.spotify-v2-wave span:nth-child(6) { height: 110px; }
+.spotify-v2-wave span:nth-child(7) { height: 44px; }
+
+
+/* ECONOMICS */
+
+.economics-v2 {
+    background-color: #e4ebf3;
+
+    background-image:
+        linear-gradient(rgba(64, 91, 137, 0.13) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(64, 91, 137, 0.13) 1px, transparent 1px);
+
+    background-size: 42px 42px;
+}
+
+.economics-v2-chart {
+    position: absolute;
+    inset: 35px 35px 75px;
+
+    border-left: 2px solid #111111;
+    border-bottom: 2px solid #111111;
+}
+
+.economics-v2-chart .dot {
+    position: absolute;
+
+    width: 16px;
+    height: 16px;
+
+    border: 3px solid #e4ebf3;
+    border-radius: 50%;
+    background: #315fa9;
+}
+
+.economics-v2-chart .d1 {
+    left: 10%;
+    bottom: 17%;
+}
+
+.economics-v2-chart .d2 {
+    left: 26%;
+    bottom: 36%;
+}
+
+.economics-v2-chart .d3 {
+    left: 42%;
+    bottom: 32%;
+}
+
+.economics-v2-chart .d4 {
+    left: 57%;
+    bottom: 58%;
+}
+
+.economics-v2-chart .d5 {
+    left: 73%;
+    bottom: 68%;
+}
+
+.economics-v2-chart .d6 {
+    left: 88%;
+    bottom: 83%;
+}
+
+.economics-v2-line {
+    position: absolute;
+    left: 5%;
+    bottom: 18%;
+
+    width: 91%;
+    height: 4px;
+
+    background: #e15745;
+
+    transform: rotate(-31deg);
+    transform-origin: left center;
+}
+
+.economics-v2-note {
+    position: absolute;
+    right: 28px;
+    bottom: 20px;
+
+    font-size: 20px;
+    line-height: 1;
+    text-align: right;
+}
+
+
+/* COGGY */
+
+.coggy-v2 {
+    background: #ddd7cb;
+}
+
+.coggy-v2-phone {
+    position: absolute;
+    top: 20px;
+    left: 15%;
+
+    width: 155px;
+    height: 285px;
+    padding: 38px 16px 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #fafaf8;
+    border: 6px solid #151515;
+    border-radius: 34px;
+
+    box-shadow: 0 14px 25px rgba(0, 0, 0, 0.17);
+
+    transform: rotate(-8deg);
+}
+
+.coggy-v2-speaker {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+
+    width: 40px;
+    height: 8px;
+
+    border-radius: 10px;
+    background: #151515;
+
+    transform: translateX(-50%);
+}
+
+.coggy-v2-phone strong {
+    font-size: 18px;
+}
+
+.coggy-v2-phone small {
+    margin: 2px 0 17px;
+
+    color: #777777;
+    font-size: 7px;
+}
+
+.coggy-v2-task {
+    padding: 11px 0;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    border-bottom: 1px solid #d8d8d8;
+
+    font-size: 8px;
+}
+
+.coggy-v2-task span {
+    width: 9px;
+    height: 9px;
+
+    flex-shrink: 0;
+
+    border: 1px solid #111111;
+    border-radius: 50%;
+}
+
+.coggy-v2-note {
+    position: absolute;
+    right: 28px;
+    bottom: 30px;
+
+    padding: 17px;
+
+    background: #f3ce3e;
+
+    font-size: 22px;
+    line-height: 0.95;
+
+    transform: rotate(4deg);
+}
+
+
+/* RESEARCH */
+
+.research-v2 {
+    background: #d9c7e3;
+}
+
+.research-v2-paper {
+    position: absolute;
+    top: 28px;
+    left: 28px;
+
+    width: 64%;
+    min-height: 195px;
+    padding: 27px;
+
+    background:
+        repeating-linear-gradient(
+            #f5f1e8 0,
+            #f5f1e8 29px,
+            #c9d8e7 30px
+        );
+
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+
+    transform: rotate(-2deg);
+}
+
+.research-v2-paper small,
+.research-v2-note small {
+    display: block;
+
+    margin-bottom: 16px;
+
+    font-family: Arial, sans-serif;
+    font-size: 7px;
+    letter-spacing: 0.09em;
+}
+
+.research-v2-paper strong {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 29px;
+    line-height: 0.95;
+}
+
+.research-v2-paper p {
+    margin: 18px 0 0;
+
+    font-size: 18px;
+}
+
+.research-v2-note {
+    position: absolute;
+    right: 24px;
+    bottom: 22px;
+
+    width: 48%;
+    padding: 20px;
+
+    background: #f3ce3e;
+
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+
+    transform: rotate(3deg);
+}
+
+.research-v2-note strong {
+    font-size: 20px;
+    line-height: 1;
+}
+
+
+/* ============================================================
+   ABOUT V2
+============================================================ */
+
+.about-v2 {
+    align-items: start;
+}
+
+.about-v2-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.about-v2-card {
+    min-height: 225px;
+    padding: 27px;
+
+    overflow: hidden;
+}
+
+.about-v2-label {
+    display: block;
+
+    margin-bottom: 23px;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+}
+
+.about-v2-card h3 {
+    margin: 0;
+
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(24px, 2.1vw, 34px);
+    font-weight: 400;
+    line-height: 1.04;
+}
+
+.about-v2-photo {
+    padding: 12px 12px 32px;
+
+    background: #ffffff;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.about-v2-photo img {
+    width: 100%;
+    height: 180px;
+
+    object-fit: cover;
+}
+
+.about-v2-photo p {
+    margin: 9px 0 0;
+
+    font-size: 22px;
+    text-align: center;
+}
+
+.about-v2-facts {
+    background: #ebe5d8;
+}
+
+.about-v2-facts ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.about-v2-facts li {
+    margin: 11px 0;
+
+    font-size: 13px;
+}
+
+.about-v2-facts li::before {
+    content: "✦";
+    margin-right: 8px;
+}
+
+.about-v2-green {
+    background: #50724d;
+}
+
+.about-v2-blue {
+    background: #9dbce1;
+}
+
+.about-v2-yellow {
+    background: #f1ca43;
+}
+
+.about-v2-yellow p {
+    margin: 20px 0 0;
+
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.about-v2-purple {
+    background: #dec4e8;
+}
+
+.about-v2-purple h3 {
+    font-size: 33px;
+}
+
+.about-v2-purple p {
+    margin: 22px 0 0;
+
+    font-size: 21px;
+}
+
+
+/* BUTTON FIX */
+
+.editorial-button,
+.editorial-button span {
+    color: #ffffff !important;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .projects-v2-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-v2-card {
+        min-height: 540px;
+    }
+}
+
+@media (max-width: 700px) {
+    .project-v2-visual {
+        height: 280px !important;
+        min-height: 280px !important;
+    }
+
+    .about-v2-grid {
+        grid-template-columns: 1fr;
+    }
+}
