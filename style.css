@@ -31,7 +31,7 @@ body {
 
 @font-face {
     font-family: "Estie Bestie";
-    src: url("fonts/EstieBestieRegular-R9elW.ttf") format("truetype");
+    src: url("EstieBestieRegular-R9elW.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
