@@ -29,6 +29,14 @@ body {
     line-height: 1.6;
 }
 
+@font-face {
+    font-family: "Estie Bestie";
+    src: url("fonts/EstieBestieRegular-R9elW.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* ======================== LAYOUT & CONTAINERS ======================== */
 .container {
     display: grid;
