@@ -1,406 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects — Louise Nguyen</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: #edeae2;
-      font-family: 'DM Sans', sans-serif;
-      color: #2a2e4a;
-      min-height: 100vh;
-      padding: 120px 40px 80px;
-    }
+    <meta charset="UTF-8">
 
-    /* ── STICKY NAV ── */
-    .nav-wrap {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 100;
-      width: calc(100% - 80px);
-      max-width: 900px;
-    }
-    nav {
-      background: white;
-      border: 1.5px solid #2a2e4a;
-      border-radius: 40px;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-    nav a {
-      text-decoration: none;
-      font-size: 14px;
-      color: #2a2e4a;
-      padding: 6px 18px;
-      border-radius: 20px;
-    }
-    nav a.active {
-      color: white;
-      background: #2a2e4a;
-      font-weight: 500;
-    }
-    /* ── EXTRACURRICULARS DROPDOWN ── */
-    .nav-dropdown-wrap {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-    }
-    .nav-ec-trigger {
-      font-size: 14px;
-      color: #2a2e4a;
-      padding: 6px 18px;
-      border-radius: 20px;
-      cursor: default;
-      user-select: none;
-      font-family: 'DM Sans', sans-serif;
-      white-space: nowrap;
-    }
-    .nav-ec-trigger.active { background: #2a2e4a; color: white; font-weight: 500; }
-    .nav-dropdown {
-      position: absolute;
-      top: calc(100% + 10px);
-      left: 50%;
-      transform: translateX(-50%) translateY(-4px);
-      background: white;
-      border: 1.5px solid #2a2e4a;
-      border-radius: 14px;
-      padding: 6px;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
-      white-space: nowrap;
-      min-width: 150px;
-      z-index: 200;
-    }
-    .nav-dropdown::before {
-      content: '';
-      position: absolute;
-      top: -12px;
-      left: 0;
-      right: 0;
-      height: 12px;
-    }
-    .nav-dropdown-wrap:hover .nav-dropdown {
-      opacity: 1;
-      pointer-events: all;
-      transform: translateX(-50%) translateY(0);
-      transition: opacity 0.15s ease 0s, transform 0.15s ease 0s;
-    }
-    .nav-dropdown a {
-      text-decoration: none;
-      font-size: 13px;
-      color: #2a2e4a;
-      padding: 8px 14px;
-      border-radius: 10px;
-      display: block;
-      transition: background 0.1s;
-      font-weight: 400;
-    }
-    .nav-dropdown a:hover { background: #edeae2; }
-    .nav-dropdown a.active { background: #2a2e4a; color: white; font-weight: 500; }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .page-header {
-      margin-bottom: 56px;
-    }
-    .page-header h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 52px;
-      font-weight: 400;
-      line-height: 1.1;
-      color: #2a2e4a;
-    }
-    .page-header p {
-      margin-top: 10px;
-      font-size: 16px;
-      color: #666;
-      font-style: italic;
-    }
-    /* ── SECTION WRAPPERS ── */
-    .section {
-      margin-bottom: 56px;
-    }
-    .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-    /* ── PERSONAL — sage green, horizontal card ── */
-    .section-personal .section-label { color: #4a7c59; }
-    .personal-card {
-      background: #d4e6d0;
-      border: 1.5px solid #2a2e4a;
-      border-radius: 16px;
-      padding: 28px 32px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 24px;
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-    .personal-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(42, 46, 74, 0.12);
-    }
-    .personal-card-body { flex: 1; }
-    .personal-card-date {
-      font-size: 11px;
-      font-weight: 500;
-      color: #4a7c59;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 8px;
-    }
-    .personal-card h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 26px;
-      font-weight: 400;
-      color: #2a2e4a;
-      margin-bottom: 10px;
-    }
-    .personal-card p {
-      font-size: 14px;
-      line-height: 1.65;
-      color: #3d4460;
-    }
-    .personal-card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 16px;
-    }
-    .tag {
-      font-size: 11px;
-      font-weight: 500;
-      padding: 4px 10px;
-      border-radius: 20px;
-      background: rgba(42, 46, 74, 0.1);
-      color: #2a2e4a;
-    }
-    .personal-card-arrow {
-      font-size: 24px;
-      color: #2a2e4a;
-      align-self: center;
-      flex-shrink: 0;
-      opacity: 0.5;
-    }
-    /* ── ACADEMIC — dusty blue ── */
-    .section-academic .section-label { color: #4a6080; }
-    .academic-card {
-      background: #7a96b8;
-      border-radius: 16px;
-      padding: 28px 32px;
-      text-decoration: none;
-      color: white;
-      display: block;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-    .academic-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(42, 46, 74, 0.18);
-    }
-    .academic-card-date {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #ddeaf5;
-      margin-bottom: 8px;
-    }
-    .academic-card h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 26px;
-      font-weight: 400;
-      color: white;
-      margin-bottom: 10px;
-    }
-    .academic-card p {
-      font-size: 14px;
-      line-height: 1.65;
-      color: #ddeaf5;
-    }
-    .academic-card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 16px;
-    }
-    .academic-card .tag {
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
-    }
-    .academic-card-footer {
-      margin-top: 16px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      color: #c8d9ec;
-      font-weight: 500;
-    }
-    /* ── PROFESSIONAL — warm yellow ── */
-    .section-professional .section-label { color: #8a6c00; }
-    .professional-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .pro-card {
-      background: #f0c842;
-      border: 1.5px solid #2a2e4a;
-      border-radius: 16px;
-      padding: 28px 28px;
-      min-height: 180px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .pro-card-company {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #8a6c00;
-      margin-bottom: 8px;
-    }
-    .pro-card h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 22px;
-      font-weight: 400;
-      color: #2a2e4a;
-    }
-    .pro-card-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      font-weight: 600;
-      color: #2a2e4a;
-      background: rgba(42, 46, 74, 0.12);
-      padding: 5px 12px;
-      border-radius: 20px;
-      margin-top: 16px;
-      width: fit-content;
-    }
-    .dot {
-      width: 6px;
-      height: 6px;
-      background: #2a2e4a;
-      border-radius: 50%;
-      animation: pulse 1.8s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-    @media (max-width: 600px) {
-      body { padding: 100px 20px 60px; }
-      .nav-wrap { width: calc(100% - 40px); }
-      .page-header h1 { font-size: 38px; }
-      .personal-card { flex-direction: column; }
-      .professional-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+    <meta
+        name="description"
+        content="Projects by Louise Nguyen — statistics, economics, research, data, and human-centered problem solving."
+    >
+
+    <title>Projects | Louise Nguyen</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="projects.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Schoolbell&display=swap"
+        rel="stylesheet"
+    >
 </head>
-<body>
-  <div class="nav-wrap">
-    <nav>
-      <a href="index.html">home</a>
-      <a href="projects.html" class="active">projects</a>
-      <a href="experience.html">experience</a>
-      <div class="nav-dropdown-wrap">
-        <span class="nav-ec-trigger">extracurriculars</span>
-        <div class="nav-dropdown">
-          <a href="volunteering.html">volunteering</a>
-          <a href="multicultural.html">multicultural</a>
-          <a href="academic.html">academic</a>
-        </div>
-      </div>
-      <a href="mailto:louisetnguyen1@gmail.com">contact</a>
-    </nav>
-  </div>
 
-  <header class="page-header">
-    <h1>projects</h1>
-    <p>a collection of projects i've accumulated!</p>
-  </header>
+<body class="projects-page">
 
-  <!-- PERSONAL -->
-  <section class="section section-personal">
-    <div class="section-label">personal</div>
-    <a class="personal-card" href="https://rpubs.com/louisetnguyen/1354514" target="_blank" rel="noopener">
-      <div class="personal-card-body">
-        <div class="personal-card-date">October 2025</div>
-        <h2>Spotify × Economics</h2>
-        <p>Investigated the relationship between music popularity and economic sentiment by combining Spotify's Top 100 Songs of 2017 with the UMichigan Consumer Sentiment Index. Used R and ggplot2 to clean, transform, and merge datasets.</p>
-        <div class="personal-card-tags">
-          <span class="tag">R</span>
-          <span class="tag">ggplot2</span>
-          <span class="tag">independent analysis</span>
-        </div>
-      </div>
-      <div class="personal-card-arrow">→</div>
-    </a>
-  </section>
+    <!-- NAVIGATION -->
+    <header class="editorial-header">
+        <a class="editorial-logo" href="index.html">
+            LN
+        </a>
 
-  <!-- ACADEMIC -->
-  <section class="section section-academic">
-    <div class="section-label">academic</div>
-    <a class="academic-card" href="https://github.com/louisetnguyen/stat240proj/blob/main/chichu.html" target="_blank" rel="noopener">
-      <div class="academic-card-date">November 2025</div>
-      <h2>Applied Economic & Demographic Data Analysis</h2>
-      <p>Analyzed large-scale datasets (U.S. Census; 48k+ observations) to examine relationships between economic status and inequality. Cleaned and visualized data using R (tidyverse, ggplot2). Applied proportions-based inferences including confidence intervals and hypothesis tests.</p>
-      <div class="academic-card-tags">
-        <span class="tag">R</span>
-        <span class="tag">ggplot2</span>
-        <span class="tag">tidyverse</span>
-      </div>
-      <div class="academic-card-footer">
-        <span>view on github</span>
-        <span>→</span>
-      </div>
-    </a>
-  </section>
+        <nav class="editorial-nav">
+            <a href="index.html">home</a>
+            <a href="projects.html" class="active">projects</a>
+            <a href="experience.html">experience</a>
+            <a href="extracurriculars.html">extracurriculars</a>
+            <a href="contact.html">contact</a>
+        </nav>
+    </header>
 
-  <!-- PROFESSIONAL -->
-  <section class="section section-professional">
-    <div class="section-label">professional</div>
-    <div class="professional-grid">
-      <div class="pro-card">
-        <div>
-          <div class="pro-card-company">MRA</div>
-          <h2>MRA Surveys</h2>
-        </div>
-        <div class="pro-card-status">
-          <span class="dot"></span>
-          in progress
-        </div>
-      </div>
-      <div class="pro-card">
-        <div>
-          <div class="pro-card-company">Wick Buildings</div>
-          <h2>Wick Buildings</h2>
-        </div>
-        <div class="pro-card-status">
-          <span class="dot"></span>
-          in progress
-        </div>
-      </div>
-    </div>
-  </section>
+
+    <main class="projects-main">
+
+        <!-- PAGE INTRO -->
+        <section class="projects-hero">
+
+            <div class="projects-hero-left">
+                <p class="projects-eyebrow">SELECTED WORK</p>
+
+                <h1>projects<span>.</span></h1>
+            </div>
+
+            <div class="projects-hero-right">
+                <p>
+                    A collection of things I've researched, analyzed,
+                    built, questioned, and occasionally obsessed over.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- PROJECTS -->
+        <section class="projects-v2">
+
+            <!-- PERSONAL -->
+            <div class="projects-section-header">
+                <span>01</span>
+                <h2>Personal</h2>
+                <p>Curiosity outside the classroom.</p>
+            </div>
+
+
+            <div class="projects-v2-grid">
+
+                <article class="project-v2-card project-featured">
+
+                    <div class="project-v2-top">
+                        <span class="project-number">01</span>
+                        <span class="project-type">INDEPENDENT ANALYSIS</span>
+                    </div>
+
+                    <div class="project-v2-content">
+                        <p class="project-date">OCTOBER 2025</p>
+
+                        <h3>Spotify × Economics</h3>
+
+                        <p class="project-summary">
+                            Investigated the relationship between music popularity
+                            and economic sentiment by combining Spotify's Top 100 Songs
+                            of 2017 with the University of Michigan Consumer Sentiment Index.
+                        </p>
+                    </div>
+
+                    <div class="project-tags">
+                        <span>R</span>
+                        <span>ggplot2</span>
+                        <span>data analysis</span>
+                    </div>
+
+
+                    <!-- HOVER -->
+                    <div class="project-hover-info">
+
+                        <p class="project-hover-date">
+                            PERSONAL / OCTOBER 2025
+                        </p>
+
+                        <p>
+                            Can the music people listen to tell us anything
+                            about how they feel about the economy?
+                        </p>
+
+                        <a href="#" class="project-hover-link">
+                            EXPLORE PROJECT ↗
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- ACADEMIC -->
+            <div class="projects-section-header">
+                <span>02</span>
+                <h2>Academic</h2>
+                <p>Coursework turned into questions worth exploring.</p>
+            </div>
+
+
+            <div class="projects-v2-grid">
+
+                <article class="project-v2-card">
+
+                    <div class="project-v2-top">
+                        <span class="project-number">02</span>
+                        <span class="project-type">STATISTICAL ANALYSIS</span>
+                    </div>
+
+                    <div class="project-v2-content">
+                        <p class="project-date">NOVEMBER 2025</p>
+
+                        <h3>
+                            Applied Economic &amp;
+                            Demographic Data Analysis
+                        </h3>
+
+                        <p class="project-summary">
+                            Analyzed 48,000+ U.S. Census observations to explore
+                            relationships between economic status, demographics,
+                            and inequality using statistical inference.
+                        </p>
+                    </div>
+
+                    <div class="project-tags">
+                        <span>R</span>
+                        <span>tidyverse</span>
+                        <span>ggplot2</span>
+                        <span>inference</span>
+                    </div>
+
+
+                    <div class="project-hover-info">
+
+                        <p class="project-hover-date">
+                            ACADEMIC / NOVEMBER 2025
+                        </p>
+
+                        <p>
+                            Using large-scale demographic data to understand
+                            how economic outcomes differ across populations.
+                        </p>
+
+                        <a
+                            href="YOUR-GITHUB-LINK-HERE"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-hover-link"
+                        >
+                            VIEW ON GITHUB ↗
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- PROFESSIONAL -->
+            <div class="projects-section-header">
+                <span>03</span>
+                <h2>Professional</h2>
+                <p>Work shaped by real organizations and real constraints.</p>
+            </div>
+
+
+            <div class="projects-v2-grid">
+
+                <!-- MRA -->
+                <article class="project-v2-card project-coming-soon">
+
+                    <div class="project-v2-top">
+                        <span class="project-number">03</span>
+                        <span class="project-type">NAVIANT × MRA</span>
+                    </div>
+
+                    <div class="project-v2-content">
+
+                        <p class="project-date">SUMMER 2026</p>
+
+                        <h3>MRA Member Intelligence</h3>
+
+                        <p class="project-summary">
+                            Supported a data and AI transformation initiative
+                            focused on member analytics, survey insights,
+                            personas, lifecycle strategy, and data readiness.
+                        </p>
+
+                    </div>
+
+                    <div class="project-tags">
+                        <span>analytics</span>
+                        <span>strategy</span>
+                        <span>AI readiness</span>
+                    </div>
+
+
+                    <div class="project-hover-info">
+
+                        <p class="project-hover-date">
+                            PROFESSIONAL / NAVIANT
+                        </p>
+
+                        <p>
+                            Turning fragmented member data into a clearer
+                            foundation for analytics, personalization, and AI.
+                        </p>
+
+                        <span class="project-hover-link">
+                            CASE STUDY COMING SOON
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <!-- WICK -->
+                <article class="project-v2-card project-coming-soon">
+
+                    <div class="project-v2-top">
+                        <span class="project-number">04</span>
+                        <span class="project-type">NAVIANT × WICK BUILDINGS</span>
+                    </div>
+
+                    <div class="project-v2-content">
+
+                        <p class="project-date">SUMMER 2026</p>
+
+                        <h3>Wick Buildings</h3>
+
+                        <p class="project-summary">
+                            Supported data validation and process analysis
+                            across enterprise systems to identify inconsistencies,
+                            gaps, and opportunities for cleaner reporting.
+                        </p>
+
+                    </div>
+
+                    <div class="project-tags">
+                        <span>Power BI</span>
+                        <span>data quality</span>
+                        <span>process analysis</span>
+                    </div>
+
+
+                    <div class="project-hover-info">
+
+                        <p class="project-hover-date">
+                            PROFESSIONAL / NAVIANT
+                        </p>
+
+                        <p>
+                            Examining operational data across systems to find
+                            where reporting breaks — and why.
+                        </p>
+
+                        <span class="project-hover-link">
+                            CASE STUDY COMING SOON
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="editorial-footer">
+
+        <p>Louise Nguyen © 2026</p>
+
+        <a href="contact.html">
+            let's talk ↗
+        </a>
+
+    </footer>
+
 </body>
 </html>
