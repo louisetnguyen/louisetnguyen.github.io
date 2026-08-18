@@ -270,16 +270,15 @@ body.projects-page {
 .project-card h3 {
     margin: 0 0 26px;
 
+    min-height: 105px;
+
     font-family: "Playfair Display", Georgia, serif;
-
     font-size: clamp(36px, 3vw, 54px);
-
     line-height: 0.87;
-
     font-weight: 400;
-
     letter-spacing: -0.045em;
 }
+
 
 .project-cover {
     position: relative;
