@@ -2,9 +2,90 @@
    PROJECTS PAGE
 ========================================= */
 
-.projects-page {
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body.projects-page {
+    margin: 0;
+    padding: 0;
+
     background: #efede7;
     color: #111111;
+
+    font-family: "DM Sans", Arial, sans-serif;
+}
+
+
+/* =========================================
+   NAVIGATION
+   Self-contained so this page does not rely
+   on style.css for the header appearance.
+========================================= */
+
+.editorial-header {
+    width: min(1500px, calc(100% - 64px));
+    margin: 0 auto;
+
+    padding: 28px 0 22px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid #111111;
+}
+
+.editorial-logo {
+    color: #111111;
+    text-decoration: none;
+
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 25px;
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+.editorial-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.editorial-nav a {
+    position: relative;
+
+    color: #111111;
+    text-decoration: none;
+
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+
+    transition: opacity 0.2s ease;
+}
+
+.editorial-nav a:hover {
+    opacity: 0.55;
+}
+
+.editorial-nav a.active::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+
+    height: 1px;
+
+    background: #111111;
 }
 
 
@@ -15,6 +96,7 @@
 .projects-main {
     width: min(1500px, calc(100% - 64px));
     margin: 0 auto;
+
     padding: 90px 0 120px;
 }
 
@@ -30,6 +112,7 @@
     align-items: end;
 
     padding-bottom: 65px;
+
     border-bottom: 1px solid #111111;
 }
 
@@ -129,11 +212,9 @@
 .projects-v2-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+
     gap: 20px;
 }
-
-/* If a section has only one project,
-   let it span the full width */
 
 .projects-v2-grid:has(.project-v2-card:only-child) {
     grid-template-columns: 1fr;
@@ -147,7 +228,7 @@
 .project-v2-card {
     position: relative;
 
-    min-height: 500px;
+    min-height: 590px;
     padding: 25px;
 
     display: flex;
@@ -158,32 +239,21 @@
     background: #e7e4dc;
     border-top: 1px solid #111111;
 
-    cursor: default;
+    isolation: isolate;
 
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+    transition: transform 0.25s ease;
 }
 
 .project-v2-card:nth-child(even) {
     background: #ddd9d0;
 }
 
-/* Finished projects feel interactive */
-
 .project-v2-card:not(.project-coming-soon) {
     cursor: pointer;
 }
 
-.project-v2-card:not(.project-coming-soon):hover {
-    transform: translateY(-4px);
-}
-
-/* Coming-soon cards still get a tiny lift,
-   but not as much as finished projects */
-
-.project-coming-soon:hover {
-    transform: translateY(-2px);
+.project-v2-card:hover {
+    transform: translateY(-3px);
 }
 
 
@@ -192,11 +262,12 @@
 ========================================= */
 
 .project-v2-top {
+    position: relative;
+    z-index: 3;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    margin-bottom: auto;
 }
 
 .project-number,
@@ -212,11 +283,338 @@
 
 
 /* =========================================
+   VISUAL / COVER AREA
+========================================= */
+
+/*
+The artwork lives between the top label
+and the project title.
+
+No image files necessary.
+*/
+
+.project-v2-card::before,
+.project-v2-card::after {
+    content: "";
+
+    position: absolute;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   01 — SPOTIFY × ECONOMICS
+========================================= */
+
+.project-spotify::before {
+    width: 380px;
+    height: 380px;
+
+    top: 60px;
+    right: 8%;
+
+    border: 1px solid rgba(17, 17, 17, 0.22);
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 0 29%,
+            rgba(17,17,17,0.12) 29.5% 30%,
+            transparent 30.5% 48%,
+            rgba(17,17,17,0.08) 48.5% 49%,
+            transparent 49.5%
+        );
+}
+
+.project-spotify::after {
+    width: 54%;
+    height: 150px;
+
+    top: 175px;
+    left: 8%;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent 0 8%,
+            #111111 8.2% 8.7%,
+            transparent 8.9% 21%,
+            #111111 21.2% 21.7%,
+            transparent 21.9% 37%,
+            #111111 37.2% 37.7%,
+            transparent 37.9% 53%,
+            #111111 53.2% 53.7%,
+            transparent 53.9% 69%,
+            #111111 69.2% 69.7%,
+            transparent 69.9%
+        );
+
+    opacity: 0.55;
+
+    transform: skewY(-7deg);
+}
+
+
+/* Spotify decorative dots */
+
+.project-spotify {
+    background:
+        radial-gradient(
+            circle at 72% 29%,
+            rgba(17,17,17,0.93) 0 5px,
+            transparent 6px
+        ),
+        radial-gradient(
+            circle at 63% 39%,
+            rgba(17,17,17,0.65) 0 3px,
+            transparent 4px
+        ),
+        radial-gradient(
+            circle at 80% 44%,
+            rgba(17,17,17,0.35) 0 7px,
+            transparent 8px
+        ),
+        #e7e4dc;
+}
+
+
+/* =========================================
+   02 — DEMOGRAPHIC ANALYSIS
+========================================= */
+
+.project-demographic {
+    background:
+        linear-gradient(
+            rgba(17,17,17,0.08) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(17,17,17,0.08) 1px,
+            transparent 1px
+        ),
+        #e7e4dc;
+
+    background-size:
+        48px 48px,
+        48px 48px;
+}
+
+.project-demographic::before {
+    width: 330px;
+    height: 250px;
+
+    top: 90px;
+    right: 8%;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(17,17,17,0.9) 0 62%,
+            transparent 62%
+        ) 0 100% / 34px 100% no-repeat,
+
+        linear-gradient(
+            to top,
+            rgba(17,17,17,0.65) 0 34%,
+            transparent 34%
+        ) 60px 100% / 34px 100% no-repeat,
+
+        linear-gradient(
+            to top,
+            rgba(17,17,17,0.4) 0 81%,
+            transparent 81%
+        ) 120px 100% / 34px 100% no-repeat,
+
+        linear-gradient(
+            to top,
+            rgba(17,17,17,0.7) 0 47%,
+            transparent 47%
+        ) 180px 100% / 34px 100% no-repeat,
+
+        linear-gradient(
+            to top,
+            rgba(17,17,17,0.28) 0 70%,
+            transparent 70%
+        ) 240px 100% / 34px 100% no-repeat;
+}
+
+.project-demographic::after {
+    width: 160px;
+    height: 160px;
+
+    top: 110px;
+    left: 8%;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(17,17,17,0.42);
+
+    box-shadow:
+        25px 30px 0 -1px rgba(239,237,231,1),
+        25px 30px 0 0 rgba(17,17,17,0.25),
+        55px 70px 0 -1px rgba(239,237,231,1),
+        55px 70px 0 0 rgba(17,17,17,0.18);
+}
+
+
+/* =========================================
+   03 — MRA MEMBER INTELLIGENCE
+========================================= */
+
+.project-mra::before {
+    width: 340px;
+    height: 300px;
+
+    top: 80px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            #111111 0 9px,
+            transparent 10px
+        ),
+        radial-gradient(
+            circle at 18% 22%,
+            #111111 0 6px,
+            transparent 7px
+        ),
+        radial-gradient(
+            circle at 81% 18%,
+            #111111 0 5px,
+            transparent 6px
+        ),
+        radial-gradient(
+            circle at 84% 76%,
+            #111111 0 7px,
+            transparent 8px
+        ),
+        radial-gradient(
+            circle at 20% 79%,
+            #111111 0 5px,
+            transparent 6px
+        ),
+        radial-gradient(
+            circle at 52% 10%,
+            rgba(17,17,17,0.5) 0 4px,
+            transparent 5px
+        ),
+        radial-gradient(
+            circle at 48% 89%,
+            rgba(17,17,17,0.5) 0 4px,
+            transparent 5px
+        );
+}
+
+.project-mra::after {
+    width: 270px;
+    height: 220px;
+
+    top: 120px;
+    left: 50%;
+
+    transform: translateX(-50%) rotate(8deg);
+
+    border:
+        1px solid rgba(17,17,17,0.25);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 45px rgba(17,17,17,0.025),
+        0 0 0 90px rgba(17,17,17,0.02);
+}
+
+
+/* =========================================
+   04 — WICK BUILDINGS
+========================================= */
+
+.project-wick {
+    background:
+        linear-gradient(
+            rgba(17,17,17,0.055) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(17,17,17,0.055) 1px,
+            transparent 1px
+        ),
+        #ddd9d0;
+
+    background-size:
+        28px 28px,
+        28px 28px;
+}
+
+.project-wick::before {
+    width: 390px;
+    height: 245px;
+
+    top: 90px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-left: 1px solid #111111;
+    border-right: 1px solid #111111;
+    border-bottom: 1px solid #111111;
+
+    clip-path: polygon(
+        0 35%,
+        50% 0,
+        100% 35%,
+        100% 100%,
+        0 100%
+    );
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 24%,
+            rgba(17,17,17,0.18) 24.3% 24.7%,
+            transparent 25% 49%,
+            rgba(17,17,17,0.18) 49.3% 49.7%,
+            transparent 50% 74%,
+            rgba(17,17,17,0.18) 74.3% 74.7%,
+            transparent 75%
+        );
+}
+
+.project-wick::after {
+    width: 390px;
+    height: 1px;
+
+    top: 175px;
+    left: 50%;
+
+    background: #111111;
+
+    transform: translateX(-50%) rotate(-19deg);
+    transform-origin: left center;
+
+    opacity: 0.45;
+}
+
+
+/* =========================================
    PROJECT CONTENT
 ========================================= */
 
 .project-v2-content {
+    position: relative;
+    z-index: 3;
+
     max-width: 680px;
+
+    margin-top: auto;
 }
 
 .project-date {
@@ -257,6 +655,9 @@
 ========================================= */
 
 .project-tags {
+    position: relative;
+    z-index: 3;
+
     display: flex;
     flex-wrap: wrap;
     gap: 7px;
@@ -274,7 +675,7 @@
     font-weight: 600;
     letter-spacing: 0.04em;
 
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.32);
 }
 
 
@@ -285,7 +686,7 @@
 .project-hover-info {
     position: absolute;
     inset: 0;
-    z-index: 10;
+    z-index: 20;
 
     padding: 32px;
 
@@ -298,6 +699,7 @@
 
     opacity: 0;
     visibility: hidden;
+
     transform: translateY(10px);
 
     transition:
@@ -309,6 +711,7 @@
 .project-v2-card:hover .project-hover-info {
     opacity: 1;
     visibility: visible;
+
     transform: translateY(0);
 }
 
@@ -335,19 +738,16 @@
     width: fit-content;
 
     color: #ffffff;
+    text-decoration: none;
 
     font-size: 9px;
     font-weight: 600;
     letter-spacing: 0.11em;
 
-    text-decoration: none;
+    border-bottom:
+        1px solid rgba(255,255,255,0.5);
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     padding-bottom: 3px;
-
-    transition:
-        border-color 0.2s ease,
-        opacity 0.2s ease;
 }
 
 a.project-hover-link:hover {
@@ -365,13 +765,68 @@ a.project-hover-link:hover {
 
 
 /* =========================================
-   RESPONSIVE
+   FOOTER
+========================================= */
+
+.editorial-footer {
+    width: min(1500px, calc(100% - 64px));
+    margin: 0 auto;
+
+    padding: 24px 0 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-top: 1px solid #111111;
+}
+
+.editorial-footer p {
+    margin: 0;
+
+    color: #111111;
+
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+}
+
+.editorial-footer a {
+    color: #111111;
+    text-decoration: none;
+
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 18px;
+}
+
+.editorial-footer a:hover {
+    font-style: italic;
+}
+
+
+/* =========================================
+   TABLET
 ========================================= */
 
 @media (max-width: 900px) {
 
-    .projects-main {
+    .editorial-header,
+    .projects-main,
+    .editorial-footer {
         width: min(100% - 36px, 1500px);
+    }
+
+    .editorial-header {
+        align-items: flex-start;
+    }
+
+    .editorial-nav {
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .projects-main {
         padding-top: 65px;
     }
 
@@ -397,7 +852,7 @@ a.project-hover-link:hover {
     }
 
     .project-v2-card {
-        min-height: 460px;
+        min-height: 560px;
     }
 }
 
@@ -407,6 +862,25 @@ a.project-hover-link:hover {
 ========================================= */
 
 @media (max-width: 600px) {
+
+    .editorial-header {
+        flex-direction: column;
+        gap: 22px;
+
+        padding-top: 22px;
+    }
+
+    .editorial-nav {
+        width: 100%;
+
+        justify-content: flex-start;
+
+        gap: 11px 18px;
+    }
+
+    .editorial-nav a {
+        font-size: 10px;
+    }
 
     .projects-main {
         padding-top: 45px;
@@ -421,7 +895,7 @@ a.project-hover-link:hover {
     }
 
     .project-v2-card {
-        min-height: 410px;
+        min-height: 520px;
         padding: 20px;
     }
 
@@ -440,6 +914,37 @@ a.project-hover-link:hover {
     .project-hover-info {
         padding: 24px;
     }
+
+    .project-spotify::before {
+        width: 270px;
+        height: 270px;
+
+        right: -20px;
+    }
+
+    .project-demographic::before {
+        transform: scale(0.75);
+        transform-origin: top right;
+    }
+
+    .project-mra::before,
+    .project-mra::after {
+        transform:
+            translateX(-50%)
+            scale(0.78);
+    }
+
+    .project-wick::before {
+        width: 300px;
+    }
+
+    .project-wick::after {
+        width: 300px;
+    }
+
+    .editorial-footer {
+        gap: 20px;
+    }
 }
 
 
@@ -455,9 +960,5 @@ a.project-hover-link:hover {
 
     .project-hover-info {
         display: none;
-    }
-
-    .project-v2-card:not(.project-coming-soon) {
-        cursor: default;
     }
 }
