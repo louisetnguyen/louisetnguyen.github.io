@@ -1,5 +1,5 @@
 /* =========================================
-   PROJECTS PAGE
+   GLOBAL
 ========================================= */
 
 * {
@@ -15,7 +15,7 @@ body.projects-page {
     margin: 0;
     padding: 0;
 
-    background: #efede7;
+    background: #f2f0ea;
     color: #111111;
 
     font-family: "DM Sans", Arial, sans-serif;
@@ -23,71 +23,69 @@ body.projects-page {
 
 
 /* =========================================
-   HEADER / NAV
+   HEADER
 ========================================= */
 
-.editorial-header {
+.projects-header {
     width: 100%;
-    margin: 0;
+    height: 126px;
+
     padding: 0 78px;
 
-    height: 128px;
-
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 
-    border-top: 1px solid #ded8cf;
+    background: #f7f5f0;
+
+    border-top: 1px solid #ddd6cb;
     border-bottom: 1px solid #111111;
-
-    background: #efede7;
 }
 
-.editorial-logo {
+.projects-logo {
     color: #111111;
+
     text-decoration: none;
 
-    font-family: "DM Sans", Arial, sans-serif;
-    font-size: 21px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.055em;
 }
 
-.editorial-nav {
+.projects-nav {
     display: flex;
     align-items: center;
-    gap: 54px;
+
+    gap: 52px;
 }
 
-.editorial-nav a {
+.projects-nav a {
     position: relative;
 
     color: #111111;
+
     text-decoration: none;
 
-    font-family: "DM Sans", Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-
-    transition: opacity 0.2s ease;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
 }
 
-.editorial-nav a:hover {
-    opacity: 0.5;
+.projects-nav a:hover {
+    opacity: 0.55;
 }
 
-.editorial-nav a.active::after {
+.projects-nav a.active::after {
     content: "";
 
     position: absolute;
+
     left: 0;
     right: 0;
-    bottom: -12px;
+    bottom: -11px;
 
     height: 1px;
+
     background: #111111;
 }
 
@@ -97,10 +95,11 @@ body.projects-page {
 ========================================= */
 
 .projects-main {
-    width: min(1500px, calc(100% - 64px));
+    width: min(1600px, calc(100% - 44px));
+
     margin: 0 auto;
 
-    padding: 90px 0 120px;
+    padding: 85px 0 120px;
 }
 
 
@@ -109,576 +108,850 @@ body.projects-page {
 ========================================= */
 
 .projects-hero {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 60px;
-    align-items: end;
-
     padding-bottom: 65px;
 
     border-bottom: 1px solid #111111;
 }
 
-.projects-eyebrow {
-    margin: 0 0 15px;
+.hero-kicker {
+    margin: 0 0 16px;
 
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
+    color: #ef654f;
+
+    font-family: "Schoolbell", cursive;
+    font-size: 14px;
 }
 
-.projects-hero h1 {
+.hero-row {
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 80px;
+}
+
+.hero-row h1 {
     margin: 0;
 
     font-family: "Playfair Display", Georgia, serif;
-    font-size: clamp(68px, 9vw, 145px);
+
+    font-size: clamp(62px, 7.8vw, 126px);
+
     font-weight: 400;
-    line-height: 0.8;
+
+    line-height: 0.77;
+
     letter-spacing: -0.055em;
 }
 
-.projects-hero h1 span {
-    font-style: italic;
-}
+.hero-description {
+    max-width: 390px;
 
-.projects-hero-right {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.projects-hero-right p {
-    max-width: 440px;
     margin: 0;
 
     font-family: "Playfair Display", Georgia, serif;
-    font-size: clamp(20px, 1.7vw, 28px);
-    line-height: 1.25;
 
-    color: #3d3d3d;
+    font-size: clamp(18px, 1.5vw, 26px);
+
+    line-height: 1.3;
+
+    color: #4d4943;
 }
 
 
 /* =========================================
-   PROJECT AREA
+   SECTIONS
 ========================================= */
 
-.projects-v2 {
-    padding-top: 30px;
+.project-section {
+    margin-top: 90px;
 }
 
-
-/* =========================================
-   SECTION HEADERS
-========================================= */
-
-.projects-section-header {
+.section-heading {
     display: grid;
-    grid-template-columns: 50px 1fr auto;
-    gap: 18px;
+
+    grid-template-columns: 55px 1fr auto;
+
     align-items: baseline;
 
-    margin-top: 90px;
-    margin-bottom: 20px;
+    gap: 18px;
+
     padding-top: 12px;
+    margin-bottom: 22px;
 
     border-top: 1px solid #111111;
 }
 
-.projects-section-header span {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+.section-number {
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
 }
 
-.projects-section-header h2 {
+.section-heading h2 {
     margin: 0;
 
     font-family: "Playfair Display", Georgia, serif;
-    font-size: clamp(27px, 2.4vw, 40px);
+
+    font-size: clamp(30px, 3vw, 47px);
+
     font-weight: 400;
 }
 
-.projects-section-header p {
+.section-heading p {
     margin: 0;
 
     font-size: 11px;
-    letter-spacing: 0.02em;
 
-    color: #66615b;
+    color: #65605a;
 }
 
 
 /* =========================================
-   PROJECT GRID
+   GRID
 ========================================= */
 
-.projects-v2-grid {
+.project-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    gap: 20px;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
 }
 
-.projects-v2-grid:has(.project-v2-card:only-child) {
+.project-grid-single {
     grid-template-columns: 1fr;
 }
 
 
 /* =========================================
-   PROJECT CARDS
+   PROJECT CARD
 ========================================= */
 
-.project-v2-card {
+.project-card {
     position: relative;
 
-    min-height: 590px;
-    padding: 25px;
+    min-height: 510px;
 
-    display: flex;
-    flex-direction: column;
+    padding: 16px 14px 14px;
 
     overflow: hidden;
 
-    background: #e7e4dc;
+    background: #ebe8e1;
+
     border-top: 1px solid #111111;
 
     isolation: isolate;
 
-    transition: transform 0.25s ease;
+    transition:
+        transform 0.25s ease;
 }
 
-.project-v2-card:nth-child(even) {
-    background: #ddd9d0;
-}
-
-.project-v2-card:not(.project-coming-soon) {
-    cursor: pointer;
-}
-
-.project-v2-card:hover {
+.project-card:hover {
     transform: translateY(-3px);
 }
 
-
-/* =========================================
-   CARD TOP
-========================================= */
-
-.project-v2-top {
-    position: relative;
-    z-index: 3;
-
+.project-card-top {
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+
+    font-size: 8px;
+    font-weight: 700;
 }
 
-.project-number,
-.project-type {
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.13em;
+.project-card h3 {
+    margin: 0 0 26px;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(36px, 3vw, 54px);
+
+    line-height: 0.87;
+
+    font-weight: 400;
+
+    letter-spacing: -0.045em;
 }
 
-.project-type {
-    text-align: right;
-}
+.project-cover {
+    position: relative;
 
+    width: 100%;
 
-/* =========================================
-   VISUAL / COVER AREA
-========================================= */
-
-/*
-The artwork lives between the top label
-and the project title.
-
-No image files necessary.
-*/
-
-.project-v2-card::before,
-.project-v2-card::after {
-    content: "";
-
-    position: absolute;
-
-    pointer-events: none;
-}
-
-
-/* =========================================
-   01 — SPOTIFY × ECONOMICS
-========================================= */
-
-.project-spotify::before {
-    width: 380px;
-    height: 380px;
-
-    top: 60px;
-    right: 8%;
-
-    border: 1px solid rgba(17, 17, 17, 0.22);
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at center,
-            transparent 0 29%,
-            rgba(17,17,17,0.12) 29.5% 30%,
-            transparent 30.5% 48%,
-            rgba(17,17,17,0.08) 48.5% 49%,
-            transparent 49.5%
-        );
-}
-
-.project-spotify::after {
-    width: 54%;
-    height: 150px;
-
-    top: 175px;
-    left: 8%;
-
-    background:
-        linear-gradient(
-            115deg,
-            transparent 0 8%,
-            #111111 8.2% 8.7%,
-            transparent 8.9% 21%,
-            #111111 21.2% 21.7%,
-            transparent 21.9% 37%,
-            #111111 37.2% 37.7%,
-            transparent 37.9% 53%,
-            #111111 53.2% 53.7%,
-            transparent 53.9% 69%,
-            #111111 69.2% 69.7%,
-            transparent 69.9%
-        );
-
-    opacity: 0.55;
-
-    transform: skewY(-7deg);
-}
-
-
-/* Spotify decorative dots */
-
-.project-spotify {
-    background:
-        radial-gradient(
-            circle at 72% 29%,
-            rgba(17,17,17,0.93) 0 5px,
-            transparent 6px
-        ),
-        radial-gradient(
-            circle at 63% 39%,
-            rgba(17,17,17,0.65) 0 3px,
-            transparent 4px
-        ),
-        radial-gradient(
-            circle at 80% 44%,
-            rgba(17,17,17,0.35) 0 7px,
-            transparent 8px
-        ),
-        #e7e4dc;
-}
-
-
-/* =========================================
-   02 — DEMOGRAPHIC ANALYSIS
-========================================= */
-
-.project-demographic {
-    background:
-        linear-gradient(
-            rgba(17,17,17,0.08) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(17,17,17,0.08) 1px,
-            transparent 1px
-        ),
-        #e7e4dc;
-
-    background-size:
-        48px 48px,
-        48px 48px;
-}
-
-.project-demographic::before {
-    width: 330px;
-    height: 250px;
-
-    top: 90px;
-    right: 8%;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(17,17,17,0.9) 0 62%,
-            transparent 62%
-        ) 0 100% / 34px 100% no-repeat,
-
-        linear-gradient(
-            to top,
-            rgba(17,17,17,0.65) 0 34%,
-            transparent 34%
-        ) 60px 100% / 34px 100% no-repeat,
-
-        linear-gradient(
-            to top,
-            rgba(17,17,17,0.4) 0 81%,
-            transparent 81%
-        ) 120px 100% / 34px 100% no-repeat,
-
-        linear-gradient(
-            to top,
-            rgba(17,17,17,0.7) 0 47%,
-            transparent 47%
-        ) 180px 100% / 34px 100% no-repeat,
-
-        linear-gradient(
-            to top,
-            rgba(17,17,17,0.28) 0 70%,
-            transparent 70%
-        ) 240px 100% / 34px 100% no-repeat;
-}
-
-.project-demographic::after {
-    width: 160px;
-    height: 160px;
-
-    top: 110px;
-    left: 8%;
-
-    border-radius: 50%;
-
-    border:
-        1px solid rgba(17,17,17,0.42);
-
-    box-shadow:
-        25px 30px 0 -1px rgba(239,237,231,1),
-        25px 30px 0 0 rgba(17,17,17,0.25),
-        55px 70px 0 -1px rgba(239,237,231,1),
-        55px 70px 0 0 rgba(17,17,17,0.18);
-}
-
-
-/* =========================================
-   03 — MRA MEMBER INTELLIGENCE
-========================================= */
-
-.project-mra::before {
-    width: 340px;
-    height: 300px;
-
-    top: 80px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    background:
-        radial-gradient(
-            circle at 50% 50%,
-            #111111 0 9px,
-            transparent 10px
-        ),
-        radial-gradient(
-            circle at 18% 22%,
-            #111111 0 6px,
-            transparent 7px
-        ),
-        radial-gradient(
-            circle at 81% 18%,
-            #111111 0 5px,
-            transparent 6px
-        ),
-        radial-gradient(
-            circle at 84% 76%,
-            #111111 0 7px,
-            transparent 8px
-        ),
-        radial-gradient(
-            circle at 20% 79%,
-            #111111 0 5px,
-            transparent 6px
-        ),
-        radial-gradient(
-            circle at 52% 10%,
-            rgba(17,17,17,0.5) 0 4px,
-            transparent 5px
-        ),
-        radial-gradient(
-            circle at 48% 89%,
-            rgba(17,17,17,0.5) 0 4px,
-            transparent 5px
-        );
-}
-
-.project-mra::after {
-    width: 270px;
     height: 220px;
 
-    top: 120px;
-    left: 50%;
+    overflow: hidden;
+}
 
-    transform: translateX(-50%) rotate(8deg);
+.project-meta {
+    margin-top: 12px;
 
-    border:
-        1px solid rgba(17,17,17,0.25);
+    font-size: 6px;
+    font-weight: 700;
 
-    border-radius: 50%;
-
-    box-shadow:
-        0 0 0 45px rgba(17,17,17,0.025),
-        0 0 0 90px rgba(17,17,17,0.02);
+    letter-spacing: 0.08em;
 }
 
 
 /* =========================================
-   04 — WICK BUILDINGS
+   SPOTIFY COVER
 ========================================= */
 
-.project-wick {
-    background:
-        linear-gradient(
-            rgba(17,17,17,0.055) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(17,17,17,0.055) 1px,
-            transparent 1px
-        ),
-        #ddd9d0;
+.spotify-cover {
+    background: #1db954;
 
-    background-size:
-        28px 28px,
-        28px 28px;
+    border: 1px solid rgba(17, 17, 17, 0.17);
 }
 
-.project-wick::before {
-    width: 390px;
-    height: 245px;
+.spotify-note {
+    position: absolute;
 
-    top: 90px;
-    left: 50%;
+    top: 22px;
+    left: 20px;
 
-    transform: translateX(-50%);
+    padding: 10px 12px;
 
-    border-left: 1px solid #111111;
-    border-right: 1px solid #111111;
-    border-bottom: 1px solid #111111;
+    background: #f7d536;
 
-    clip-path: polygon(
-        0 35%,
-        50% 0,
-        100% 35%,
-        100% 100%,
-        0 100%
-    );
+    font-size: 8px;
+    font-weight: 700;
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent 24%,
-            rgba(17,17,17,0.18) 24.3% 24.7%,
-            transparent 25% 49%,
-            rgba(17,17,17,0.18) 49.3% 49.7%,
-            transparent 50% 74%,
-            rgba(17,17,17,0.18) 74.3% 74.7%,
-            transparent 75%
-        );
+    line-height: 1.2;
+
+    letter-spacing: 0.05em;
+
+    transform: rotate(-4deg);
 }
 
-.project-wick::after {
-    width: 390px;
-    height: 1px;
+.spotify-wave {
+    position: absolute;
 
-    top: 175px;
-    left: 50%;
+    left: 24px;
+    bottom: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    height: 70px;
+}
+
+.spotify-wave span {
+    display: block;
+
+    width: 7px;
 
     background: #111111;
 
-    transform: translateX(-50%) rotate(-19deg);
-    transform-origin: left center;
+    border-radius: 10px;
+}
 
-    opacity: 0.45;
+.spotify-wave span:nth-child(1) {
+    height: 27px;
+}
+
+.spotify-wave span:nth-child(2) {
+    height: 49px;
+}
+
+.spotify-wave span:nth-child(3) {
+    height: 68px;
+}
+
+.spotify-wave span:nth-child(4) {
+    height: 43px;
+}
+
+.spotify-wave span:nth-child(5) {
+    height: 58px;
+}
+
+.spotify-wave span:nth-child(6) {
+    height: 72px;
+}
+
+.spotify-wave span:nth-child(7) {
+    height: 38px;
+}
+
+.spotify-record {
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    right: 30px;
+    top: 28px;
+
+    border-radius: 50%;
+
+    background: #151515;
+}
+
+.record-ring {
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 1px solid #3a3a3a;
+}
+
+.ring-one {
+    inset: 11px;
+}
+
+.ring-two {
+    inset: 22px;
+}
+
+.ring-three {
+    inset: 34px;
+}
+
+.record-center {
+    position: absolute;
+
+    width: 17px;
+    height: 17px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: #f7d536;
 }
 
 
 /* =========================================
-   PROJECT CONTENT
+   COGGY COVER
 ========================================= */
 
-.project-v2-content {
-    position: relative;
-    z-index: 3;
-
-    max-width: 680px;
-
-    margin-top: auto;
+.coggy-cover {
+    background: #dcd6c9;
 }
 
-.project-date {
-    margin: 0 0 12px;
+.phone {
+    position: absolute;
 
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.13em;
+    left: 16%;
 
-    color: #66615b;
+    top: 16px;
+
+    width: 105px;
+
+    height: 198px;
+
+    padding: 7px;
+
+    border: 5px solid #111111;
+
+    border-radius: 24px;
+
+    background: #f8f7f4;
+
+    transform: rotate(-6deg);
+
+    box-shadow:
+        0 5px 0 rgba(17, 17, 17, 0.1);
 }
 
-.project-v2-content h3 {
-    max-width: 700px;
+.phone-camera {
+    width: 29px;
+    height: 5px;
 
-    margin: 0 0 18px;
+    margin: 2px auto 9px;
 
-    font-family: "Playfair Display", Georgia, serif;
-    font-size: clamp(32px, 3vw, 52px);
-    font-weight: 400;
-    line-height: 1.02;
-    letter-spacing: -0.035em;
+    border-radius: 20px;
+
+    background: #111111;
 }
 
-.project-summary {
-    max-width: 670px;
+.phone-screen {
+    padding: 4px 7px;
+}
+
+.phone-title {
     margin: 0;
 
-    font-size: 13px;
-    line-height: 1.65;
+    font-size: 14px;
 
-    color: #4e4b47;
+    font-weight: 700;
+}
+
+.phone-date {
+    margin: 3px 0 17px;
+
+    font-size: 5px;
+
+    color: #777;
+}
+
+.phone-task {
+    margin: 12px 0;
+
+    font-size: 5px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+.phone-task span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    border: 1px solid #111111;
+}
+
+.coggy-note {
+    position: absolute;
+
+    right: 18px;
+    bottom: 17px;
+
+    padding: 11px 15px;
+
+    background: #f5d431;
+
+    font-family: "Schoolbell", cursive;
+
+    font-size: 12px;
+
+    line-height: 1.05;
+
+    transform: rotate(2deg);
 }
 
 
 /* =========================================
-   TAGS
+   DEMOGRAPHIC COVER
 ========================================= */
 
-.project-tags {
-    position: relative;
-    z-index: 3;
+.demographic-cover {
+    height: 250px;
 
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
+    background-color: #dce7f3;
 
-    margin-top: 28px;
+    background-image:
+        linear-gradient(
+            rgba(49, 88, 133, 0.12) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(49, 88, 133, 0.12) 1px,
+            transparent 1px
+        );
+
+    background-size: 31px 31px;
 }
 
-.project-tags span {
-    padding: 6px 10px;
+.graph-y {
+    position: absolute;
 
-    border: 1px solid rgba(17, 17, 17, 0.22);
-    border-radius: 999px;
+    left: 26px;
+    top: 25px;
 
-    font-size: 8px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
+    width: 1px;
+    height: 158px;
 
-    background: rgba(255, 255, 255, 0.32);
+    background: #111111;
+}
+
+.graph-x {
+    position: absolute;
+
+    left: 26px;
+    right: 22px;
+    top: 182px;
+
+    height: 1px;
+
+    background: #111111;
+}
+
+.regression-line {
+    position: absolute;
+
+    width: 250px;
+    height: 3px;
+
+    left: 98px;
+    top: 111px;
+
+    background: #ef5947;
+
+    transform: rotate(-31deg);
+
+    transform-origin: left center;
+}
+
+.graph-dot {
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #315f9f;
+}
+
+.dot-1 {
+    left: 16%;
+    top: 62%;
+}
+
+.dot-2 {
+    left: 32%;
+    top: 51%;
+}
+
+.dot-3 {
+    left: 48%;
+    top: 54%;
+}
+
+.dot-4 {
+    left: 63%;
+    top: 37%;
+}
+
+.dot-5 {
+    left: 79%;
+    top: 29%;
+}
+
+.graph-note {
+    position: absolute;
+
+    right: 15px;
+    bottom: 10px;
+
+    margin: 0;
+
+    text-align: right;
+
+    font-family: "Schoolbell", cursive;
+
+    font-size: 11px;
+
+    line-height: 1;
+}
+
+
+/* =========================================
+   MRA COVER
+========================================= */
+
+.mra-cover {
+    background: #d8c5e7;
+}
+
+.mra-paper {
+    position: absolute;
+
+    width: 63%;
+    height: 170px;
+
+    left: 24px;
+    top: 24px;
+
+    padding: 24px;
+
+    background: #f6f3eb;
+
+    transform: rotate(-2deg);
+
+    box-shadow:
+        0 6px 10px rgba(17, 17, 17, 0.08);
+
+    background-image:
+        linear-gradient(
+            rgba(90, 115, 153, 0.12) 1px,
+            transparent 1px
+        );
+
+    background-size: 100% 25px;
+}
+
+.paper-small {
+    margin: 0 0 15px;
+
+    font-size: 6px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.1em;
+}
+
+.paper-title {
+    margin: 0;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: 24px;
+
+    line-height: 0.9;
+}
+
+.paper-lines {
+    margin-top: 20px;
+
+    display: grid;
+
+    gap: 7px;
+}
+
+.paper-lines span {
+    display: block;
+
+    height: 1px;
+
+    width: 72%;
+
+    background: rgba(17, 17, 17, 0.2);
+}
+
+.mra-card {
+    position: absolute;
+
+    padding: 10px 13px;
+
+    background: #fff;
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    box-shadow:
+        0 3px 7px rgba(17, 17, 17, 0.08);
+}
+
+.card-personas {
+    right: 36px;
+    top: 34px;
+
+    transform: rotate(3deg);
+}
+
+.card-lifecycle {
+    right: 18px;
+    top: 84px;
+
+    transform: rotate(-2deg);
+}
+
+.card-ai {
+    right: 48px;
+    top: 137px;
+
+    transform: rotate(4deg);
+}
+
+.mra-note {
+    position: absolute;
+
+    right: 18px;
+    bottom: 15px;
+
+    width: 190px;
+
+    padding: 14px;
+
+    background: #f3d233;
+
+    font-family: "Schoolbell", cursive;
+
+    font-size: 12px;
+
+    transform: rotate(2deg);
+}
+
+
+/* =========================================
+   WICK COVER
+========================================= */
+
+.wick-cover {
+    background-color: #cbdce9;
+
+    background-image:
+        linear-gradient(
+            rgba(48, 77, 103, 0.13) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(48, 77, 103, 0.13) 1px,
+            transparent 1px
+        );
+
+    background-size: 24px 24px;
+}
+
+.blueprint-building {
+    position: absolute;
+
+    left: 34px;
+    bottom: 30px;
+
+    width: 280px;
+
+    height: 150px;
+}
+
+.roof-left,
+.roof-right {
+    position: absolute;
+
+    top: 25px;
+
+    width: 150px;
+    height: 2px;
+
+    background: #233a4b;
+}
+
+.roof-left {
+    left: 5px;
+
+    transform: rotate(-24deg);
+
+    transform-origin: left center;
+}
+
+.roof-right {
+    right: 4px;
+
+    transform: rotate(24deg);
+
+    transform-origin: right center;
+}
+
+.building-body {
+    position: absolute;
+
+    left: 30px;
+    right: 30px;
+    bottom: 0;
+
+    height: 105px;
+
+    border:
+        2px solid #233a4b;
+
+    border-top: none;
+}
+
+.building-line {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    width: 1px;
+
+    background: rgba(35, 58, 75, 0.45);
+}
+
+.line-a {
+    left: 25%;
+}
+
+.line-b {
+    left: 50%;
+}
+
+.line-c {
+    left: 75%;
+}
+
+.building-door {
+    position: absolute;
+
+    width: 48px;
+    height: 68px;
+
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    border:
+        2px solid #233a4b;
+
+    border-bottom: none;
+}
+
+.wick-table {
+    position: absolute;
+
+    right: 28px;
+    top: 24px;
+
+    width: 145px;
+
+    padding: 11px;
+
+    background: #f6f3eb;
+
+    transform: rotate(2deg);
+
+    box-shadow:
+        0 4px 8px rgba(17, 17, 17, 0.08);
+}
+
+.wick-table div {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    padding: 6px 4px;
+
+    border-bottom:
+        1px solid rgba(17, 17, 17, 0.12);
+
+    font-size: 6px;
+}
+
+.wick-note {
+    position: absolute;
+
+    right: 18px;
+    bottom: 15px;
+
+    padding: 11px 14px;
+
+    background: #f4d333;
+
+    font-family: "Schoolbell", cursive;
+
+    font-size: 11px;
+
+    line-height: 1.05;
+
+    transform: rotate(-2deg);
 }
 
 
@@ -686,128 +959,150 @@ No image files necessary.
    HOVER OVERLAY
 ========================================= */
 
-.project-hover-info {
+.project-overlay {
     position: absolute;
+
     inset: 0;
+
     z-index: 20;
 
-    padding: 32px;
+    padding: 28px;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: flex-end;
 
-    background: rgba(17, 17, 17, 0.96);
+    background: rgba(17, 17, 17, 0.97);
+
     color: #ffffff;
 
     opacity: 0;
+
     visibility: hidden;
 
-    transform: translateY(10px);
+    transform: translateY(8px);
 
     transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease,
-        transform 0.3s ease;
+        opacity 0.28s ease,
+        visibility 0.28s ease,
+        transform 0.28s ease;
 }
 
-.project-v2-card:hover .project-hover-info {
+.project-card:hover .project-overlay {
     opacity: 1;
+
     visibility: visible;
 
     transform: translateY(0);
 }
 
-.project-hover-date {
-    margin-bottom: auto;
+.overlay-label {
+    margin: 0 auto auto 0;
 
-    font-family: "DM Sans", sans-serif;
-    font-size: 9px;
-    font-weight: 600;
+    font-size: 8px;
+
+    font-weight: 700;
+
     letter-spacing: 0.12em;
 }
 
-.project-hover-info > p:not(.project-hover-date) {
+.overlay-question {
     max-width: 610px;
 
-    margin: 0 0 28px;
+    margin: 0 0 18px;
 
     font-family: "Playfair Display", Georgia, serif;
-    font-size: clamp(26px, 2.4vw, 42px);
-    line-height: 1.08;
+
+    font-size: clamp(26px, 2.3vw, 40px);
+
+    line-height: 1.05;
 }
 
-.project-hover-link {
+.overlay-description {
+    max-width: 580px;
+
+    margin: 0 0 25px;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.overlay-link {
     width: fit-content;
 
+    padding-bottom: 3px;
+
     color: #ffffff;
+
     text-decoration: none;
 
-    font-size: 9px;
-    font-weight: 600;
+    font-size: 8px;
+
+    font-weight: 700;
+
     letter-spacing: 0.11em;
 
     border-bottom:
-        1px solid rgba(255,255,255,0.5);
-
-    padding-bottom: 3px;
+        1px solid rgba(255, 255, 255, 0.6);
 }
 
-a.project-hover-link:hover {
+.overlay-link:hover {
     border-color: #ffffff;
 }
 
-
-/* =========================================
-   COMING SOON
-========================================= */
-
-.project-coming-soon .project-hover-link {
-    opacity: 0.65;
+.overlay-static {
+    opacity: 0.62;
 }
+
 
 /* =========================================
    FOOTER
 ========================================= */
 
-.editorial-footer {
+.projects-footer {
     width: 100%;
-    margin: 0;
 
-    padding: 32px 78px 42px;
+    padding: 30px 78px 42px;
 
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
 
     border-top: 1px solid #111111;
 
-    background: #efede7;
+    background: #f7f5f0;
 }
 
-.editorial-footer p {
+.projects-footer p {
     margin: 0;
 
-    color: #111111;
+    font-size: 10px;
 
-    font-family: "DM Sans", Arial, sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.03em;
+    font-weight: 600;
+
+    letter-spacing: 0.05em;
 }
 
-.editorial-footer a {
+.projects-footer a {
     color: #111111;
+
     text-decoration: none;
 
-    font-family: "DM Sans", Arial, sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.07em;
 }
 
-.editorial-footer a:hover {
+.projects-footer a:hover {
     opacity: 0.55;
 }
 
@@ -818,26 +1113,66 @@ a.project-hover-link:hover {
 
 @media (max-width: 900px) {
 
-    .editorial-header {
-        padding: 0 32px;
+    .projects-header {
         height: auto;
-        min-height: 100px;
+
+        min-height: 105px;
+
+        padding:
+            30px 28px;
+
+        gap: 30px;
     }
 
-    .editorial-nav {
-        gap: 24px;
+    .projects-nav {
+        gap: 22px;
+
         flex-wrap: wrap;
+
         justify-content: flex-end;
     }
 
-    .editorial-nav a {
-        font-size: 12px;
+    .projects-nav a {
+        font-size: 11px;
     }
 
-    .editorial-footer {
-        padding-left: 32px;
-        padding-right: 32px;
+    .projects-main {
+        width:
+            calc(100% - 36px);
+
+        padding-top: 60px;
     }
+
+    .hero-row {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 40px;
+    }
+
+    .section-heading {
+        grid-template-columns:
+            40px 1fr;
+    }
+
+    .section-heading p {
+        display: none;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        min-height: 500px;
+    }
+
+    .projects-footer {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
 }
 
 
@@ -847,28 +1182,124 @@ a.project-hover-link:hover {
 
 @media (max-width: 600px) {
 
-    .editorial-header {
-        padding: 24px 20px;
+    .projects-header {
         flex-direction: column;
+
         align-items: flex-start;
+
+        padding:
+            24px 20px;
+
         gap: 22px;
     }
 
-    .editorial-logo {
-        font-size: 18px;
+    .projects-logo {
+        font-size: 17px;
     }
 
-    .editorial-nav {
+    .projects-nav {
         width: 100%;
+
         justify-content: flex-start;
-        gap: 14px 20px;
+
+        gap:
+            12px 18px;
     }
 
-    .editorial-nav a {
-        font-size: 10px;
+    .projects-nav a {
+        font-size: 9px;
     }
-     .editorial-footer {
-        padding: 24px 20px 32px;
-        gap: 24px;
+
+    .projects-main {
+        width:
+            calc(100% - 28px);
+
+        padding-top: 45px;
     }
+
+    .projects-hero {
+        padding-bottom: 45px;
+    }
+
+    .hero-row h1 {
+        font-size: 58px;
+    }
+
+    .project-section {
+        margin-top: 65px;
+    }
+
+    .project-card {
+        min-height: 430px;
+    }
+
+    .project-card h3 {
+        font-size: 36px;
+    }
+
+    .project-cover {
+        height: 190px;
+    }
+
+    .demographic-cover {
+        height: 205px;
+    }
+
+    .spotify-record {
+        width: 85px;
+        height: 85px;
+
+        right: 18px;
+    }
+
+    .phone {
+        left: 11%;
+    }
+
+    .mra-paper {
+        width: 70%;
+    }
+
+    .mra-card {
+        display: none;
+    }
+
+    .blueprint-building {
+        left: 5px;
+
+        transform:
+            scale(0.8);
+
+        transform-origin:
+            bottom left;
+    }
+
+    .wick-table {
+        right: 12px;
+
+        width: 120px;
+    }
+
+    .projects-footer {
+        padding:
+            24px 20px 32px;
+    }
+
+}
+
+
+/* =========================================
+   TOUCH DEVICES
+========================================= */
+
+@media (hover: none) {
+
+    .project-card:hover {
+        transform: none;
+    }
+
+    .project-overlay {
+        display: none;
+    }
+
 }
