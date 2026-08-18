@@ -1,272 +1,831 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Academic — Louise Nguyen</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: #edeae2;
-      font-family: 'DM Sans', sans-serif;
-      color: #2a2e4a;
-      min-height: 100vh;
-      padding: 120px 40px 80px;
-    }
+    <meta charset="UTF-8">
 
-    /* ── NAV ── */
-    .nav-wrap {
-      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-      z-index: 100; width: calc(100% - 80px); max-width: 900px;
-    }
-    nav {
-      background: white; border: 1.5px solid #2a2e4a; border-radius: 40px;
-      padding: 10px 20px; display: flex; align-items: center; justify-content: center; gap: 8px;
-    }
-    nav a { text-decoration: none; font-size: 14px; color: #2a2e4a; padding: 6px 18px; border-radius: 20px; }
-    nav a.active { color: white; background: #2a2e4a; font-weight: 500; }
-    .nav-dropdown-wrap { position: relative; display: inline-flex; align-items: center; }
-    .nav-ec-trigger { font-size: 14px; color: #2a2e4a; padding: 6px 18px; border-radius: 20px; cursor: default; user-select: none; white-space: nowrap; }
-    .nav-ec-trigger.active { background: #2a2e4a; color: white; font-weight: 500; }
-    .nav-dropdown {
-      position: absolute; top: calc(100% + 10px); left: 50%;
-      transform: translateX(-50%) translateY(-4px);
-      background: white; border: 1.5px solid #2a2e4a; border-radius: 14px;
-      padding: 6px; display: flex; flex-direction: column; gap: 2px;
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
-      white-space: nowrap; min-width: 150px; z-index: 200;
-    }
-    .nav-dropdown::before {
-      content: '';
-      position: absolute;
-      top: -12px;
-      left: 0;
-      right: 0;
-      height: 12px;
-    }
-    .nav-dropdown-wrap:hover .nav-dropdown {
-      opacity: 1;
-      pointer-events: all;
-      transform: translateX(-50%) translateY(0);
-      transition: opacity 0.15s ease 0s, transform 0.15s ease 0s;
-    }
-    .nav-dropdown a { text-decoration: none; font-size: 13px; color: #2a2e4a; padding: 8px 14px; border-radius: 10px; display: block; transition: background 0.1s; }
-    .nav-dropdown a:hover { background: #edeae2; }
-    .nav-dropdown a.active { background: #2a2e4a; color: white; font-weight: 500; }
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    /* ── PAGE HEADER ── */
-    .page-header { margin-bottom: 56px; }
-    .page-header h1 { font-family: 'DM Serif Display', serif; font-size: 52px; font-weight: 400; line-height: 1.1; }
-    .page-header p { margin-top: 10px; font-size: 16px; color: #666; font-style: italic; }
+    <meta
+        name="description"
+        content="Academic and professional involvement by Louise Nguyen."
+    >
 
-    /* ── SHARED TAG ── */
-    .tag { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 20px; background: rgba(42,46,74,0.08); color: #2a2e4a; }
+    <title>Academic & Professional | Louise Nguyen</title>
 
-    /* ── ACADEMIC CARD LIST ── */
-    .acad-list { display: flex; flex-direction: column; gap: 28px; }
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="academic.css">
 
-    .acad-card {
-      background: #faf9f6;
-      border: 1.5px solid #2a2e4a;
-      border-radius: 20px;
-      overflow: hidden;
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    .acad-header-band {
-      background: #4a7f8c;
-      padding: 28px 32px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 20px;
-    }
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
-    .acad-header-band h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 28px;
-      font-weight: 400;
-      color: white;
-    }
-
-    .acad-header-band p {
-      font-size: 13px;
-      color: rgba(255,255,255,0.75);
-      margin-top: 6px;
-      line-height: 1.6;
-    }
-
-    .acad-date-badge {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      flex-shrink: 0;
-    }
-
-    /* inactive / past card */
-    .acad-card-past .acad-header-band {
-      background: #8a8f9e;
-    }
-
-    .acad-body {
-      padding: 24px 32px;
-    }
-
-    .acad-desc {
-      font-size: 14px;
-      line-height: 1.7;
-      color: #3d4460;
-      margin-bottom: 16px;
-    }
-
-    .acad-desc li { margin-left: 18px; margin-bottom: 4px; }
-
-    .acad-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 20px;
-    }
-
-    /* certificate placeholder */
-    .cert-placeholder {
-      border: 1.5px dashed rgba(42,46,74,0.25);
-      border-radius: 14px;
-      padding: 20px 24px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      background: rgba(42,46,74,0.03);
-      margin-top: 4px;
-    }
-
-    .cert-placeholder-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
-      background: rgba(42,46,74,0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(42,46,74,0.3);
-      flex-shrink: 0;
-    }
-
-    .cert-placeholder-text {}
-    .cert-placeholder-title { font-size: 13px; font-weight: 600; color: #2a2e4a; }
-    .cert-placeholder-hint { font-size: 11px; color: #aaa; margin-top: 2px; }
-
-    /* in-progress badge */
-    .in-progress-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 11px; font-weight: 600; color: #2a2e4a;
-      background: rgba(42,46,74,0.1); padding: 5px 12px;
-      border-radius: 20px; width: fit-content;
-    }
-    .dot {
-      width: 6px; height: 6px; background: #2a2e4a; border-radius: 50%;
-      animation: pulse 1.8s ease-in-out infinite;
-    }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-
-    .past-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 11px; font-weight: 600; color: #888;
-      background: rgba(42,46,74,0.06); padding: 5px 12px;
-      border-radius: 20px; width: fit-content;
-    }
-
-    @media (max-width: 680px) {
-      body { padding: 100px 20px 60px; }
-      .nav-wrap { width: calc(100% - 40px); }
-      .page-header h1 { font-size: 38px; }
-      .acad-header-band { flex-direction: column; padding: 20px; }
-      .acad-body { padding: 20px; }
-    }
-  </style>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Schoolbell&display=swap"
+        rel="stylesheet"
+    >
 </head>
-<body>
 
-  <div class="nav-wrap">
-    <nav>
-      <a href="index.html">home</a>
-      <a href="projects.html">projects</a>
-      <a href="experience.html">experience</a>
-      <div class="nav-dropdown-wrap">
-        <span class="nav-ec-trigger active">extracurriculars</span>
-        <div class="nav-dropdown">
-          <a href="volunteering.html">volunteering</a>
-          <a href="multicultural.html">multicultural</a>
-          <a href="academic.html" class="active">academic</a>
-        </div>
-      </div>
-      <a href="mailto:louisetnguyen1@gmail.com">contact</a>
-    </nav>
-  </div>
 
-  <header class="page-header">
-    <h1>academic</h1>
-    <p>clubs and organizations related to my coursework</p>
-  </header>
+<body class="academic-page">
 
-  <div class="acad-list">
 
-    <!-- ECONOMICS INCLUSION BOARD (current — first) -->
-    <div class="acad-card">
-      <div class="acad-header-band">
-        <div>
-          <h2>Economics Inclusion Board</h2>
-          <p>working to make the economics department at UW–Madison more accessible, representative, and welcoming for all students.</p>
-        </div>
-        <div class="acad-date-badge">Present</div>
-      </div>
-      <div class="acad-body">
-        <p class="acad-desc">Selected alongside 9 others to collaborate with the Undergraduate Academic Advising Office to foster an inclusive and supportive environment within the department. The Inclusion Board provides a space for students to have their and their peers' voices represented.</p>
-        <div class="acad-tags">
-          <span class="tag">Diversity & Inclusion</span>
-          <span class="tag">Economics</span>
-          <span class="tag">Student Advocacy</span>
-        </div>
-        <div class="in-progress-badge">
-          <span class="dot"></span>
-          in progress
-        </div>
-      </div>
-    </div>
+    <!-- =====================================
+         UNIVERSAL NAVIGATION
+    ====================================== -->
 
-    <!-- LEAD @ ECON (past) -->
-    <div class="acad-card acad-card-past">
-      <div class="acad-header-band">
-        <div>
-          <h2>Lead @ ECON</h2>
-          <p>A leadership and economics organization at UW–Madison focused on developing the next generation of economist-leaders</p>
-        </div>
-        <div class="acad-date-badge">Past</div>
-      </div>
-      <div class="acad-body">
-        <p class="acad-desc">Accepted into a selective leadership development program focused on personal values, career exploration, and professional growth. Explored and reflected on core values to shape a personal mission and leadership style. Practiced networking with 50+ students and gained insight into two career fields. Strengthened online presence through LinkedIn and intentional relationship-building. Learned SMART goal-setting, job search strategies, and career development tools</p>
-        <div class="acad-tags">
-          <span class="tag">Leadership</span>
-          <span class="tag">Economics</span>
-          <span class="tag">Professional Development</span>
-        </div>
-        <div class="cert-placeholder">
-  <img src="https://i.imgur.com/G8uF3wk.jpg" alt="Lead @ eCON Certificate" style="width:100%;max-width:420px;border-radius:12px;display:block;margin-top:8px;">
-</div>
-          <div class="cert-placeholder-text">
-            <div class="cert-placeholder-title">Lead @ ECON Certificate</div>
-            
-          </div>
-        </div>
-        <br>
+    <header class="editorial-header">
 
-      </div>
-    </div>
+        <a class="editorial-logo" href="index.html">
+            LN
+        </a>
 
-  </div>
+
+        <nav class="editorial-nav">
+
+            <a href="index.html">
+                HOME
+            </a>
+
+            <a href="projects.html">
+                PROJECTS
+            </a>
+
+            <a href="experience.html">
+                EXPERIENCE
+            </a>
+
+
+            <div class="nav-dropdown">
+
+                <button
+                    class="nav-dropdown-button active"
+                    type="button"
+                >
+                    EXTRACURRICULARS
+
+                    <span class="nav-dropdown-arrow">
+                        ↓
+                    </span>
+                </button>
+
+
+                <div class="nav-dropdown-menu">
+
+                    <a href="volunteering.html">
+                        <span>01</span>
+                        VOLUNTEERING
+                    </a>
+
+                    <a href="multicultural.html">
+                        <span>02</span>
+                        MULTICULTURAL
+                    </a>
+
+                    <a
+                        href="academic.html"
+                        class="dropdown-active"
+                    >
+                        <span>03</span>
+                        ACADEMIC &amp; PROFESSIONAL
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <a href="contact.html">
+                CONTACT
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================
+         MAIN
+    ====================================== -->
+
+    <main class="academic-main">
+
+
+        <!-- =================================
+             HERO
+        ================================== -->
+
+        <section class="academic-hero">
+
+            <div class="academic-hero-left">
+
+                <p class="academic-kicker">
+                    beyond the syllabus
+                </p>
+
+                <h1>
+                    academic &amp;<br>
+                    professional<span>.</span>
+                </h1>
+
+            </div>
+
+
+            <div class="academic-hero-right">
+
+                <p>
+                    Programs, organizations, and communities that have
+                    shaped how I think about economics, leadership,
+                    institutions, and what I want to do after college.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             01 ECON INCLUSION BOARD
+        ================================== -->
+
+        <section class="academic-section">
+
+            <div class="academic-section-heading">
+
+                <span>01</span>
+
+                <h2>
+                    Economics Inclusion Board
+                </h2>
+
+                <p>
+                    Making the department feel more representative.
+                </p>
+
+            </div>
+
+
+            <article class="econ-feature">
+
+
+                <div class="econ-copy">
+
+                    <div class="academic-meta">
+
+                        <span>
+                            UW–MADISON DEPARTMENT OF ECONOMICS
+                        </span>
+
+                        <span>
+                            PRESENT
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        Making room<br>
+                        for more voices.
+                    </h3>
+
+
+                    <p class="academic-lead">
+                        Selected alongside nine other students to work
+                        with the Undergraduate Academic Advising Office
+                        on making the economics department more accessible,
+                        representative, and welcoming.
+                    </p>
+
+
+                    <div class="academic-points">
+
+                        <p>
+                            Represent student perspectives and help surface
+                            concerns, experiences, and ideas from within the
+                            economics community.
+                        </p>
+
+                        <p>
+                            Collaborate with peers and department staff on
+                            initiatives designed to strengthen belonging
+                            and accessibility.
+                        </p>
+
+                        <p>
+                            Contribute to conversations about how academic
+                            spaces can better support students with different
+                            backgrounds and experiences.
+                        </p>
+
+                    </div>
+
+
+                    <div class="academic-tags">
+
+                        <span>economics</span>
+                        <span>student advocacy</span>
+                        <span>inclusion</span>
+                        <span>collaboration</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="econ-visual">
+
+                    <div class="econ-paper">
+
+                        <p>
+                            STUDENT VOICE
+                        </p>
+
+                        <h4>
+                            who gets<br>
+                            heard?
+                        </h4>
+
+                        <div class="econ-lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="econ-note">
+                        economics is about<br>
+                        people too
+                    </div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+
+        <!-- =================================
+             02 LEAD @ ECON
+        ================================== -->
+
+        <section class="academic-section">
+
+            <div class="academic-section-heading">
+
+                <span>02</span>
+
+                <h2>
+                    LEAD @ Econ
+                </h2>
+
+                <p>
+                    Leadership, career readiness, and figuring things out.
+                </p>
+
+            </div>
+
+
+            <article class="lead-feature">
+
+
+                <div class="lead-copy">
+
+                    <div class="academic-meta">
+
+                        <span>
+                            SELECTIVE COHORT PROGRAM
+                        </span>
+
+                        <span>
+                            MAR — APR 2025
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        Learning how<br>
+                        I want to lead.
+                    </h3>
+
+
+                    <p class="academic-lead">
+                        Selected for a leadership development cohort
+                        within the Department of Economics focused on
+                        self-reflection, networking, career readiness,
+                        and intentional professional growth.
+                    </p>
+
+
+                    <div class="lead-stats">
+
+                        <div>
+                            <strong>50+</strong>
+
+                            <span>
+                                STUDENTS, ALUMNI &amp; PROFESSIONALS
+                            </span>
+                        </div>
+
+                        <div>
+                            <strong>2</strong>
+
+                            <span>
+                                CAREER PATHS EXPLORED
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="academic-points">
+
+                        <p>
+                            Explored personal leadership values and used
+                            them to shape a more intentional approach to
+                            career and relationship building.
+                        </p>
+
+                        <p>
+                            Practiced networking, LinkedIn development,
+                            SMART goal-setting, and long-term career planning.
+                        </p>
+
+                    </div>
+
+
+                    <div class="academic-tags">
+
+                        <span>leadership</span>
+                        <span>economics</span>
+                        <span>career development</span>
+                        <span>networking</span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="lead-certificate">
+
+                    <p class="certificate-label">
+                        CERTIFICATE OF COMPLETION
+                    </p>
+
+                    <img
+                        src="https://i.imgur.com/G8uF3wk.jpg"
+                        alt="LEAD at Econ certificate"
+                    >
+
+                    <p class="certificate-caption">
+                        one very official piece of paper :)
+                    </p>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+
+        <!-- =================================
+             03 DELIBERATION DINNER
+        ================================== -->
+
+        <section class="academic-section">
+
+            <div class="academic-section-heading">
+
+                <span>03</span>
+
+                <h2>
+                    Deliberation Dinner
+                </h2>
+
+                <p>
+                    Disagreeing without turning off curiosity.
+                </p>
+
+            </div>
+
+
+            <article class="deliberation-feature">
+
+
+                <div class="deliberation-copy">
+
+                    <div class="academic-meta">
+
+                        <span>
+                            DELIBERATION DINNER PARTICIPANT
+                        </span>
+
+                        <span>
+                            SEP 2024 — FEB 2025
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        Listening is part<br>
+                        of the argument.
+                    </h3>
+
+
+                    <p class="academic-lead">
+                        Participated in a semester-long deliberation
+                        program centered on structured conversations about
+                        complex social and public-policy issues.
+                    </p>
+
+
+                    <div class="deliberation-stat">
+
+                        <strong>
+                            12
+                        </strong>
+
+                        <div>
+
+                            <span>
+                                STUDENT COHORT
+                            </span>
+
+                            <p>
+                                practicing civil discourse across
+                                different perspectives
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="academic-points">
+
+                        <p>
+                            Engaged in facilitated discussions on complex
+                            and often polarizing societal issues.
+                        </p>
+
+                        <p>
+                            Developed active listening, constructive dialogue,
+                            and evidence-based communication skills.
+                        </p>
+
+                        <p>
+                            Collaborated with peers from different backgrounds
+                            to practice curiosity and mutual understanding.
+                        </p>
+
+                    </div>
+
+
+                    <div class="academic-tags">
+
+                        <span>civil discourse</span>
+                        <span>active listening</span>
+                        <span>public policy</span>
+                        <span>communication</span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="deliberation-photo-wrap">
+
+                    <figure class="deliberation-photo">
+
+                        <img
+                            src="deliberation.jpg"
+                            alt="Deliberation Dinner cohort"
+                        >
+
+                    </figure>
+
+
+                    <div class="deliberation-note">
+                        listening ≠ agreeing
+                    </div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+
+        <!-- =================================
+             04 ASM INTERN
+        ================================== -->
+
+        <section class="academic-section">
+
+            <div class="academic-section-heading">
+
+                <span>04</span>
+
+                <h2>
+                    Associated Students of Madison
+                </h2>
+
+                <p>
+                    Where campus governance first became real.
+                </p>
+
+            </div>
+
+
+            <article class="asm-intern-feature">
+
+
+                <div class="asm-intern-copy">
+
+                    <div class="academic-meta">
+
+                        <span>
+                            ASM INTERN
+                        </span>
+
+                        <span>
+                            SEP — DEC 2024
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        My first look at<br>
+                        how institutions move.
+                    </h3>
+
+
+                    <p class="academic-lead">
+                        Served as an intern with Associated Students of
+                        Madison and gained firsthand experience with
+                        Wisconsin's shared-governance model, where students
+                        work alongside faculty, staff, and administrators.
+                    </p>
+
+
+                    <div class="academic-points">
+
+                        <p>
+                            Developed an ecobrick initiative proposal focused
+                            on sustainability and reducing campus waste.
+                        </p>
+
+                        <p>
+                            Worked with student leaders and university
+                            stakeholders to better understand governance
+                            processes and campus operations.
+                        </p>
+
+                        <p>
+                            Built early experience in project planning,
+                            policy analysis, and cross-functional collaboration.
+                        </p>
+
+                    </div>
+
+
+                    <div class="academic-tags">
+
+                        <span>governance</span>
+                        <span>sustainability</span>
+                        <span>policy</span>
+                        <span>project planning</span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="asm-intern-visual">
+
+                    <div class="asm-blueprint">
+
+                        <p class="blueprint-label">
+                            FIRST PROPOSAL
+                        </p>
+
+                        <h4>
+                            idea →<br>
+                            institution
+                        </h4>
+
+                        <div class="blueprint-path">
+
+                            <span>01</span>
+                            <i></i>
+
+                            <span>02</span>
+                            <i></i>
+
+                            <span>03</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="asm-intern-note">
+                        turns out change<br>
+                        has paperwork
+                    </div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+
+        <!-- =================================
+             05 MERCILE J. LEE
+        ================================== -->
+
+        <section class="academic-section">
+
+            <div class="academic-section-heading">
+
+                <span>05</span>
+
+                <h2>
+                    Mercile J. Lee Scholars
+                </h2>
+
+                <p>
+                    Opportunity, community, and responsibility.
+                </p>
+
+            </div>
+
+
+            <article class="mjl-academic-feature">
+
+
+                <div class="mjl-academic-copy">
+
+                    <div class="academic-meta">
+
+                        <span>
+                            MERCILE J. LEE SCHOLAR
+                        </span>
+
+                        <span>
+                            SEP 2024 — PRESENT
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        More than<br>
+                        a scholarship.
+                    </h3>
+
+
+                    <p class="academic-lead">
+                        Selected as a Mercile J. Lee Scholar in recognition
+                        of academic achievement, leadership potential,
+                        and commitment to community engagement.
+                    </p>
+
+
+                    <div class="mjl-award">
+
+                        <div>
+
+                            <strong>
+                                FULL
+                            </strong>
+
+                            <span>
+                                TUITION
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                $800
+                            </strong>
+
+                            <span>
+                                ANNUAL BOOK STIPEND
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="academic-points">
+
+                        <p>
+                            Participate in mentorship, research, leadership,
+                            and professional-development opportunities.
+                        </p>
+
+                        <p>
+                            Engage with a scholar community centered on
+                            academic excellence, service, and positive impact.
+                        </p>
+
+                        <p>
+                            Continue developing as a student and leader
+                            through opportunities extending beyond financial support.
+                        </p>
+
+                    </div>
+
+
+                    <div class="academic-tags">
+
+                        <span>scholarship</span>
+                        <span>leadership</span>
+                        <span>mentorship</span>
+                        <span>academic achievement</span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="mjl-photo-area">
+
+                    <figure class="mjl-cohort-photo">
+
+                        <img
+                            src="mjl.jpg"
+                            alt="Mercile J. Lee Scholars 2024 cohort"
+                        >
+
+                    </figure>
+
+
+                    <div class="mjl-photo-label">
+                        2024 COHORT
+                    </div>
+
+
+                    <div class="mjl-academic-note">
+                        opportunity should<br>
+                        create more opportunity
+                    </div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer class="academic-footer">
+
+        <p>
+            LOUISE NGUYEN © 2026
+        </p>
+
+        <a href="contact.html">
+            LET'S TALK ↗
+        </a>
+
+    </footer>
+
 
 </body>
 </html>
