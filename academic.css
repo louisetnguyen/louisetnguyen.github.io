@@ -1,1 +1,1128 @@
+/* =========================================
+   GLOBAL
+========================================= */
 
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body.academic-page {
+    margin: 0;
+    padding: 0;
+
+    background: #f2f0ea;
+    color: #111111;
+
+    font-family: "DM Sans", Arial, sans-serif;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.academic-main {
+    width: min(1600px, calc(100% - 44px));
+
+    margin: 0 auto;
+
+    padding: 85px 0 120px;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.academic-hero {
+    display: grid;
+
+    grid-template-columns: 1.25fr 0.75fr;
+
+    gap: 70px;
+
+    align-items: end;
+
+    padding-bottom: 70px;
+}
+
+.academic-kicker {
+    margin: 0 0 15px;
+
+    color: #ef654f;
+
+    font-family: "Schoolbell", cursive;
+
+    font-size: 15px;
+}
+
+.academic-hero h1 {
+    margin: 0;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(58px, 7.7vw, 125px);
+
+    font-weight: 400;
+
+    line-height: 0.78;
+
+    letter-spacing: -0.055em;
+}
+
+.academic-hero h1 span {
+    font-style: italic;
+}
+
+.academic-hero-right {
+    display: flex;
+
+    justify-content: flex-end;
+}
+
+.academic-hero-right p {
+    max-width: 430px;
+
+    margin: 0;
+
+    color: #48443f;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(20px, 1.7vw, 28px);
+
+    line-height: 1.25;
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.academic-section {
+    margin-top: 95px;
+}
+
+.academic-section-heading {
+    display: grid;
+
+    grid-template-columns: 55px 1fr auto;
+
+    gap: 18px;
+
+    align-items: baseline;
+
+    margin-bottom: 22px;
+
+    padding-top: 12px;
+
+    border-top: 1px solid #111111;
+}
+
+.academic-section-heading > span {
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+}
+
+.academic-section-heading h2 {
+    margin: 0;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(30px, 3vw, 47px);
+
+    font-weight: 400;
+}
+
+.academic-section-heading > p {
+    margin: 0;
+
+    color: #68635d;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   SHARED
+========================================= */
+
+.academic-meta {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 25px;
+}
+
+.academic-meta span {
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.13em;
+}
+
+.academic-lead {
+    max-width: 650px;
+
+    margin: 0 0 32px;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(19px, 1.55vw, 25px);
+
+    line-height: 1.25;
+}
+
+.academic-points {
+    max-width: 660px;
+
+    display: grid;
+
+    gap: 12px;
+}
+
+.academic-points p {
+    position: relative;
+
+    margin: 0;
+
+    padding-left: 18px;
+
+    color: #53504b;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+.academic-points p::before {
+    content: "↳";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+}
+
+.academic-tags {
+    margin-top: auto;
+
+    padding-top: 32px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+.academic-tags span {
+    padding: 6px 10px;
+
+    border: 1px solid rgba(17, 17, 17, 0.22);
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.25);
+
+    font-size: 8px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   ECON INCLUSION BOARD
+========================================= */
+
+.econ-feature {
+    min-height: 590px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 0.9fr)
+        minmax(0, 1.1fr);
+
+    gap: 55px;
+
+    padding: 35px;
+
+    background: #e7e3da;
+
+    border-top: 1px solid #111111;
+}
+
+.econ-copy {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.econ-copy h3 {
+    margin: 70px 0 30px;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(48px, 4.8vw, 75px);
+
+    font-weight: 400;
+
+    line-height: 0.88;
+
+    letter-spacing: -0.05em;
+}
+
+
+/* ECON VISUAL */
+
+.econ-visual {
+    position: relative;
+
+    min-height: 500px;
+
+    background: #d7e2ec;
+
+    overflow: hidden;
+}
+
+.econ-paper {
+    position: absolute;
+
+    width: 68%;
+    height: 340px;
+
+    left: 40px;
+    top: 45px;
+
+    padding: 34px;
+
+    background: #f5f1e8;
+
+    transform: rotate(-2deg);
+
+    box-shadow:
+        0 8px 18px rgba(17, 17, 17, 0.08);
+}
+
+.econ-paper > p {
+    margin: 0 0 50px;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.13em;
+}
+
+.econ-paper h4 {
+    margin: 0;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: 48px;
+
+    font-weight: 400;
+
+    line-height: 0.9;
+}
+
+.econ-lines {
+    margin-top: 40px;
+
+    display: grid;
+
+    gap: 12px;
+}
+
+.econ-lines span {
+    width: 75%;
+    height: 1px;
+
+    background: rgba(17, 17, 17, 0.2);
+}
+
+.econ-note {
+    position: absolute;
+
+    right: 25px;
+    bottom: 35px;
+
+    padding: 18px 22px;
+
+    background: #f4d33f;
+
+    font-family: "Schoolbell", cursive;
+
+    font-size: 19px;
+
+    line-height: 0.95;
+
+    transform: rotate(2deg);
+}
+
+
+/* =========================================
+   LEAD @ ECON
+========================================= */
+
+.lead-feature {
+    min-height: 610px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.05fr)
+        minmax(320px, 0.95fr);
+
+    gap: 55px;
+
+    padding: 35px;
+
+    background: #dedad0;
+
+    border-top: 1px solid #111111;
+}
+
+.lead-copy {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.lead-copy h3 {
+    margin: 70px 0 30px;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(48px, 4.8vw, 75px);
+
+    font-weight: 400;
+
+    line-height: 0.88;
+
+    letter-spacing: -0.05em;
+}
+
+
+/* LEAD STATS */
+
+.lead-stats {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    margin: 10px 0 28px;
+
+    border-top: 1px solid rgba(17, 17, 17, 0.2);
+    border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+}
+
+.lead-stats > div {
+    padding: 20px 15px 20px 0;
+}
+
+.lead-stats > div + div {
+    padding-left: 20px;
+
+    border-left: 1px solid rgba(17, 17, 17, 0.2);
+}
+
+.lead-stats strong {
+    display: block;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: 48px;
+
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+.lead-stats span {
+    display: block;
+
+    margin-top: 10px;
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.1em;
+}
+
+
+/* CERTIFICATE */
+
+.lead-certificate {
+    align-self: center;
+
+    padding: 28px;
+
+    background: #d8c4e7;
+}
+
+.certificate-label {
+    margin: 0 0 18px;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.13em;
+}
+
+.lead-certificate img {
+    width: 100%;
+
+    display: block;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 10px 25px rgba(17, 17, 17, 0.1);
+
+    transform: rotate(-2deg);
+}
+
+.certificate-caption {
+    margin: 25px 0 0;
+
+    font-family: "Schoolbell", cursive;
+
+    font-size: 18px;
+}
+
+
+/* =========================================
+   DELIBERATION
+========================================= */
+
+.deliberation-feature {
+    min-height: 600px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(320px, 0.8fr);
+
+    gap: 60px;
+
+    padding: 35px;
+
+    background: #e7e3da;
+
+    border-top: 1px solid #111111;
+}
+
+.deliberation-copy {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.deliberation-copy h3 {
+    margin: 70px 0 30px;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(48px, 4.8vw, 75px);
+
+    font-weight: 400;
+
+    line-height: 0.88;
+
+    letter-spacing: -0.05em;
+}
+
+.deliberation-stat {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin: 5px 0 28px;
+
+    padding: 18px 0;
+
+    border-top: 1px solid rgba(17, 17, 17, 0.2);
+    border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+}
+
+.deliberation-stat strong {
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: 55px;
+
+    font-weight: 400;
+}
+
+.deliberation-stat span {
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.1em;
+}
+
+.deliberation-stat p {
+    margin: 5px 0 0;
+
+    color: #68635d;
+
+    font-size: 10px;
+}
+
+
+/* DELIBERATION PHOTO */
+
+.deliberation-photo-wrap {
+    position: relative;
+
+    min-height: 500px;
+
+    background: #d8c4b7;
+}
+
+.deliberation-photo {
+    position: absolute;
+
+    width: 78%;
+
+    left: 11%;
+    top: 65px;
+
+    margin: 0;
+
+    padding: 10px 10px 32px;
+
+    background: #ffffff;
+
+    transform: rotate(-2deg);
+
+    box-shadow:
+        0 10px 20px rgba(17, 17, 17, 0.1);
+}
+
+.deliberation-photo img {
+    width: 100%;
+
+    display: block;
+}
+
+.deliberation-note {
+    position: absolute;
+
+    right: 25px;
+    bottom: 38px;
+
+    padding: 17px 20px;
+
+    background: #f4d33f;
+
+    font-family: "Schoolbell", cursive;
+
+    font-size: 19px;
+
+    transform: rotate(2deg);
+}
+
+
+/* =========================================
+   ASM INTERN
+========================================= */
+
+.asm-intern-feature {
+    min-height: 580px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 0.95fr)
+        minmax(0, 1.05fr);
+
+    gap: 55px;
+
+    padding: 35px;
+
+    background: #dedad0;
+
+    border-top: 1px solid #111111;
+}
+
+.asm-intern-copy {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.asm-intern-copy h3 {
+    margin: 70px 0 30px;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(47px, 4.6vw, 72px);
+
+    font-weight: 400;
+
+    line-height: 0.88;
+
+    letter-spacing: -0.05em;
+}
+
+
+/* ASM VISUAL */
+
+.asm-intern-visual {
+    position: relative;
+
+    min-height: 500px;
+
+    background: #c8d8ea;
+
+    overflow: hidden;
+}
+
+.asm-blueprint {
+    position: absolute;
+
+    width: 69%;
+    height: 330px;
+
+    left: 35px;
+    top: 45px;
+
+    padding: 34px;
+
+    background: #f5f1e8;
+
+    transform: rotate(-2deg);
+}
+
+.blueprint-label {
+    margin: 0 0 45px;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.13em;
+}
+
+.asm-blueprint h4 {
+    margin: 0;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: 45px;
+
+    font-weight: 400;
+
+    line-height: 0.9;
+}
+
+.blueprint-path {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 45px;
+}
+
+.blueprint-path span {
+    font-size: 8px;
+
+    font-weight: 700;
+}
+
+.blueprint-path i {
+    display: block;
+
+    width: 60px;
+    height: 1px;
+
+    background: #111111;
+}
+
+.asm-intern-note {
+    position: absolute;
+
+    right: 25px;
+    bottom: 35px;
+
+    padding: 18px;
+
+    background: #f4d33f;
+
+    font-family: "Schoolbell", cursive;
+
+    font-size: 18px;
+
+    line-height: 0.95;
+
+    transform: rotate(3deg);
+}
+
+
+/* =========================================
+   MJL
+========================================= */
+
+.mjl-academic-feature {
+    min-height: 620px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(320px, 0.9fr);
+
+    gap: 55px;
+
+    padding: 35px;
+
+    background: #e7e3da;
+
+    border-top: 1px solid #111111;
+}
+
+.mjl-academic-copy {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.mjl-academic-copy h3 {
+    margin: 70px 0 30px;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(48px, 4.8vw, 75px);
+
+    font-weight: 400;
+
+    line-height: 0.88;
+
+    letter-spacing: -0.05em;
+}
+
+
+/* MJL AWARD */
+
+.mjl-award {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    margin: 8px 0 28px;
+
+    border-top: 1px solid rgba(17, 17, 17, 0.2);
+    border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+}
+
+.mjl-award > div {
+    padding: 20px 15px 20px 0;
+}
+
+.mjl-award > div + div {
+    padding-left: 20px;
+
+    border-left: 1px solid rgba(17, 17, 17, 0.2);
+}
+
+.mjl-award strong {
+    display: block;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: 47px;
+
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+.mjl-award span {
+    display: block;
+
+    margin-top: 10px;
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.1em;
+}
+
+
+/* MJL PHOTO */
+
+.mjl-photo-area {
+    position: relative;
+
+    min-height: 510px;
+
+    background: #d8c4e7;
+}
+
+.mjl-cohort-photo {
+    position: absolute;
+
+    width: 78%;
+
+    left: 11%;
+    top: 55px;
+
+    margin: 0;
+
+    padding: 10px 10px 30px;
+
+    background: #ffffff;
+
+    transform: rotate(2deg);
+
+    box-shadow:
+        0 10px 22px rgba(17, 17, 17, 0.1);
+}
+
+.mjl-cohort-photo img {
+    width: 100%;
+
+    display: block;
+}
+
+.mjl-photo-label {
+    position: absolute;
+
+    left: 12%;
+    bottom: 95px;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+}
+
+.mjl-academic-note {
+    position: absolute;
+
+    right: 25px;
+    bottom: 30px;
+
+    padding: 18px 21px;
+
+    background: #f4d33f;
+
+    font-family: "Schoolbell", cursive;
+
+    font-size: 18px;
+
+    line-height: 0.95;
+
+    transform: rotate(-2deg);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.academic-footer {
+    width: 100%;
+
+    padding: 30px 78px 42px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-top: 1px solid #111111;
+
+    background: #f7f5f0;
+}
+
+.academic-footer p {
+    margin: 0;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.05em;
+}
+
+.academic-footer a {
+    color: #111111;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.07em;
+}
+
+.academic-footer a:hover {
+    opacity: 0.55;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .academic-main {
+        width: calc(100% - 36px);
+
+        padding-top: 60px;
+    }
+
+    .academic-hero {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .academic-hero-right {
+        justify-content: flex-start;
+    }
+
+    .academic-section-heading {
+        grid-template-columns: 40px 1fr;
+    }
+
+    .academic-section-heading > p {
+        display: none;
+    }
+
+    .econ-feature,
+    .lead-feature,
+    .deliberation-feature,
+    .asm-intern-feature,
+    .mjl-academic-feature {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .econ-visual,
+    .asm-intern-visual,
+    .deliberation-photo-wrap,
+    .mjl-photo-area {
+        min-height: 470px;
+    }
+
+    .academic-footer {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .academic-main {
+        width: calc(100% - 28px);
+
+        padding-top: 45px;
+    }
+
+    .academic-hero {
+        padding-bottom: 45px;
+    }
+
+    .academic-hero h1 {
+        font-size: 45px;
+    }
+
+    .academic-section {
+        margin-top: 65px;
+    }
+
+    .econ-feature,
+    .lead-feature,
+    .deliberation-feature,
+    .asm-intern-feature,
+    .mjl-academic-feature {
+        padding: 22px;
+    }
+
+    .academic-meta {
+        display: block;
+    }
+
+    .academic-meta span {
+        display: block;
+
+        margin-bottom: 8px;
+    }
+
+    .econ-copy h3,
+    .lead-copy h3,
+    .deliberation-copy h3,
+    .asm-intern-copy h3,
+    .mjl-academic-copy h3 {
+        margin-top: 48px;
+
+        font-size: 43px;
+    }
+
+    .lead-stats,
+    .mjl-award {
+        grid-template-columns: 1fr;
+    }
+
+    .lead-stats > div + div,
+    .mjl-award > div + div {
+        padding-left: 0;
+
+        border-left: none;
+
+        border-top: 1px solid rgba(17, 17, 17, 0.2);
+    }
+
+    .econ-paper,
+    .asm-blueprint {
+        width: 78%;
+
+        left: 20px;
+    }
+
+    .deliberation-photo,
+    .mjl-cohort-photo {
+        width: 84%;
+
+        left: 8%;
+    }
+
+    .academic-footer {
+        padding: 24px 20px 32px;
+    }
+
+}
