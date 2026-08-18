@@ -69,6 +69,180 @@
     background: #111111;
 }
 
+/* =========================================
+   ARF WIDE SCHOLAR
+========================================= */
+
+.wide-feature {
+    position: relative;
+
+    width: min(1500px, calc(100% - 64px));
+    margin: 90px auto;
+
+    display: grid;
+    grid-template-columns: 70px 1fr 0.8fr;
+    gap: 30px;
+    align-items: end;
+
+    padding: 24px 0 32px;
+
+    border-top: 1px solid #111111;
+    border-bottom: 1px solid #111111;
+}
+
+
+/* NUMBER / NEW */
+
+.wide-number {
+    align-self: start;
+}
+
+.wide-number span {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+
+    color: #ef654f;
+}
+
+
+/* MAIN TITLE */
+
+.wide-eyebrow {
+    margin: 0 0 18px;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.wide-content h2 {
+    margin: 0;
+
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(42px, 5vw, 75px);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+}
+
+.wide-content h2 em {
+    font-weight: 400;
+}
+
+.wide-cohort {
+    margin: 18px 0 0;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+
+    color: #66615b;
+}
+
+
+/* DESCRIPTION */
+
+.wide-description {
+    max-width: 470px;
+    justify-self: end;
+}
+
+.wide-description p {
+    margin: 0 0 22px;
+
+    color: #4e4b47;
+
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+.wide-description a {
+    color: #111111;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+
+    text-decoration: none;
+
+    border-bottom: 1px solid #111111;
+
+    padding-bottom: 3px;
+}
+
+.wide-description a:hover {
+    opacity: 0.55;
+}
+
+
+/* HANDWRITTEN NOTE */
+
+.wide-handwritten {
+    position: absolute;
+
+    right: 5px;
+    top: -19px;
+
+    font-family: "Schoolbell", cursive;
+    font-size: 17px;
+
+    color: #ef654f;
+
+    transform: rotate(3deg);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .wide-feature {
+        width: calc(100% - 36px);
+
+        grid-template-columns: 40px 1fr;
+
+        gap: 25px;
+
+        margin: 65px auto;
+    }
+
+    .wide-description {
+        grid-column: 2;
+
+        justify-self: start;
+
+        margin-top: 15px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .wide-feature {
+        grid-template-columns: 1fr;
+
+        padding-top: 28px;
+    }
+
+    .wide-number {
+        display: none;
+    }
+
+    .wide-description {
+        grid-column: 1;
+    }
+
+    .wide-content h2 {
+        font-size: 43px;
+    }
+
+    .wide-handwritten {
+        font-size: 14px;
+    }
+}
 
 /* =========================================
    TABLET
