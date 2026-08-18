@@ -676,22 +676,13 @@ body.volunteering-page {
 ========================================= */
 
 .sfts-visual {
-    position: relative;
+    min-height: 500px;
 
-    min-height: 470px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    overflow: hidden;
-
-    background: #c5d8c0;
-}
-/* =========================================
-   SHELTER VISUAL
-========================================= */
-
-.sfts-visual {
-    position: relative;
-
-    min-height: 470px;
+    padding: 48px;
 
     overflow: hidden;
 
@@ -700,24 +691,41 @@ body.volunteering-page {
 
 
 /* =========================================
-   ILLUSTRATION PAPER
+   CREAM CARD
 ========================================= */
 
-.shelter-illustration {
-    position: absolute;
+.shelter-card {
+    width: 70%;
+    max-width: 520px;
+    aspect-ratio: 1 / 0.88;
 
-    width: 57%;
-    height: 330px;
-
-    top: 38px;
-    left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     background: #f5f1e8;
 
-    transform: rotate(-3deg);
+    /* STRAIGHT — no rotation */
+    transform: none;
 
     box-shadow:
-        0 8px 15px rgba(17, 17, 17, 0.08);
+        0 8px 20px rgba(17, 17, 17, 0.07);
+}
+
+
+/* =========================================
+   ANIMALS
+========================================= */
+
+.shelter-animals {
+    height: 235px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    gap: 25px;
 }
 
 
@@ -725,32 +733,49 @@ body.volunteering-page {
    CAT
 ========================================= */
 
-.cat-drawing {
-    position: absolute;
+.cute-cat {
+    position: relative;
 
-    left: 22%;
-    bottom: 70px;
-
-    width: 105px;
-    height: 170px;
+    width: 125px;
+    height: 220px;
 }
 
+
+/* CAT BODY */
+
+.cat-body {
+    position: absolute;
+
+    left: 27px;
+    bottom: 0;
+
+    width: 76px;
+    height: 125px;
+
+    background: #f5f1e8;
+
+    border: 3px solid #111111;
+    border-radius: 48% 48% 18px 18px;
+}
+
+
+/* CAT HEAD */
 
 .cat-head {
     position: absolute;
 
-    left: 16px;
-    top: 20px;
+    left: 18px;
+    top: 30px;
 
-    width: 73px;
-    height: 66px;
+    z-index: 3;
 
-    border: 3px solid #111111;
-    border-radius: 45% 45% 48% 48%;
+    width: 94px;
+    height: 86px;
 
     background: #f5f1e8;
 
-    z-index: 3;
+    border: 3px solid #111111;
+    border-radius: 48%;
 }
 
 
@@ -759,63 +784,56 @@ body.volunteering-page {
 .cat-ear {
     position: absolute;
 
-    top: 4px;
+    top: 13px;
 
-    width: 31px;
-    height: 35px;
+    z-index: 2;
 
-    border-top: 3px solid #111111;
-    border-left: 3px solid #111111;
+    width: 43px;
+    height: 43px;
 
     background: #f5f1e8;
 
-    transform: rotate(45deg);
-
-    z-index: 2;
+    border-top: 3px solid #111111;
 }
 
 .cat-ear-left {
-    left: 13px;
+    left: 19px;
+
+    border-left: 3px solid #111111;
+
+    transform: rotate(45deg);
 }
 
 .cat-ear-right {
-    right: 13px;
-
-    transform: rotate(135deg);
-}
-
-
-/* CAT FACE */
-
-.cat-eye {
-    position: absolute;
-
-    top: 27px;
-
-    width: 5px;
-    height: 5px;
-
-    border-radius: 50%;
-
-    background: #111111;
-}
-
-.cat-eye-left {
-    left: 19px;
-}
-
-.cat-eye-right {
     right: 19px;
+
+    border-right: 3px solid #111111;
+
+    transform: rotate(-45deg);
 }
+
+
+/* CAT EYES */
+
+.cat-head .eye-left {
+    left: 27px;
+}
+
+.cat-head .eye-right {
+    right: 27px;
+}
+
+
+/* CAT NOSE */
 
 .cat-nose {
     position: absolute;
 
     left: 50%;
-    top: 39px;
+    top: 49px;
 
-    width: 5px;
-    height: 4px;
+    width: 7px;
+    height: 7px;
 
     background: #111111;
 
@@ -825,21 +843,33 @@ body.volunteering-page {
 }
 
 
-/* CAT BODY */
+/* CAT MOUTH */
 
-.cat-body {
+.cat-mouth {
     position: absolute;
 
-    left: 22px;
-    bottom: 0;
+    top: 55px;
 
-    width: 62px;
-    height: 100px;
+    width: 10px;
+    height: 8px;
 
-    border: 3px solid #111111;
-    border-radius: 50% 50% 18% 18%;
+    border-bottom: 2px solid #111111;
+}
 
-    background: #f5f1e8;
+.cat-mouth-left {
+    left: 38px;
+
+    border-radius: 0 0 10px 10px;
+
+    transform: rotate(18deg);
+}
+
+.cat-mouth-right {
+    right: 38px;
+
+    border-radius: 0 0 10px 10px;
+
+    transform: rotate(-18deg);
 }
 
 
@@ -848,18 +878,18 @@ body.volunteering-page {
 .cat-tail {
     position: absolute;
 
-    right: -6px;
-    bottom: 12px;
+    right: -9px;
+    bottom: 6px;
 
-    width: 52px;
-    height: 90px;
+    width: 58px;
+    height: 112px;
 
     border-right: 3px solid #111111;
     border-bottom: 3px solid #111111;
 
-    border-radius: 0 0 45px 0;
+    border-radius: 0 0 55px 0;
 
-    transform: rotate(-18deg);
+    transform: rotate(-11deg);
 }
 
 
@@ -867,108 +897,11 @@ body.volunteering-page {
    DOG
 ========================================= */
 
-.dog-drawing {
-    position: absolute;
+.cute-dog {
+    position: relative;
 
-    right: 20%;
-    bottom: 67px;
-
-    width: 125px;
-    height: 180px;
-}
-
-
-/* DOG HEAD */
-
-.dog-head {
-    position: absolute;
-
-    left: 21px;
-    top: 23px;
-
-    width: 83px;
-    height: 73px;
-
-    border: 3px solid #111111;
-    border-radius: 45% 45% 50% 50%;
-
-    background: #f5f1e8;
-
-    z-index: 3;
-}
-
-
-/* DOG EARS */
-
-.dog-ear {
-    position: absolute;
-
-    top: 28px;
-
-    width: 30px;
-    height: 58px;
-
-    border: 3px solid #111111;
-
-    background: #f5f1e8;
-
-    z-index: 2;
-}
-
-.dog-ear-left {
-    left: 5px;
-
-    border-radius: 60% 20% 55% 45%;
-
-    transform: rotate(15deg);
-}
-
-.dog-ear-right {
-    right: 5px;
-
-    border-radius: 20% 60% 45% 55%;
-
-    transform: rotate(-15deg);
-}
-
-
-/* DOG FACE */
-
-.dog-eye {
-    position: absolute;
-
-    top: 27px;
-
-    width: 6px;
-    height: 6px;
-
-    border-radius: 50%;
-
-    background: #111111;
-}
-
-.dog-eye-left {
-    left: 22px;
-}
-
-.dog-eye-right {
-    right: 22px;
-}
-
-.dog-nose {
-    position: absolute;
-
-    left: 50%;
-    top: 43px;
-
-    width: 10px;
-    height: 7px;
-
-    border-radius: 50%;
-
-    background: #111111;
-
-    transform: translateX(-50%);
+    width: 145px;
+    height: 220px;
 }
 
 
@@ -977,18 +910,120 @@ body.volunteering-page {
 .dog-body {
     position: absolute;
 
-    left: 29px;
+    left: 38px;
     bottom: 0;
 
-    width: 68px;
-    height: 95px;
+    width: 78px;
+    height: 126px;
+
+    background: #f5f1e8;
 
     border: 3px solid #111111;
 
     border-radius:
-        45% 45% 16% 16%;
+        48% 48% 18px 18px;
+}
+
+
+/* DOG HEAD */
+
+.dog-head {
+    position: absolute;
+
+    left: 25px;
+    top: 27px;
+
+    z-index: 3;
+
+    width: 104px;
+    height: 91px;
 
     background: #f5f1e8;
+
+    border: 3px solid #111111;
+    border-radius: 48%;
+}
+
+
+/* DOG EARS */
+
+.dog-ear {
+    position: absolute;
+
+    top: 40px;
+
+    z-index: 2;
+
+    width: 39px;
+    height: 72px;
+
+    background: #f5f1e8;
+
+    border: 3px solid #111111;
+}
+
+.dog-ear-left {
+    left: 5px;
+
+    border-radius: 55% 20% 60% 45%;
+
+    transform: rotate(10deg);
+}
+
+.dog-ear-right {
+    right: -3px;
+
+    border-radius: 20% 55% 45% 60%;
+
+    transform: rotate(-10deg);
+}
+
+
+/* DOG EYES */
+
+.dog-head .eye-left {
+    left: 30px;
+}
+
+.dog-head .eye-right {
+    right: 30px;
+}
+
+
+/* DOG NOSE */
+
+.dog-nose {
+    position: absolute;
+
+    left: 50%;
+    top: 55px;
+
+    width: 13px;
+    height: 9px;
+
+    background: #111111;
+
+    border-radius: 50%;
+
+    transform: translateX(-50%);
+}
+
+
+/* =========================================
+   SHARED EYES
+========================================= */
+
+.animal-eye {
+    position: absolute;
+
+    top: 38px;
+
+    width: 7px;
+    height: 7px;
+
+    background: #111111;
+
+    border-radius: 50%;
 }
 
 
@@ -996,133 +1031,61 @@ body.volunteering-page {
    CAPTION
 ========================================= */
 
-.shelter-caption {
-    position: absolute;
-
-    left: 50%;
-    bottom: 22px;
-
-    margin: 0;
-
-    transform: translateX(-50%);
+.shelter-card-caption {
+    margin: 28px 0 0;
 
     font-family: "Schoolbell", cursive;
 
-    font-size: 18px;
+    font-size: 25px;
+    line-height: 1;
 
-    white-space: nowrap;
+    color: #111111;
 }
 
 
 /* =========================================
-   DOG / CAT LABELS
+   RESPONSIVE
 ========================================= */
 
-.pet-tag {
-    position: absolute;
+@media (max-width: 900px) {
 
-    right: 34px;
+    .sfts-visual {
+        min-height: 470px;
 
-    padding: 13px 16px;
+        padding: 35px;
+    }
 
-    background: #ffffff;
+    .shelter-card {
+        width: 78%;
+    }
 
-    font-size: 8px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-
-    box-shadow:
-        0 4px 10px rgba(17, 17, 17, 0.08);
-}
-
-.dog-tag {
-    top: 80px;
-
-    transform: rotate(4deg);
-}
-
-.cat-tag {
-    top: 145px;
-    right: 62px;
-
-    transform: rotate(-3deg);
 }
 
 
-/* =========================================
-   YELLOW NOTE
-========================================= */
+@media (max-width: 600px) {
 
-.sfts-sticky {
-    position: absolute;
+    .sfts-visual {
+        min-height: 390px;
 
-    right: 25px;
-    bottom: 35px;
+        padding: 25px;
+    }
 
-    padding: 18px 21px;
+    .shelter-card {
+        width: 90%;
+    }
 
-    background: #f4d33f;
+    .shelter-animals {
+        transform: scale(0.78);
 
-    font-family: "Schoolbell", cursive;
+        transform-origin: bottom center;
+    }
 
-    font-size: 18px;
-    line-height: 0.95;
+    .shelter-card-caption {
+        margin-top: 8px;
 
-    transform: rotate(3deg);
+        font-size: 21px;
+    }
 
-    box-shadow:
-        0 5px 12px rgba(17, 17, 17, 0.07);
-}
-
-.pet-tag {
-    position: absolute;
-
-    right: 34px;
-
-    padding: 13px 16px;
-
-    background: #ffffff;
-
-    font-size: 8px;
-
-    font-weight: 700;
-
-    letter-spacing: 0.1em;
-
-    box-shadow:
-        0 4px 10px rgba(17, 17, 17, 0.08);
-}
-
-.dog-tag {
-    top: 80px;
-
-    transform: rotate(4deg);
-}
-
-.cat-tag {
-    top: 145px;
-    right: 62px;
-
-    transform: rotate(-3deg);
-}
-
-.sfts-sticky {
-    position: absolute;
-
-    right: 25px;
-    bottom: 35px;
-
-    padding: 18px 21px;
-
-    background: #f4d33f;
-
-    font-family: "Schoolbell", cursive;
-
-    font-size: 18px;
-
-    line-height: 0.95;
-
-    transform: rotate(3deg);
 }
 
 
