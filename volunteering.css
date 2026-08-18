@@ -23,204 +23,11 @@ body.volunteering-page {
 
 
 /* =========================================
-   NAVIGATION
-========================================= */
-
-.volunteering-header {
-    width: 100%;
-    height: 126px;
-
-    padding: 0 78px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    background: #f7f5f0;
-
-    border-top: 1px solid #ddd6cb;
-    border-bottom: 1px solid #111111;
-}
-
-.volunteering-logo {
-    color: #111111;
-    text-decoration: none;
-
-    font-family: "DM Sans", Arial, sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 0.055em;
-}
-
-.volunteering-nav {
-    display: flex;
-    align-items: center;
-
-    gap: 52px;
-}
-
-.volunteering-nav > a,
-.nav-dropdown-button {
-    position: relative;
-
-    color: #111111;
-    text-decoration: none;
-
-    font-family: "DM Sans", Arial, sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-}
-
-.volunteering-nav > a:hover {
-    opacity: 0.55;
-}
-
-
-/* =========================================
-   DROPDOWN
-========================================= */
-
-.nav-dropdown {
-    position: relative;
-
-    display: flex;
-    align-items: center;
-}
-
-.nav-dropdown-button {
-    padding: 0;
-
-    display: flex;
-    align-items: center;
-
-    gap: 7px;
-
-    border: none;
-    background: transparent;
-
-    cursor: pointer;
-}
-
-.nav-dropdown-button.active::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-
-    bottom: -11px;
-
-    height: 1px;
-
-    background: #111111;
-}
-
-.nav-dropdown-arrow {
-    font-size: 11px;
-
-    transition: transform 0.25s ease;
-}
-
-.nav-dropdown-menu {
-    position: absolute;
-
-    top: calc(100% + 24px);
-    right: 0;
-
-    z-index: 1000;
-
-    width: 320px;
-
-    padding: 8px 0;
-
-    background: #f7f5f0;
-
-    border-top: 1px solid #111111;
-    border-bottom: 1px solid #111111;
-
-    opacity: 0;
-    visibility: hidden;
-
-    transform: translateY(-6px);
-
-    transition:
-        opacity 0.22s ease,
-        visibility 0.22s ease,
-        transform 0.22s ease;
-}
-
-.nav-dropdown:hover .nav-dropdown-menu,
-.nav-dropdown:focus-within .nav-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-
-    transform: translateY(0);
-}
-
-.nav-dropdown:hover .nav-dropdown-arrow,
-.nav-dropdown:focus-within .nav-dropdown-arrow {
-    transform: rotate(180deg);
-}
-
-.nav-dropdown-menu a {
-    width: 100%;
-
-    padding: 17px 18px;
-
-    display: grid;
-    grid-template-columns: 30px 1fr;
-
-    gap: 12px;
-
-    align-items: center;
-
-    color: #111111;
-    text-decoration: none;
-
-    font-family: "DM Sans", Arial, sans-serif;
-
-    font-size: 11px;
-    font-weight: 700;
-
-    letter-spacing: 0.06em;
-
-    border-bottom:
-        1px solid rgba(17, 17, 17, 0.12);
-
-    transition:
-        background 0.2s ease,
-        padding-left 0.2s ease;
-}
-
-.nav-dropdown-menu a:last-child {
-    border-bottom: none;
-}
-
-.nav-dropdown-menu a span {
-    color: #77716a;
-
-    font-size: 8px;
-
-    letter-spacing: 0.12em;
-}
-
-.nav-dropdown-menu a:hover,
-.nav-dropdown-menu a.dropdown-active {
-    padding-left: 24px;
-
-    background: #ebe8e1;
-}
-
-
-/* =========================================
    MAIN
 ========================================= */
 
 .volunteering-main {
     width: min(1600px, calc(100% - 44px));
-
     margin: 0 auto;
 
     padding: 85px 0 120px;
@@ -233,7 +40,6 @@ body.volunteering-page {
 
 .volunteering-hero {
     display: grid;
-
     grid-template-columns: 1.2fr 0.8fr;
 
     gap: 70px;
@@ -251,7 +57,6 @@ body.volunteering-page {
     color: #ef654f;
 
     font-family: "Schoolbell", cursive;
-
     font-size: 15px;
 }
 
@@ -279,7 +84,8 @@ body.volunteering-page {
     justify-content: flex-end;
 }
 
-.volunteering-hero-right p {
+.volunteering-hero-right p,
+.volunteering-intro p {
     max-width: 430px;
 
     margin: 0;
@@ -298,11 +104,13 @@ body.volunteering-page {
    SECTION
 ========================================= */
 
-.volunteer-section {
+.volunteer-section,
+.service-section {
     margin-top: 95px;
 }
 
-.volunteer-section-heading {
+.volunteer-section-heading,
+.service-section-heading {
     display: grid;
 
     grid-template-columns: 55px 1fr auto;
@@ -318,7 +126,8 @@ body.volunteering-page {
     border-top: 1px solid #111111;
 }
 
-.volunteer-section-heading > span {
+.volunteer-section-heading > span,
+.service-section-heading > span {
     font-size: 9px;
 
     font-weight: 700;
@@ -326,7 +135,8 @@ body.volunteering-page {
     letter-spacing: 0.14em;
 }
 
-.volunteer-section-heading h2 {
+.volunteer-section-heading h2,
+.service-section-heading h2 {
     margin: 0;
 
     font-family: "Playfair Display", Georgia, serif;
@@ -336,12 +146,70 @@ body.volunteering-page {
     font-weight: 400;
 }
 
-.volunteer-section-heading > p {
+.volunteer-section-heading > p,
+.service-section-heading > p {
     margin: 0;
 
     color: #68635d;
 
     font-size: 11px;
+}
+
+
+/* =========================================
+   SHARED META / TAGS
+========================================= */
+
+.service-meta,
+.apo-topline {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.service-meta span,
+.apo-label,
+.apo-date,
+.sfts-label {
+    margin: 0;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.13em;
+}
+
+.apo-date {
+    color: #68635d;
+}
+
+.service-tags,
+.apo-tags,
+.sfts-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+.service-tags span,
+.apo-tags span,
+.sfts-tags span {
+    padding: 6px 10px;
+
+    border: 1px solid rgba(17, 17, 17, 0.22);
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.24);
+
+    font-size: 8px;
+
+    font-weight: 600;
 }
 
 
@@ -378,29 +246,6 @@ body.volunteering-page {
     flex-direction: column;
 }
 
-.apo-topline {
-    display: flex;
-
-    justify-content: space-between;
-
-    gap: 20px;
-}
-
-.apo-label,
-.apo-date {
-    margin: 0;
-
-    font-size: 8px;
-
-    font-weight: 700;
-
-    letter-spacing: 0.13em;
-}
-
-.apo-date {
-    color: #68635d;
-}
-
 .apo-copy h3 {
     margin: 70px 0 30px;
 
@@ -427,7 +272,8 @@ body.volunteering-page {
     line-height: 1.25;
 }
 
-.apo-details {
+.apo-details,
+.service-points {
     max-width: 610px;
 
     display: grid;
@@ -435,7 +281,8 @@ body.volunteering-page {
     gap: 11px;
 }
 
-.apo-details p {
+.apo-details p,
+.service-points p {
     position: relative;
 
     margin: 0;
@@ -449,7 +296,8 @@ body.volunteering-page {
     line-height: 1.55;
 }
 
-.apo-details p::before {
+.apo-details p::before,
+.service-points p::before {
     content: "↳";
 
     position: absolute;
@@ -458,33 +306,65 @@ body.volunteering-page {
     top: 0;
 }
 
-.apo-tags {
+.apo-tags,
+.service-tags {
     margin-top: auto;
 
     padding-top: 35px;
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 7px;
 }
 
-.apo-tags span,
-.sfts-tags span {
-    padding: 6px 10px;
 
-    border:
-        1px solid rgba(17, 17, 17, 0.22);
+/* =========================================
+   APO STAT
+========================================= */
 
-    border-radius: 999px;
+.apo-stat {
+    display: flex;
 
-    background:
-        rgba(255, 255, 255, 0.24);
+    align-items: center;
 
+    gap: 22px;
+
+    margin: 5px 0 30px;
+
+    padding: 18px 0;
+
+    border-top: 1px solid rgba(17, 17, 17, 0.18);
+    border-bottom: 1px solid rgba(17, 17, 17, 0.18);
+}
+
+.apo-stat strong {
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: 54px;
+
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+.apo-stat div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.apo-stat span {
     font-size: 8px;
 
-    font-weight: 600;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+}
+
+.apo-stat p {
+    margin: 0;
+
+    color: #68635d;
+
+    font-size: 10px;
 }
 
 
@@ -498,7 +378,8 @@ body.volunteering-page {
     min-height: 600px;
 }
 
-.apo-photo {
+.apo-photo,
+.apo-polaroid {
     position: absolute;
 
     margin: 0;
@@ -511,14 +392,16 @@ body.volunteering-page {
         0 10px 20px rgba(17, 17, 17, 0.12);
 }
 
-.apo-photo img {
+.apo-photo img,
+.apo-polaroid img {
     width: 100%;
     height: 100%;
 
     object-fit: cover;
 }
 
-.apo-photo figcaption {
+.apo-photo figcaption,
+.apo-polaroid figcaption {
     margin-top: 8px;
 
     font-family: "Schoolbell", cursive;
@@ -526,7 +409,8 @@ body.volunteering-page {
     font-size: 16px;
 }
 
-.apo-photo-one {
+.apo-photo-one,
+.apo-polaroid-one {
     width: 47%;
     height: 300px;
 
@@ -536,7 +420,8 @@ body.volunteering-page {
     transform: rotate(-4deg);
 }
 
-.apo-photo-two {
+.apo-photo-two,
+.apo-polaroid-two {
     width: 45%;
     height: 270px;
 
@@ -546,7 +431,8 @@ body.volunteering-page {
     transform: rotate(3deg);
 }
 
-.apo-photo-three {
+.apo-photo-three,
+.apo-polaroid-three {
     width: 48%;
     height: 265px;
 
@@ -556,7 +442,8 @@ body.volunteering-page {
     transform: rotate(2deg);
 }
 
-.apo-sticky {
+.apo-sticky,
+.apo-yellow-note {
     position: absolute;
 
     right: 2%;
@@ -578,7 +465,8 @@ body.volunteering-page {
         0 8px 14px rgba(17, 17, 17, 0.08);
 }
 
-.apo-paper-note {
+.apo-paper-note,
+.apo-green-note {
     position: absolute;
 
     left: 0;
@@ -606,7 +494,8 @@ body.volunteering-page {
    SHELTER FROM THE STORM
 ========================================= */
 
-.sfts-feature {
+.sfts-feature,
+.secondary-service {
     min-height: 540px;
 
     display: grid;
@@ -624,17 +513,20 @@ body.volunteering-page {
     border-top: 1px solid #111111;
 }
 
-.sfts-label {
-    margin: 0;
 
-    font-size: 8px;
+/* =========================================
+   SHELTER COPY
+========================================= */
 
-    font-weight: 700;
+.sfts-copy,
+.secondary-service-copy {
+    display: flex;
 
-    letter-spacing: 0.13em;
+    flex-direction: column;
 }
 
-.sfts-copy h3 {
+.sfts-copy h3,
+.secondary-service-copy h3 {
     margin: 75px 0 30px;
 
     font-family: "Playfair Display", Georgia, serif;
@@ -648,7 +540,8 @@ body.volunteering-page {
     letter-spacing: -0.05em;
 }
 
-.sfts-description {
+.sfts-description,
+.secondary-service-copy > p:not(.service-meta) {
     max-width: 600px;
 
     margin: 0;
@@ -660,14 +553,9 @@ body.volunteering-page {
     line-height: 1.7;
 }
 
-.sfts-tags {
+.sfts-tags,
+.secondary-service .service-tags {
     margin-top: 36px;
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 7px;
 }
 
 
@@ -675,14 +563,16 @@ body.volunteering-page {
    SHELTER VISUAL
 ========================================= */
 
-.sfts-visual {
+.sfts-visual,
+.shelter-art {
     min-height: 500px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    padding: 48px;
+    padding: 45px;
 
     overflow: hidden;
 
@@ -691,22 +581,26 @@ body.volunteering-page {
 
 
 /* =========================================
-   CREAM CARD
+   STRAIGHT CREAM CARD
 ========================================= */
 
 .shelter-card {
-    width: 70%;
+    width: 72%;
     max-width: 520px;
-    aspect-ratio: 1 / 0.88;
+
+    min-height: 390px;
+
+    padding: 40px 35px 32px;
 
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
     justify-content: center;
 
     background: #f5f1e8;
 
-    /* STRAIGHT — no rotation */
     transform: none;
 
     box-shadow:
@@ -715,17 +609,18 @@ body.volunteering-page {
 
 
 /* =========================================
-   ANIMALS
+   SHELTER ANIMALS
 ========================================= */
 
 .shelter-animals {
     height: 235px;
 
     display: flex;
+
     align-items: flex-end;
     justify-content: center;
 
-    gap: 25px;
+    gap: 24px;
 }
 
 
@@ -740,9 +635,6 @@ body.volunteering-page {
     height: 220px;
 }
 
-
-/* CAT BODY */
-
 .cat-body {
     position: absolute;
 
@@ -755,11 +647,9 @@ body.volunteering-page {
     background: #f5f1e8;
 
     border: 3px solid #111111;
+
     border-radius: 48% 48% 18px 18px;
 }
-
-
-/* CAT HEAD */
 
 .cat-head {
     position: absolute;
@@ -775,11 +665,9 @@ body.volunteering-page {
     background: #f5f1e8;
 
     border: 3px solid #111111;
+
     border-radius: 48%;
 }
-
-
-/* CAT EARS */
 
 .cat-ear {
     position: absolute;
@@ -812,9 +700,6 @@ body.volunteering-page {
     transform: rotate(-45deg);
 }
 
-
-/* CAT EYES */
-
 .cat-head .eye-left {
     left: 27px;
 }
@@ -822,9 +707,6 @@ body.volunteering-page {
 .cat-head .eye-right {
     right: 27px;
 }
-
-
-/* CAT NOSE */
 
 .cat-nose {
     position: absolute;
@@ -841,9 +723,6 @@ body.volunteering-page {
         translateX(-50%)
         rotate(45deg);
 }
-
-
-/* CAT MOUTH */
 
 .cat-mouth {
     position: absolute;
@@ -871,9 +750,6 @@ body.volunteering-page {
 
     transform: rotate(-18deg);
 }
-
-
-/* CAT TAIL */
 
 .cat-tail {
     position: absolute;
@@ -904,9 +780,6 @@ body.volunteering-page {
     height: 220px;
 }
 
-
-/* DOG BODY */
-
 .dog-body {
     position: absolute;
 
@@ -920,12 +793,8 @@ body.volunteering-page {
 
     border: 3px solid #111111;
 
-    border-radius:
-        48% 48% 18px 18px;
+    border-radius: 48% 48% 18px 18px;
 }
-
-
-/* DOG HEAD */
 
 .dog-head {
     position: absolute;
@@ -941,11 +810,9 @@ body.volunteering-page {
     background: #f5f1e8;
 
     border: 3px solid #111111;
+
     border-radius: 48%;
 }
-
-
-/* DOG EARS */
 
 .dog-ear {
     position: absolute;
@@ -978,9 +845,6 @@ body.volunteering-page {
     transform: rotate(-10deg);
 }
 
-
-/* DOG EYES */
-
 .dog-head .eye-left {
     left: 30px;
 }
@@ -988,9 +852,6 @@ body.volunteering-page {
 .dog-head .eye-right {
     right: 30px;
 }
-
-
-/* DOG NOSE */
 
 .dog-nose {
     position: absolute;
@@ -1010,7 +871,7 @@ body.volunteering-page {
 
 
 /* =========================================
-   SHARED EYES
+   SHARED ANIMAL EYES
 ========================================= */
 
 .animal-eye {
@@ -1028,64 +889,19 @@ body.volunteering-page {
 
 
 /* =========================================
-   CAPTION
+   SHELTER CAPTION
 ========================================= */
 
 .shelter-card-caption {
     margin: 28px 0 0;
 
+    color: #111111;
+
     font-family: "Schoolbell", cursive;
 
     font-size: 25px;
+
     line-height: 1;
-
-    color: #111111;
-}
-
-
-/* =========================================
-   RESPONSIVE
-========================================= */
-
-@media (max-width: 900px) {
-
-    .sfts-visual {
-        min-height: 470px;
-
-        padding: 35px;
-    }
-
-    .shelter-card {
-        width: 78%;
-    }
-
-}
-
-
-@media (max-width: 600px) {
-
-    .sfts-visual {
-        min-height: 390px;
-
-        padding: 25px;
-    }
-
-    .shelter-card {
-        width: 90%;
-    }
-
-    .shelter-animals {
-        transform: scale(0.78);
-
-        transform-origin: bottom center;
-    }
-
-    .shelter-card-caption {
-        margin-top: 8px;
-
-        font-size: 21px;
-    }
-
 }
 
 
@@ -1228,29 +1044,6 @@ body.volunteering-page {
 
 @media (max-width: 1000px) {
 
-    .volunteering-header {
-        height: auto;
-
-        min-height: 105px;
-
-        padding: 30px 28px;
-
-        gap: 30px;
-    }
-
-    .volunteering-nav {
-        gap: 22px;
-
-        flex-wrap: wrap;
-
-        justify-content: flex-end;
-    }
-
-    .volunteering-nav > a,
-    .nav-dropdown-button {
-        font-size: 11px;
-    }
-
     .volunteering-main {
         width: calc(100% - 36px);
 
@@ -1267,16 +1060,19 @@ body.volunteering-page {
         justify-content: flex-start;
     }
 
-    .volunteer-section-heading {
+    .volunteer-section-heading,
+    .service-section-heading {
         grid-template-columns: 40px 1fr;
     }
 
-    .volunteer-section-heading > p {
+    .volunteer-section-heading > p,
+    .service-section-heading > p {
         display: none;
     }
 
     .apo-feature,
-    .sfts-feature {
+    .sfts-feature,
+    .secondary-service {
         grid-template-columns: 1fr;
 
         gap: 50px;
@@ -1284,6 +1080,17 @@ body.volunteering-page {
 
     .apo-collage {
         min-height: 590px;
+    }
+
+    .sfts-visual,
+    .shelter-art {
+        min-height: 470px;
+
+        padding: 35px;
+    }
+
+    .shelter-card {
+        width: 78%;
     }
 
     .mjl-feature {
@@ -1308,40 +1115,6 @@ body.volunteering-page {
 
 @media (max-width: 650px) {
 
-    .volunteering-header {
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        padding: 24px 20px;
-
-        gap: 22px;
-    }
-
-    .volunteering-logo {
-        font-size: 17px;
-    }
-
-    .volunteering-nav {
-        width: 100%;
-
-        justify-content: flex-start;
-
-        gap: 12px 18px;
-    }
-
-    .volunteering-nav > a,
-    .nav-dropdown-button {
-        font-size: 9px;
-    }
-
-    .nav-dropdown-menu {
-        right: auto;
-        left: 0;
-
-        width: 280px;
-    }
-
     .volunteering-main {
         width: calc(100% - 28px);
 
@@ -1356,25 +1129,32 @@ body.volunteering-page {
         font-size: 54px;
     }
 
-    .volunteer-section {
+    .volunteer-section,
+    .service-section {
         margin-top: 65px;
     }
 
     .apo-feature,
-    .sfts-feature {
+    .sfts-feature,
+    .secondary-service {
         padding: 22px;
     }
 
-    .apo-topline {
+    .apo-topline,
+    .service-meta {
         display: block;
     }
 
-    .apo-date {
+    .apo-date,
+    .service-meta span:last-child {
+        display: block;
+
         margin-top: 8px;
     }
 
     .apo-copy h3,
-    .sfts-copy h3 {
+    .sfts-copy h3,
+    .secondary-service-copy h3 {
         margin-top: 48px;
 
         font-size: 44px;
@@ -1384,14 +1164,16 @@ body.volunteering-page {
         min-height: 650px;
     }
 
-    .apo-photo-one {
+    .apo-photo-one,
+    .apo-polaroid-one {
         width: 70%;
         height: 260px;
 
         left: 0;
     }
 
-    .apo-photo-two {
+    .apo-photo-two,
+    .apo-polaroid-two {
         width: 67%;
         height: 245px;
 
@@ -1399,7 +1181,8 @@ body.volunteering-page {
         top: 205px;
     }
 
-    .apo-photo-three {
+    .apo-photo-three,
+    .apo-polaroid-three {
         width: 68%;
         height: 230px;
 
@@ -1407,27 +1190,44 @@ body.volunteering-page {
         bottom: 0;
     }
 
-    .apo-paper-note {
+    .apo-paper-note,
+    .apo-green-note {
         display: none;
     }
 
-    .apo-sticky {
+    .apo-sticky,
+    .apo-yellow-note {
         right: 0;
         bottom: 80px;
     }
 
-    .sfts-visual {
-        min-height: 400px;
+    .sfts-visual,
+    .shelter-art {
+        min-height: 390px;
+
+        padding: 24px;
     }
 
-    .sfts-card {
-        width: 75%;
+    .shelter-card {
+        width: 92%;
 
-        left: 20px;
+        min-height: 330px;
+
+        padding: 25px 20px;
     }
 
-    .pet-tag {
-        display: none;
+    .shelter-animals {
+        height: 195px;
+
+        transform: scale(0.76);
+
+        transform-origin: bottom center;
+    }
+
+    .shelter-card-caption {
+        margin-top: 8px;
+
+        font-size: 21px;
     }
 
     .mjl-feature {
