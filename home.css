@@ -1,3 +1,129 @@
+/* =========================================
+   GLOBAL HEADER / NAV
+========================================= */
+
+.projects-header {
+    width: 100%;
+    height: 126px;
+
+    padding: 0 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #f7f5f0;
+
+    border-top: 1px solid #ddd6cb;
+    border-bottom: 1px solid #111111;
+}
+
+.projects-logo {
+    color: #111111;
+    text-decoration: none;
+
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.055em;
+}
+
+.projects-nav {
+    display: flex;
+    align-items: center;
+    gap: 52px;
+}
+
+.projects-nav a {
+    position: relative;
+
+    color: #111111;
+    text-decoration: none;
+
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.projects-nav a:hover {
+    opacity: 0.55;
+}
+
+.projects-nav a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: -11px;
+
+    height: 1px;
+
+    background: #111111;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .projects-header {
+        height: auto;
+        min-height: 105px;
+
+        padding: 30px 28px;
+
+        gap: 30px;
+    }
+
+    .projects-nav {
+        gap: 22px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .projects-nav a {
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .projects-header {
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 24px 20px;
+
+        gap: 22px;
+    }
+
+    .projects-logo {
+        font-size: 17px;
+    }
+
+    .projects-nav {
+        width: 100%;
+
+        justify-content: flex-start;
+
+        gap: 12px 18px;
+    }
+
+    .projects-nav a {
+        font-size: 9px;
+    }
+}
+
 * {
     box-sizing: border-box;
 }
