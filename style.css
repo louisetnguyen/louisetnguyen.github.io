@@ -233,3 +233,152 @@ body {font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helve
 }
 
 }
+/* =========================================
+   EXTRACURRICULARS DROPDOWN
+========================================= */
+
+.nav-dropdown {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+
+/* BUTTON */
+
+.nav-dropdown-button {
+    position: relative;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    border: none;
+    background: transparent;
+
+    color: #111111;
+
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+
+    cursor: pointer;
+}
+
+
+/* ARROW */
+
+.nav-dropdown-arrow {
+    font-size: 11px;
+
+    transition: transform 0.2s ease;
+}
+
+
+/* =========================================
+   MENU — HIDDEN BY DEFAULT
+========================================= */
+
+.nav-dropdown-menu {
+    position: absolute;
+
+    top: calc(100% + 18px);
+    right: 0;
+
+    z-index: 9999;
+
+    width: 315px;
+
+    padding: 8px 0;
+
+    background: #f7f5f0;
+
+    border-top: 1px solid #111111;
+    border-bottom: 1px solid #111111;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: translateY(-6px);
+
+    transition:
+        opacity 0.18s ease,
+        visibility 0.18s ease,
+        transform 0.18s ease;
+}
+
+
+/* =========================================
+   SHOW MENU ON HOVER
+========================================= */
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform: translateY(0);
+}
+
+.nav-dropdown:hover .nav-dropdown-arrow,
+.nav-dropdown:focus-within .nav-dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+
+/* =========================================
+   DROPDOWN LINKS
+========================================= */
+
+.nav-dropdown-menu a {
+    width: 100%;
+
+    padding: 16px 18px;
+
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 12px;
+    align-items: center;
+
+    color: #111111;
+    text-decoration: none;
+
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+
+    border-bottom: 1px solid rgba(17, 17, 17, 0.12);
+
+    background: transparent;
+
+    transition:
+        background 0.18s ease,
+        padding-left 0.18s ease;
+}
+
+.nav-dropdown-menu a:last-child {
+    border-bottom: none;
+}
+
+.nav-dropdown-menu a span {
+    color: #77716a;
+
+    font-size: 8px;
+    letter-spacing: 0.12em;
+}
+
+.nav-dropdown-menu a:hover {
+    padding-left: 23px;
+
+    background: #ebe8e1;
+}
