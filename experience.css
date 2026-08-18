@@ -1,1 +1,1187 @@
+/* =========================================
+   GLOBAL
+========================================= */
 
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body.experience-page {
+    margin: 0;
+    padding: 0;
+
+    background: #f2f0ea;
+    color: #111111;
+
+    font-family: "DM Sans", Arial, sans-serif;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.experience-header {
+    width: 100%;
+    height: 126px;
+
+    padding: 0 78px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #f7f5f0;
+
+    border-top: 1px solid #ddd6cb;
+    border-bottom: 1px solid #111111;
+}
+
+.experience-logo {
+    color: #111111;
+    text-decoration: none;
+
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.055em;
+}
+
+.experience-nav {
+    display: flex;
+    align-items: center;
+
+    gap: 52px;
+}
+
+.experience-nav a {
+    position: relative;
+
+    color: #111111;
+    text-decoration: none;
+
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.experience-nav a:hover {
+    opacity: 0.55;
+}
+
+.experience-nav a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: -11px;
+
+    height: 1px;
+
+    background: #111111;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.experience-main {
+    width: min(1600px, calc(100% - 44px));
+
+    margin: 0 auto;
+
+    padding: 85px 0 120px;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.experience-hero {
+    display: grid;
+
+    grid-template-columns: 1.2fr 0.8fr;
+
+    gap: 70px;
+
+    align-items: end;
+
+    padding-bottom: 70px;
+
+    border-bottom: 1px solid #111111;
+}
+
+.experience-kicker {
+    margin: 0 0 15px;
+
+    color: #ef654f;
+
+    font-family: "Schoolbell", cursive;
+    font-size: 15px;
+}
+
+.experience-hero h1 {
+    margin: 0;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(68px, 9vw, 145px);
+
+    font-weight: 400;
+
+    line-height: 0.8;
+
+    letter-spacing: -0.055em;
+}
+
+.experience-hero h1 span {
+    font-style: italic;
+}
+
+.experience-hero-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.experience-hero-right p {
+    max-width: 430px;
+
+    margin: 0;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(20px, 1.7vw, 28px);
+
+    line-height: 1.25;
+
+    color: #48443f;
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.experience-section {
+    margin-top: 95px;
+}
+
+.experience-section-heading {
+    display: grid;
+
+    grid-template-columns: 55px 1fr auto;
+
+    gap: 18px;
+
+    align-items: baseline;
+
+    margin-bottom: 22px;
+
+    padding-top: 12px;
+
+    border-top: 1px solid #111111;
+}
+
+.experience-section-heading > span {
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+}
+
+.experience-section-heading h2 {
+    margin: 0;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(30px, 3vw, 47px);
+
+    font-weight: 400;
+}
+
+.experience-section-heading > p {
+    margin: 0;
+
+    color: #68635d;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   EXPERIENCE ENTRY
+========================================= */
+
+.experience-entry {
+    display: grid;
+
+    grid-template-columns: 115px minmax(0, 1fr);
+
+    min-height: 620px;
+
+    margin-bottom: 22px;
+
+    border-top: 1px solid #111111;
+
+    background: #e8e5dd;
+}
+
+
+/* Alternate background for rhythm */
+
+.experience-entry:nth-of-type(even) {
+    background: #dedad0;
+}
+
+
+/* =========================================
+   ENTRY SIDE COLUMN
+========================================= */
+
+.experience-entry-side {
+    padding: 25px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    border-right: 1px solid rgba(17, 17, 17, 0.18);
+}
+
+.experience-entry-number {
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+}
+
+.experience-entry-date {
+    margin: 0;
+
+    writing-mode: vertical-rl;
+
+    transform: rotate(180deg);
+
+    color: #66615b;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.13em;
+}
+
+
+/* =========================================
+   ENTRY MAIN
+========================================= */
+
+.experience-entry-main {
+    position: relative;
+
+    padding: 28px 32px 26px;
+
+    overflow: hidden;
+}
+
+.experience-entry-heading {
+    position: relative;
+
+    z-index: 4;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 40px;
+}
+
+.experience-company {
+    margin: 0 0 13px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+}
+
+.experience-entry-heading h3 {
+    margin: 0;
+
+    max-width: 620px;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(43px, 4.5vw, 70px);
+
+    line-height: 0.9;
+
+    font-weight: 400;
+
+    letter-spacing: -0.045em;
+}
+
+.experience-location {
+    margin: 4px 0 0;
+
+    color: #69645d;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.07em;
+
+    text-align: right;
+}
+
+
+/* =========================================
+   ENTRY COPY
+========================================= */
+
+.experience-entry-body {
+    position: relative;
+
+    z-index: 4;
+
+    width: 51%;
+
+    margin-top: 45px;
+}
+
+.experience-lead {
+    max-width: 650px;
+
+    margin: 0 0 28px;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(19px, 1.7vw, 27px);
+
+    line-height: 1.2;
+}
+
+.experience-points {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 12px 30px;
+}
+
+.experience-points p {
+    position: relative;
+
+    margin: 0;
+
+    padding-left: 15px;
+
+    color: #53504b;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+.experience-points p::before {
+    content: "↳";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    color: #111111;
+}
+
+
+/* =========================================
+   TAGS
+========================================= */
+
+.experience-tags {
+    position: absolute;
+
+    left: 32px;
+    bottom: 27px;
+
+    z-index: 5;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+.experience-tags span {
+    padding: 6px 10px;
+
+    border: 1px solid rgba(17, 17, 17, 0.22);
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.24);
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.03em;
+}
+
+
+/* =========================================
+   SHARED VISUAL
+========================================= */
+
+.experience-visual {
+    position: absolute;
+
+    z-index: 2;
+
+    right: 30px;
+
+    bottom: 30px;
+
+    width: 42%;
+
+    height: 330px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   NAVIANT VISUAL
+========================================= */
+
+.naviant-visual {
+    background: #d8c4e6;
+}
+
+.naviant-paper {
+    position: absolute;
+
+    left: 28px;
+    top: 30px;
+
+    width: 62%;
+    height: 230px;
+
+    padding: 30px;
+
+    background: #f5f1e8;
+
+    transform: rotate(-3deg);
+
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.09);
+}
+
+.naviant-paper p {
+    margin: 0 0 30px;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: 26px;
+}
+
+.naviant-paper span {
+    display: block;
+
+    width: 78%;
+
+    height: 1px;
+
+    margin: 13px 0;
+
+    background: #bbcbd9;
+}
+
+.naviant-chip {
+    position: absolute;
+
+    right: 25px;
+
+    padding: 10px 13px;
+
+    background: #ffffff;
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.chip-one {
+    top: 34px;
+
+    transform: rotate(3deg);
+}
+
+.chip-two {
+    top: 89px;
+
+    right: 45px;
+
+    transform: rotate(-2deg);
+}
+
+.chip-three {
+    top: 145px;
+
+    transform: rotate(4deg);
+}
+
+.naviant-note {
+    position: absolute;
+
+    right: 18px;
+    bottom: 18px;
+
+    padding: 15px 18px;
+
+    background: #f4d33f;
+
+    font-family: "Schoolbell", cursive;
+
+    font-size: 17px;
+
+    line-height: 0.95;
+
+    transform: rotate(2deg);
+}
+
+
+/* =========================================
+   ASM VISUAL
+========================================= */
+
+.asm-visual {
+    background: #c8d8ea;
+}
+
+.asm-folder {
+    position: absolute;
+
+    width: 245px;
+    height: 165px;
+
+    border: 1px solid #111111;
+}
+
+.folder-back {
+    left: 65px;
+    top: 42px;
+
+    padding: 25px;
+
+    background: #886dad;
+
+    color: #ffffff;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: 55px;
+
+    transform: rotate(-5deg);
+}
+
+.folder-front {
+    left: 120px;
+    top: 80px;
+
+    padding: 27px;
+
+    background: #f2eee5;
+
+    transform: rotate(3deg);
+
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.folder-front p {
+    margin: 0;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.1em;
+}
+
+.folder-lines {
+    margin-top: 28px;
+}
+
+.folder-lines span {
+    display: block;
+
+    width: 85%;
+
+    height: 1px;
+
+    margin: 13px 0;
+
+    background: rgba(17, 17, 17, 0.25);
+}
+
+.asm-note {
+    position: absolute;
+
+    right: 18px;
+    bottom: 16px;
+
+    padding: 15px;
+
+    background: #f4d33f;
+
+    font-family: "Schoolbell", cursive;
+
+    font-size: 15px;
+
+    line-height: 1;
+
+    transform: rotate(-3deg);
+}
+
+
+/* =========================================
+   RESEARCH VISUAL
+========================================= */
+
+.research-visual {
+    background: #d8c4e7;
+}
+
+.research-sheet {
+    position: absolute;
+
+    width: 76%;
+    height: 245px;
+
+    left: 28px;
+    top: 30px;
+
+    padding: 28px;
+
+    background:
+        repeating-linear-gradient(
+            #f5f1e8 0,
+            #f5f1e8 31px,
+            #c9d8e7 32px
+        );
+
+    transform: rotate(-2deg);
+
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.research-sheet-label {
+    margin: 0 0 25px;
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.1em;
+}
+
+.research-sheet h4 {
+    margin: 0;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: 28px;
+
+    font-weight: 400;
+
+    line-height: 0.95;
+}
+
+.research-lines {
+    margin-top: 30px;
+}
+
+.research-lines span {
+    display: block;
+
+    width: 70%;
+
+    height: 1px;
+
+    margin: 12px 0;
+
+    background: rgba(17, 17, 17, 0.15);
+}
+
+.research-note {
+    position: absolute;
+
+    right: 18px;
+    bottom: 20px;
+
+    width: 180px;
+
+    padding: 17px;
+
+    background: #f3d13e;
+
+    font-family: "Schoolbell", cursive;
+
+    font-size: 17px;
+
+    line-height: 0.95;
+
+    transform: rotate(3deg);
+}
+
+
+/* =========================================
+   CERTIFICATIONS
+========================================= */
+
+.certification-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    border-top: 1px solid #111111;
+
+    border-left: 1px solid #111111;
+}
+
+.certification-card {
+    position: relative;
+
+    min-height: 220px;
+
+    padding: 24px;
+
+    border-right: 1px solid #111111;
+
+    border-bottom: 1px solid #111111;
+
+    background: #ebe8e1;
+}
+
+.certification-card:nth-child(even) {
+    background: #e2ded5;
+}
+
+.certification-number {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    font-size: 8px;
+
+    font-weight: 700;
+}
+
+.certification-source {
+    margin: 0 0 35px;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.13em;
+}
+
+.certification-card h3 {
+    margin: 0;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(20px, 1.7vw, 28px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+}
+
+.certification-date {
+    position: absolute;
+
+    left: 24px;
+    bottom: 20px;
+
+    margin: 0;
+
+    color: #69645e;
+
+    font-size: 8px;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* =========================================
+   SKILLS
+========================================= */
+
+.skills-board {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 1px;
+
+    background: #111111;
+
+    border: 1px solid #111111;
+}
+
+.skill-column {
+    min-height: 250px;
+
+    padding: 28px;
+
+    background: #272a4b;
+
+    color: #ffffff;
+}
+
+.skill-label {
+    margin: 0 0 35px;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+
+    opacity: 0.7;
+}
+
+.skill-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.skill-list span {
+    padding: 7px 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 999px;
+
+    font-size: 9px;
+
+    background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.experience-footer {
+    width: 100%;
+
+    padding: 30px 78px 42px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-top: 1px solid #111111;
+
+    background: #f7f5f0;
+}
+
+.experience-footer p {
+    margin: 0;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.05em;
+}
+
+.experience-footer a {
+    color: #111111;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.07em;
+}
+
+.experience-footer a:hover {
+    opacity: 0.55;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .experience-header {
+        height: auto;
+        min-height: 105px;
+
+        padding: 30px 28px;
+
+        gap: 30px;
+    }
+
+    .experience-nav {
+        gap: 22px;
+
+        flex-wrap: wrap;
+
+        justify-content: flex-end;
+    }
+
+    .experience-nav a {
+        font-size: 11px;
+    }
+
+    .experience-main {
+        width: calc(100% - 36px);
+
+        padding-top: 60px;
+    }
+
+    .experience-hero {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .experience-hero-right {
+        justify-content: flex-start;
+    }
+
+    .experience-section-heading {
+        grid-template-columns: 40px 1fr;
+    }
+
+    .experience-section-heading > p {
+        display: none;
+    }
+
+    .experience-entry {
+        grid-template-columns: 75px minmax(0, 1fr);
+
+        min-height: 780px;
+    }
+
+    .experience-entry-body {
+        width: 100%;
+
+        padding-right: 0;
+    }
+
+    .experience-visual {
+        left: 32px;
+        right: 32px;
+        bottom: 85px;
+
+        width: auto;
+
+        height: 310px;
+    }
+
+    .experience-tags {
+        bottom: 27px;
+    }
+
+    .certification-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .skills-board {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-footer {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .experience-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 24px 20px;
+
+        gap: 22px;
+    }
+
+    .experience-logo {
+        font-size: 17px;
+    }
+
+    .experience-nav {
+        width: 100%;
+
+        justify-content: flex-start;
+
+        gap: 12px 18px;
+    }
+
+    .experience-nav a {
+        font-size: 9px;
+    }
+
+    .experience-main {
+        width: calc(100% - 28px);
+
+        padding-top: 45px;
+    }
+
+    .experience-hero {
+        padding-bottom: 45px;
+    }
+
+    .experience-hero h1 {
+        font-size: 58px;
+    }
+
+    .experience-section {
+        margin-top: 65px;
+    }
+
+    .experience-entry {
+        display: block;
+
+        min-height: 900px;
+    }
+
+    .experience-entry-side {
+        height: auto;
+
+        padding: 18px 20px;
+
+        flex-direction: row;
+
+        align-items: center;
+
+        border-right: none;
+
+        border-bottom: 1px solid rgba(17, 17, 17, 0.18);
+    }
+
+    .experience-entry-date {
+        writing-mode: horizontal-tb;
+
+        transform: none;
+    }
+
+    .experience-entry-main {
+        padding: 24px 20px;
+    }
+
+    .experience-entry-heading {
+        display: block;
+    }
+
+    .experience-entry-heading h3 {
+        font-size: 43px;
+    }
+
+    .experience-location {
+        margin-top: 15px;
+
+        text-align: left;
+    }
+
+    .experience-entry-body {
+        margin-top: 30px;
+    }
+
+    .experience-points {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-visual {
+        left: 20px;
+        right: 20px;
+
+        bottom: 90px;
+
+        height: 280px;
+    }
+
+    .experience-tags {
+        left: 20px;
+        right: 20px;
+    }
+
+    .naviant-paper {
+        width: 68%;
+    }
+
+    .naviant-chip {
+        display: none;
+    }
+
+    .folder-back {
+        left: 15px;
+    }
+
+    .folder-front {
+        left: 70px;
+    }
+
+    .research-sheet {
+        width: 82%;
+    }
+
+    .certification-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .certification-card {
+        min-height: 190px;
+    }
+
+    .experience-footer {
+        padding: 24px 20px 32px;
+    }
+}
