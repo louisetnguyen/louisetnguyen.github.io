@@ -132,7 +132,8 @@
     gap: 20px;
 }
 
-/* A section containing only one project spans full width */
+/* If a section has only one project,
+   let it span the full width */
 
 .projects-v2-grid:has(.project-v2-card:only-child) {
     grid-template-columns: 1fr;
@@ -146,7 +147,7 @@
 .project-v2-card {
     position: relative;
 
-    min-height: 570px;
+    min-height: 500px;
     padding: 25px;
 
     display: flex;
@@ -157,21 +158,32 @@
     background: #e7e4dc;
     border-top: 1px solid #111111;
 
+    cursor: default;
+
     transition:
         transform 0.25s ease,
         box-shadow 0.25s ease;
-}
-
-.project-v2-card:hover {
-    transform: translateY(-3px);
 }
 
 .project-v2-card:nth-child(even) {
     background: #ddd9d0;
 }
 
-.project-featured {
-    min-height: 500px;
+/* Finished projects feel interactive */
+
+.project-v2-card:not(.project-coming-soon) {
+    cursor: pointer;
+}
+
+.project-v2-card:not(.project-coming-soon):hover {
+    transform: translateY(-4px);
+}
+
+/* Coming-soon cards still get a tiny lift,
+   but not as much as finished projects */
+
+.project-coming-soon:hover {
+    transform: translateY(-2px);
 }
 
 
@@ -332,6 +344,10 @@
 
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     padding-bottom: 3px;
+
+    transition:
+        border-color 0.2s ease,
+        opacity 0.2s ease;
 }
 
 a.project-hover-link:hover {
@@ -381,10 +397,14 @@ a.project-hover-link:hover {
     }
 
     .project-v2-card {
-        min-height: 470px;
+        min-height: 460px;
     }
 }
 
+
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 600px) {
 
@@ -401,7 +421,7 @@ a.project-hover-link:hover {
     }
 
     .project-v2-card {
-        min-height: 420px;
+        min-height: 410px;
         padding: 20px;
     }
 
@@ -435,5 +455,9 @@ a.project-hover-link:hover {
 
     .project-hover-info {
         display: none;
+    }
+
+    .project-v2-card:not(.project-coming-soon) {
+        cursor: default;
     }
 }
